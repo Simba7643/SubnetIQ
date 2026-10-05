@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Vue d’ensemble",
+    "tools": "Calculateurs",
+    "learn": "Parcours d’apprentissage",
+    "practice": "Entraînement",
+    "glossary": "Glossaire",
+    "toolkit": "Outils réseau",
+    "templates": "Modèles de réseau",
+    "projects": "Mes projets",
+    "assistant": "Assistant IA"
+  },
+  "common": {
+    "search": "Rechercher des outils et ressources",
+    "signIn": "Se connecter",
+    "theme": "Thème",
+    "language": "Langue",
+    "copy": "Copier",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "calculate": "Calculer"
+  },
+  "translationStatus": "Navigation translated; technical lessons and results fall back to English"
+}

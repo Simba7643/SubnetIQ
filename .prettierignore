@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+pnpm-lock.yaml
+playwright-report
+test-results
+*.svg
+.cache
+.tmp
+release
+patches
+.turbo
+logs
+build
+.husky/_

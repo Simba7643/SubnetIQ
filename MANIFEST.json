@@ -1,0 +1,2398 @@
+{
+  "version": 1,
+  "kind": "source",
+  "created_at": "2026-10-04T14:05:45Z",
+  "source_root": "subnetiq",
+  "archive_root": "subnetiq",
+  "file_count": 298,
+  "total_source_bytes": 4838676,
+  "phase_semantics": "Final-file responsibility groups; not historical independently runnable checkpoints.",
+  "integrity": "SHA-256 for every original and auxiliary file. Manifest self-hashing is excluded; SHA256SUMS covers complete archives.",
+  "files": [
+    {
+      "source_path": ".dockerignore",
+      "phase": 11,
+      "size": 211,
+      "sha256": "86cebe6a82196a61ded712ade367bee93ad0c0f6912529d33ac1e6f851970ea1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.dockerignore"
+    },
+    {
+      "source_path": ".editorconfig",
+      "phase": 1,
+      "size": 188,
+      "sha256": "6d6796f174b736bcd7a68999e30d2f19a3719ad92355dcc0cfdfce8a66864553",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.editorconfig"
+    },
+    {
+      "source_path": ".env.example",
+      "phase": 1,
+      "size": 639,
+      "sha256": "a605f56aeaa904058a7d8fa1a173006ec0691c812ae3faf05d3b61c2388b0af0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.env.example"
+    },
+    {
+      "source_path": ".eslintrc",
+      "phase": 1,
+      "size": 609,
+      "sha256": "c1f3cfb0cb4753970fef3745f1d45e5b379c6872157b7ef9f8a7955ce245812b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.eslintrc"
+    },
+    {
+      "source_path": ".gitattributes",
+      "phase": 1,
+      "size": 100,
+      "sha256": "76e11676ca8b096319010200862f84dbab0b1221eb669aa6479185eaa527fcb7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.gitattributes"
+    },
+    {
+      "source_path": ".github/workflows/ci.yml",
+      "phase": 11,
+      "size": 3204,
+      "sha256": "5e06a0ad26ff80f19a0613f6b6ea072fdd42b7efda83867e800fba0a5cea9f26",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.github/workflows/ci.yml"
+    },
+    {
+      "source_path": ".gitignore",
+      "phase": 1,
+      "size": 243,
+      "sha256": "b05df30f490f03cd41baa1bcc64be839082391e2dc37a89278d1bc5572059c0f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.gitignore"
+    },
+    {
+      "source_path": ".husky/_/.gitignore",
+      "phase": 1,
+      "size": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.husky/_/.gitignore"
+    },
+    {
+      "source_path": ".husky/_/applypatch-msg",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/applypatch-msg"
+    },
+    {
+      "source_path": ".husky/_/commit-msg",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/commit-msg"
+    },
+    {
+      "source_path": ".husky/_/h",
+      "phase": 1,
+      "size": 551,
+      "sha256": "70200b200ca709b0622784f93839a5b2872333a917a09afddefd7dc2d8cdc680",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.husky/_/h"
+    },
+    {
+      "source_path": ".husky/_/husky.sh",
+      "phase": 1,
+      "size": 160,
+      "sha256": "21122903fca7209a13c991e5be68780636e28f1b8f0ae7ea07ed0065dfe37268",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.husky/_/husky.sh"
+    },
+    {
+      "source_path": ".husky/_/post-applypatch",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/post-applypatch"
+    },
+    {
+      "source_path": ".husky/_/post-checkout",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/post-checkout"
+    },
+    {
+      "source_path": ".husky/_/post-commit",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/post-commit"
+    },
+    {
+      "source_path": ".husky/_/post-merge",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/post-merge"
+    },
+    {
+      "source_path": ".husky/_/post-rewrite",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/post-rewrite"
+    },
+    {
+      "source_path": ".husky/_/pre-applypatch",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-applypatch"
+    },
+    {
+      "source_path": ".husky/_/pre-auto-gc",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-auto-gc"
+    },
+    {
+      "source_path": ".husky/_/pre-commit",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-commit"
+    },
+    {
+      "source_path": ".husky/_/pre-merge-commit",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-merge-commit"
+    },
+    {
+      "source_path": ".husky/_/pre-push",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-push"
+    },
+    {
+      "source_path": ".husky/_/pre-rebase",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/pre-rebase"
+    },
+    {
+      "source_path": ".husky/_/prepare-commit-msg",
+      "phase": 1,
+      "size": 39,
+      "sha256": "34fe496008be71d8fdd446b2cce81e4bb0406109c130eafc583fbd9fe33244e2",
+      "mode": "0o755",
+      "archive_path": "subnetiq/.husky/_/prepare-commit-msg"
+    },
+    {
+      "source_path": ".husky/pre-commit",
+      "phase": 1,
+      "size": 22,
+      "sha256": "aad3507759b5b03c40f17cb27ca0e2203edebcd8820c48addadc16104b1e011c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.husky/pre-commit"
+    },
+    {
+      "source_path": ".nvmrc",
+      "phase": 1,
+      "size": 3,
+      "sha256": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.nvmrc"
+    },
+    {
+      "source_path": ".prettierignore",
+      "phase": 1,
+      "size": 134,
+      "sha256": "d9c3bc6c391dd8ddc2ece769927b40bb300139b0a4782a20d9dff10fb3ffc045",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.prettierignore"
+    },
+    {
+      "source_path": ".prettierrc",
+      "phase": 1,
+      "size": 106,
+      "sha256": "f05f85b3710b0912d48945e21bbac3928685ecc5ac9466332eeb57e25d4d2568",
+      "mode": "0o644",
+      "archive_path": "subnetiq/.prettierrc"
+    },
+    {
+      "source_path": "CHANGELOG.md",
+      "phase": 11,
+      "size": 1172,
+      "sha256": "265064fd70dbac5bd9bf436d4e5d999073212d0558a62f96f37e20a9161eb8fd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/CHANGELOG.md"
+    },
+    {
+      "source_path": "CODE_OF_CONDUCT.md",
+      "phase": 11,
+      "size": 922,
+      "sha256": "598744e676e797dc03f16b483ae8871b7dede0ceb68dcf53e41cd21159f2a03d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/CODE_OF_CONDUCT.md"
+    },
+    {
+      "source_path": "CONTRIBUTING.md",
+      "phase": 11,
+      "size": 2650,
+      "sha256": "7fd119d39c5e1d1032576e892d767520caab5faeb388fd746ca9f069eec027b0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/CONTRIBUTING.md"
+    },
+    {
+      "source_path": "LICENSE",
+      "phase": 11,
+      "size": 1078,
+      "sha256": "40dec075eed223dabbafd13cf7565aeb36f6c6dcca1ff7728c41a82f64352f72",
+      "mode": "0o644",
+      "archive_path": "subnetiq/LICENSE"
+    },
+    {
+      "source_path": "README.md",
+      "phase": 11,
+      "size": 12804,
+      "sha256": "ea2571eed332e0b498ac45fdc82f3dd623b6b6e2c161f3f99c710393375904a0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/README.md"
+    },
+    {
+      "source_path": "SECURITY.md",
+      "phase": 11,
+      "size": 2259,
+      "sha256": "10776d47055cb429b179ca790838efcc48b8393a6b959420dfdab0433e1ed41b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/SECURITY.md"
+    },
+    {
+      "source_path": "THIRD_PARTY_NOTICES.md",
+      "phase": 11,
+      "size": 2210,
+      "sha256": "cd198e4e2c2e617bea4ab11e04447d59af95cfb0ef363d451c4a3d6fd664dce7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "source_path": "apps/api/.env.example",
+      "phase": 4,
+      "size": 444,
+      "sha256": "523e31d55bf188e808db0c4b4643f9bea694fc8e6322dd9bd6528e320a2d8a85",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/.env.example"
+    },
+    {
+      "source_path": "apps/api/Dockerfile",
+      "phase": 11,
+      "size": 2116,
+      "sha256": "de22b2a6fd14a08473b304829b24b6383490cdd4f688223307f77f63a4b9f01a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/Dockerfile"
+    },
+    {
+      "source_path": "apps/api/jest.config.cjs",
+      "phase": 4,
+      "size": 537,
+      "sha256": "efe789629d846b61d76e1c56526f61ce665c317305836566a08c59f81197745d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/jest.config.cjs"
+    },
+    {
+      "source_path": "apps/api/package.json",
+      "phase": 4,
+      "size": 1055,
+      "sha256": "ee4a808ac8d6d07f8a291ff581345077bef2b2c6135bce794a9c1d268834eff6",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/package.json"
+    },
+    {
+      "source_path": "apps/api/src/app.ts",
+      "phase": 4,
+      "size": 8798,
+      "sha256": "d68753d27760c85181c002718893ab5c0060c2454e536d38d868b760dab372f1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/app.ts"
+    },
+    {
+      "source_path": "apps/api/src/config/env.ts",
+      "phase": 4,
+      "size": 5311,
+      "sha256": "acf076a9ab8d047d174965c92b9af47665226ebd3b0ca86f009e44730ad71d0e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/config/env.ts"
+    },
+    {
+      "source_path": "apps/api/src/middleware/auth.ts",
+      "phase": 4,
+      "size": 3928,
+      "sha256": "837a18b53270e88963e2c3aeedcb3a6043b0045fa60a2a272164dcf147fa4a5b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/middleware/auth.ts"
+    },
+    {
+      "source_path": "apps/api/src/middleware/errors.ts",
+      "phase": 4,
+      "size": 3791,
+      "sha256": "ace55dfe86bc883bfd2f65979390805318eb1ee9df6e617b48a279671e89f3a1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/middleware/errors.ts"
+    },
+    {
+      "source_path": "apps/api/src/middleware/quota.ts",
+      "phase": 4,
+      "size": 3752,
+      "sha256": "8d065659ca03f529c3fa059fd061489e8c1322eded7b2135b905c2c4dfea8810",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/middleware/quota.ts"
+    },
+    {
+      "source_path": "apps/api/src/observability/logger.ts",
+      "phase": 4,
+      "size": 878,
+      "sha256": "0c4e49483c1439d9e0cf7ce4061a7b835904727d856cb2d74f6bcf7b4f95d4a6",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/observability/logger.ts"
+    },
+    {
+      "source_path": "apps/api/src/routes/account.ts",
+      "phase": 4,
+      "size": 14551,
+      "sha256": "da0383c2390d9aad905115c18698ad198630f2217e0e2161a2018106957deda8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/routes/account.ts"
+    },
+    {
+      "source_path": "apps/api/src/routes/ai.ts",
+      "phase": 4,
+      "size": 15040,
+      "sha256": "4f15d164df27a6470f345b4015a764d4f6a707d34455700a921f9221eadc4a3a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/routes/ai.ts"
+    },
+    {
+      "source_path": "apps/api/src/routes/projects.ts",
+      "phase": 4,
+      "size": 10597,
+      "sha256": "d9de7711260d45d4548617b36c0e4dff3bc1705e441a308aeaa3bd290257debf",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/routes/projects.ts"
+    },
+    {
+      "source_path": "apps/api/src/security/network.ts",
+      "phase": 4,
+      "size": 11629,
+      "sha256": "4c6d669d0d0ee9a3a1de3ef7b96a708a822173d9fbcd6d41e2b95ac738ef823f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/security/network.ts"
+    },
+    {
+      "source_path": "apps/api/src/server.ts",
+      "phase": 4,
+      "size": 1490,
+      "sha256": "c83d89d2bd09fb29f6be63a5646df98ebfa62324be7b419b953fe561178014f5",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/server.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/index.ts",
+      "phase": 4,
+      "size": 862,
+      "sha256": "52a5286ff9e16a16d65a9f8a2dbdf50556f79d36b830c1a900960774737705d1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/index.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/anthropic.ts",
+      "phase": 4,
+      "size": 166,
+      "sha256": "bba953cb543ddd4f839569dd662d10e61d5e63cb839c6d84e259df0d5b67c1e8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/anthropic.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/gemini.ts",
+      "phase": 4,
+      "size": 160,
+      "sha256": "b12ae068db17d8adb60dd3e62687e360ee1a33c81bcde18ae0130944b43fd9a5",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/gemini.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/mock.ts",
+      "phase": 4,
+      "size": 3441,
+      "sha256": "6b3d6e2b1e46abf7d551b672d063d10f75b8f197117ca611d6d773bbdb680fcb",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/mock.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/openai.ts",
+      "phase": 4,
+      "size": 6719,
+      "sha256": "f84b9b98027a716c289fe864757d3c61ff37414b40534a23fb3ec8bafce97e39",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/openai.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/types.ts",
+      "phase": 4,
+      "size": 464,
+      "sha256": "433bdcbdb76c398515bb390451776d385b55a42c322e7597466f6b92c994f833",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/types.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/ai/providers/unavailable.ts",
+      "phase": 4,
+      "size": 781,
+      "sha256": "4156f78edd6df8d1c4e0ec4a35a76e9bcab2153c207eed0cab75e7c0f77c41fc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/ai/providers/unavailable.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/lookups/cache.ts",
+      "phase": 4,
+      "size": 2138,
+      "sha256": "a1fb9d846da60ae7ce63f7caa9e84055903c0a1b290868009ac4461bfc4b669a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/lookups/cache.ts"
+    },
+    {
+      "source_path": "apps/api/src/services/lookups/index.ts",
+      "phase": 4,
+      "size": 16689,
+      "sha256": "df68a5c36d6e5ab06900119343457ddc1984c634c316f6dcbabb2c9ccf2a4ade",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/src/services/lookups/index.ts"
+    },
+    {
+      "source_path": "apps/api/tests/ai.test.ts",
+      "phase": 4,
+      "size": 5304,
+      "sha256": "89009684e66decbae10801afdea75d32f08cc8da2f3d3bc761743fc466561961",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tests/ai.test.ts"
+    },
+    {
+      "source_path": "apps/api/tests/app.test.ts",
+      "phase": 4,
+      "size": 11014,
+      "sha256": "7c655d5cdf088df1161f8c47565a16fec4ef599c1126097c854c645266453995",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tests/app.test.ts"
+    },
+    {
+      "source_path": "apps/api/tests/auth.test.ts",
+      "phase": 4,
+      "size": 2621,
+      "sha256": "b7ca9d47b7651bd3d77e4e06d03fbc84705a6468e0576c3bbe17ae5fc8bb89d4",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tests/auth.test.ts"
+    },
+    {
+      "source_path": "apps/api/tests/network.test.ts",
+      "phase": 4,
+      "size": 7028,
+      "sha256": "5f91206f1146e8ef1b50a6ca8fc439b3f1411607a04716407bc0d249a00e9f81",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tests/network.test.ts"
+    },
+    {
+      "source_path": "apps/api/tsconfig.json",
+      "phase": 4,
+      "size": 350,
+      "sha256": "cc8230b394106977a754c1f3d771719fd4bf321557209256059452e8fb40bb16",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tsconfig.json"
+    },
+    {
+      "source_path": "apps/api/tsconfig.test.json",
+      "phase": 4,
+      "size": 276,
+      "sha256": "6660b9af40a68c0f35e49c97abd2447922cac67f3db40895346f8028992d46df",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/api/tsconfig.test.json"
+    },
+    {
+      "source_path": "apps/web/.env.example",
+      "phase": 5,
+      "size": 195,
+      "sha256": "7e828a867c8218a92c6912195902ee5a1266d55786bdbd7042abd5ac737de986",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/.env.example"
+    },
+    {
+      "source_path": "apps/web/Dockerfile",
+      "phase": 11,
+      "size": 1437,
+      "sha256": "695a5cdd2c213842a66483aba00c58fa5a5472b308de9f9c9da134b3f2989d20",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/Dockerfile"
+    },
+    {
+      "source_path": "apps/web/index.html",
+      "phase": 10,
+      "size": 1151,
+      "sha256": "71fab1e658dcfc75af1bcd9ee799972c68e52c853d0102d89cf88d28d823f3f5",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/index.html"
+    },
+    {
+      "source_path": "apps/web/nginx.conf",
+      "phase": 11,
+      "size": 2814,
+      "sha256": "4f0eb9156d4ebef165dc5ef106963308753e3394be22c8fb3a7d4441a946f486",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/nginx.conf"
+    },
+    {
+      "source_path": "apps/web/package.json",
+      "phase": 5,
+      "size": 1486,
+      "sha256": "ac9304a5ba0bda165a5b722151cef0dc155452aa6fd810e6137faf68bc74438d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/package.json"
+    },
+    {
+      "source_path": "apps/web/public/favicon.svg",
+      "phase": 10,
+      "size": 434,
+      "sha256": "8506835a59191676da14f79e7c030cd4f20b6c60e60eac0abf09f4f719b51d27",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/public/favicon.svg"
+    },
+    {
+      "source_path": "apps/web/public/icon-192.png",
+      "phase": 10,
+      "size": 3027,
+      "sha256": "a437f050430b796eba9783241ccbd9833f460cfae379768fba78ee9574e4fb8d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/public/icon-192.png"
+    },
+    {
+      "source_path": "apps/web/public/icon-512.png",
+      "phase": 10,
+      "size": 11958,
+      "sha256": "269b866afd8d4e7fc7fc7e7091d01778d3e06998b3a0cfbba23c023c91354264",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/public/icon-512.png"
+    },
+    {
+      "source_path": "apps/web/public/social-card.png",
+      "phase": 10,
+      "size": 97548,
+      "sha256": "2a60f69410dcf04269d39ae1bad3de85502e9c1c30f86460e7c961d50fe56149",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/public/social-card.png"
+    },
+    {
+      "source_path": "apps/web/public/social-card.svg",
+      "phase": 10,
+      "size": 2884,
+      "sha256": "8874edc947142169bed29daeb140608e1ee676cc5f7e20bbde770f1504b3fe79",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/public/social-card.svg"
+    },
+    {
+      "source_path": "apps/web/src/App.tsx",
+      "phase": 5,
+      "size": 3758,
+      "sha256": "c4d68d4c005642caf3765634d3e57c9fbfbce32edd0081d31ebfb1f9b34bc3bd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/App.tsx"
+    },
+    {
+      "source_path": "apps/web/src/assets/fonts/DejaVuSans-Bold.ttf",
+      "phase": 5,
+      "size": 708920,
+      "sha256": "5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/assets/fonts/DejaVuSans-Bold.ttf"
+    },
+    {
+      "source_path": "apps/web/src/assets/fonts/DejaVuSans.ttf",
+      "phase": 5,
+      "size": 759720,
+      "sha256": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/assets/fonts/DejaVuSans.ttf"
+    },
+    {
+      "source_path": "apps/web/src/assets/fonts/LICENSE.txt",
+      "phase": 5,
+      "size": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/assets/fonts/LICENSE.txt"
+    },
+    {
+      "source_path": "apps/web/src/components/AnalyticsConsent.tsx",
+      "phase": 10,
+      "size": 1598,
+      "sha256": "ad6e4f54980f87e9bf00dc024bec81228d3fa4ad366b91f8d3d1bf39b2bc91da",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/AnalyticsConsent.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/AssistantWidget.tsx",
+      "phase": 9,
+      "size": 1444,
+      "sha256": "c4bcc0629832dc856437dae68d339d8ed7cc4b632b2307b59ac0bb2131861e36",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/AssistantWidget.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/CommandPalette.tsx",
+      "phase": 5,
+      "size": 6714,
+      "sha256": "81db0dbc9d6bb0de343df0cf6c53400f7c780aa76983fce12925a52fc087838a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/CommandPalette.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/ConfirmDialog.tsx",
+      "phase": 5,
+      "size": 2629,
+      "sha256": "63681470b155e0ecbfa31b71d3c74048604eeff39be3f6efe89d145c0fcd0332",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/ConfirmDialog.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/ErrorBoundary.tsx",
+      "phase": 5,
+      "size": 942,
+      "sha256": "521218756ed575476fe701713c2066d6b4b2e5f15408d85de0f21b6f981a3e0e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/ErrorBoundary.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/FavoriteButton.test.tsx",
+      "phase": 11,
+      "size": 3503,
+      "sha256": "9674a3e23fe0a77fd880a711753bdb17fa7b1fc495db6fb8488b199611b08837",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/FavoriteButton.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/FavoriteButton.tsx",
+      "phase": 5,
+      "size": 2612,
+      "sha256": "6bde5897cefb9fb61f801f0971e66f926696198dcc00805e547c4f6e00dfcd9a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/FavoriteButton.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/Layout.tsx",
+      "phase": 5,
+      "size": 11426,
+      "sha256": "d298c9b641b0f24ade171cff9e3f99942d90bdec4e2cba43724a4932bfd6bb7c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/Layout.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/Markdown.tsx",
+      "phase": 5,
+      "size": 1638,
+      "sha256": "4b8aae77255bc91856d7f76eb71b894e63e2287b209af4c46609a710ac30f7a2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/Markdown.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/PwaStatus.tsx",
+      "phase": 10,
+      "size": 877,
+      "sha256": "283cf3304a8fff95d55c71fac99d74d2bc60728be9fa0f5a945d8c2702692426",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/PwaStatus.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/ResultPanel.tsx",
+      "phase": 5,
+      "size": 7953,
+      "sha256": "4a985bd3cc661dbc012eab5c54bf35fd2d1f0cbbf38d876fb9e508b5bc2a7e72",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/ResultPanel.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/Seo.test.tsx",
+      "phase": 11,
+      "size": 5492,
+      "sha256": "1aa9e27d2cf56b6c9f6764c31f0909cf1486a30f6982cdbc7a9803d964fb3886",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/Seo.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/Seo.tsx",
+      "phase": 10,
+      "size": 9971,
+      "sha256": "0b852360f9e396b9e5d3c4cb3e9171666314536168c983c3b4bed1fdf9ae0bd6",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/Seo.tsx"
+    },
+    {
+      "source_path": "apps/web/src/components/ui.tsx",
+      "phase": 5,
+      "size": 4105,
+      "sha256": "1984d6c617d5d30fa6b9e436e8f2182abd57f298c7d895a5e9fb6f5d5b562e59",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/components/ui.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/assistant/ChatPanel.test.tsx",
+      "phase": 9,
+      "size": 6262,
+      "sha256": "85c65b494a8481ca30da57e1ef9bfab478dd632034300e56c2d7f2fb4ead6c8b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/assistant/ChatPanel.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/assistant/ChatPanel.tsx",
+      "phase": 9,
+      "size": 22723,
+      "sha256": "f9fdd8662e250fb1e29d92acf3ae4ee67758ca5daeb300bd495a9b219aa13de8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/assistant/ChatPanel.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/ToolInputs.tsx",
+      "phase": 6,
+      "size": 36803,
+      "sha256": "11ddd6e0f35f26c52871c50a0477fb152875bd6dd792f75735c4c9a7c580dbee",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/ToolInputs.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/ToolPage.test.tsx",
+      "phase": 6,
+      "size": 13551,
+      "sha256": "1f9d1e87583173b2a3d4845560545e7fda1766faf39875b62a17fc99e61d8fde",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/ToolPage.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/ToolPage.tsx",
+      "phase": 6,
+      "size": 12535,
+      "sha256": "f54c34f9f8bb5acf37a90f0cf5a78e7fea5c4e54a7e31ad7f782e94e0a6cbccd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/ToolPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/ToolsPage.tsx",
+      "phase": 6,
+      "size": 4012,
+      "sha256": "6ce60a7c0e10e8508b92f379c8127fb1485c221b3de462bf350809708fc7f032",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/ToolsPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/Visualizers.tsx",
+      "phase": 6,
+      "size": 15264,
+      "sha256": "e3f59b147dc9d19304cd3ce85207dea3d22118569463ec19ceb835ad47e4c7a8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/Visualizers.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/calculators.css",
+      "phase": 6,
+      "size": 27212,
+      "sha256": "039fc086e8f52609a2948a5d965c5fcc79e77e5c676d130f165e1394cd266c3d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/calculators.css"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/inputModel.test.ts",
+      "phase": 6,
+      "size": 5387,
+      "sha256": "bab50853a90949770f8c2cadb88a5e6a0bfd48d955c1e06eeb5f20f6501e7750",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/inputModel.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/inputModel.ts",
+      "phase": 6,
+      "size": 5345,
+      "sha256": "080ef0df9ea213d43538d38a59d66f24ee76f858ef8d915e6c2ae3f36e3e31f2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/inputModel.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/calculators/toolDefinitions.ts",
+      "phase": 6,
+      "size": 9306,
+      "sha256": "51c74f5fe35d76dda536880eaf1d3d4b12697cea5fc48325a2ffeb327ea802e8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/calculators/toolDefinitions.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/CheatsheetsPage.tsx",
+      "phase": 7,
+      "size": 12451,
+      "sha256": "304b2d1b9b813a6b3a82afc4bfa3d305575f1907ff6b283ac0fcf8b7ee436bcc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/CheatsheetsPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/GlossaryPage.tsx",
+      "phase": 7,
+      "size": 5360,
+      "sha256": "3c50c4b4a352b6263c3dbebcaab67f48e3661ffc69bac78b376361ff924ea07a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/GlossaryPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/LearnPage.tsx",
+      "phase": 7,
+      "size": 5418,
+      "sha256": "8a7bf6ffa786e2d18dcb1c1d874c57096b70e69531c808add609aa6bc6046d9c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/LearnPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/Learning.test.tsx",
+      "phase": 7,
+      "size": 6448,
+      "sha256": "0aa8c8173ccd035d5cd07de606e0c4061bcafcbbc990e9633db880d1f7a01bde",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/Learning.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/LessonPage.tsx",
+      "phase": 7,
+      "size": 7236,
+      "sha256": "d3aa5e8b689724564c622d7ddf880ecd0c7cdda0c507e833beb04cb8f8d87375",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/LessonPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/PracticePage.tsx",
+      "phase": 7,
+      "size": 37135,
+      "sha256": "e8cfda8b6e90542d7be782c5bb8bbe3a660afbfd866543e9348ab227e7d39b66",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/PracticePage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/learning.css",
+      "phase": 7,
+      "size": 14083,
+      "sha256": "cc711e9dff228c934822e7ad9ae922d9572a5089d91e032f2b15d696d35ca98d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/learning.css"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/model.test.ts",
+      "phase": 7,
+      "size": 4530,
+      "sha256": "8fd272392189e4c8200c651d778b65c9c78996432d8a603ce35dce5b4ca6963c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/model.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/model.ts",
+      "phase": 7,
+      "size": 5647,
+      "sha256": "72ff34b4b0bfa9a6603432eada5485cf790b0853ba7539dd200abd4b25dd0824",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/model.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/learning/progress.ts",
+      "phase": 7,
+      "size": 370,
+      "sha256": "61760c75901714efa0760f5cf58c30fb6f022f740fada974b648b2b18bfd075e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/learning/progress.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/projects/ProjectViews.tsx",
+      "phase": 6,
+      "size": 20574,
+      "sha256": "0a4e3b4ef4a78ac429d965af31a3e620d8b709503a3d969478da6e9e3b5774fc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/projects/ProjectViews.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/projects/model.test.ts",
+      "phase": 6,
+      "size": 6839,
+      "sha256": "37d2c1a87cce0d1635d7bb4fea6d3aae1015c07d226c999b223b29cefb188ee9",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/projects/model.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/projects/model.ts",
+      "phase": 6,
+      "size": 20908,
+      "sha256": "76ca9ab2782b77db5179cbae14739033c4ed79d7e7f463198489f622db3c7bdc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/projects/model.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/projects/pages.test.tsx",
+      "phase": 6,
+      "size": 11066,
+      "sha256": "515f9c7cc6f0891532229bb23d943c19ec3d1b6b653a49afb34003b313d2e7e6",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/projects/pages.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/CapacityTools.tsx",
+      "phase": 8,
+      "size": 6429,
+      "sha256": "f350e67bd730e4f5dcf5755b2c0fac9b2bc60fb489f22cb17aea8796d51e1b9c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/CapacityTools.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/HttpTlsTool.tsx",
+      "phase": 8,
+      "size": 10442,
+      "sha256": "184d9a6f2caa60946c9edd991db0c10a627957a5a040d36503101dbbbc0a252d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/HttpTlsTool.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/LookupTools.tsx",
+      "phase": 8,
+      "size": 9157,
+      "sha256": "bae26052cf7693aad7dfe21a0bc6498d8d6a99b84638a5aaf5e00396a9ed5584",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/LookupTools.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/NetworkTemplatesPage.tsx",
+      "phase": 8,
+      "size": 7346,
+      "sha256": "3f28d1312e7f73c4a2f6df56fb0e1a184a69ed72f517d2e5ffb9e83dd7c17d54",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/NetworkTemplatesPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/ReferenceTools.tsx",
+      "phase": 8,
+      "size": 25269,
+      "sha256": "6b5fee4c6750a5312d6d3c79d3f07e9e3fc00786438b1d9e2c43b4b9a438583f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/ReferenceTools.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/SecurityTools.tsx",
+      "phase": 8,
+      "size": 13342,
+      "sha256": "cf52bbd670a8b706227fc75f49cfb0a362889928697e5eecee21c6614c8a0441",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/SecurityTools.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/ToolkitPage.test.tsx",
+      "phase": 8,
+      "size": 5294,
+      "sha256": "22432d8e201d4fe37faa7aad10351502a14fb62777403a979d2bf381c0960c6c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/ToolkitPage.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/ToolkitPage.tsx",
+      "phase": 8,
+      "size": 7263,
+      "sha256": "d178e871ce8742bba656ae92441ff5655d8cc03d14cff993c0a617e54c028989",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/ToolkitPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/cvss.ts",
+      "phase": 8,
+      "size": 6305,
+      "sha256": "8d9868f16169b607085bad95ba6cba6c1a22c024b1826a4cfb8d0d8f5c254e02",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/cvss.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/firewall.ts",
+      "phase": 8,
+      "size": 9969,
+      "sha256": "240667700fdd940a137c4c6da9a48d57471fad32b1915531f2e83f1763775a1c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/firewall.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/http.ts",
+      "phase": 8,
+      "size": 10146,
+      "sha256": "29a8bc33d97f622c89db2e731e412662e81b958ffe90775cec93f89dcff19328",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/http.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/local-security.ts",
+      "phase": 8,
+      "size": 4603,
+      "sha256": "0b68040f008b60c1a8d59641ba641a4af28053e466e49dbc349195b154cfbeb1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/local-security.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/results.ts",
+      "phase": 8,
+      "size": 1240,
+      "sha256": "f4d7774a14b47c58c9c790c735ac718b7235f8782351c19ba6a3b87461ffacf0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/results.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/templates.ts",
+      "phase": 8,
+      "size": 2227,
+      "sha256": "179dbf3a2c9cb0b795e9f85b274d1dcccb29097019096b190a9b04a4498b59f7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/templates.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/toolkit.css",
+      "phase": 8,
+      "size": 9029,
+      "sha256": "e7e018397b37fb77de96b5a178be1e1f1a41f077e8c5aaf0e6237e7ed85ef1d2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/toolkit.css"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/toolkit.test.ts",
+      "phase": 8,
+      "size": 9894,
+      "sha256": "2346f5678c326417423a768e117200a1f179708dd13b2166ba29a254210c321d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/toolkit.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/features/toolkit/types.ts",
+      "phase": 8,
+      "size": 1199,
+      "sha256": "7aa2d2cb8c5517234ec97ac83dd95dd361699cc1ad9e6dbc0a98bebdae35d9b4",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/features/toolkit/types.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/analytics.test.tsx",
+      "phase": 11,
+      "size": 6330,
+      "sha256": "c3f9b804d412d8deb32706674802489eee1a5af51cc8582834152bc86b3bb1c3",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/analytics.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/lib/analytics.ts",
+      "phase": 10,
+      "size": 4379,
+      "sha256": "ef8b0283244139049029c34ca82460f0a215add915940c0547dc6c4cbc9fa128",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/analytics.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/api.ts",
+      "phase": 5,
+      "size": 1162,
+      "sha256": "5a3ce3ee6685b67f2c46a07c1a23da00ed4b0c8e318b621b03e2605792b99b09",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/api.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/articles.ts",
+      "phase": 10,
+      "size": 625,
+      "sha256": "98ca2230770224f4f67c4b65aa7d2df5e9285d4fb667038d09c8a0a17b600f4a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/articles.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/auth.tsx",
+      "phase": 5,
+      "size": 2121,
+      "sha256": "dc5d7ab1c8aa2eb3d3fb495ed45f7dd2b4fde415ba8b765ad06832b571c7ae9e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/auth.tsx"
+    },
+    {
+      "source_path": "apps/web/src/lib/export.test.ts",
+      "phase": 11,
+      "size": 1914,
+      "sha256": "44797b5294ddb80f5085085b385196470ec208d54c0f965eda4e068d43274b9d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/export.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/export.ts",
+      "phase": 5,
+      "size": 3765,
+      "sha256": "62df75594532ed1dd88752ffe4f9c6d98546eedb7c3d7926af9248112f7a832f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/export.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/i18n.ts",
+      "phase": 5,
+      "size": 411,
+      "sha256": "6aedd4e03af1636837e7ce819d9076600570303ba826b7c40c893bf402ad28dd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/i18n.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/navigation.test.ts",
+      "phase": 11,
+      "size": 826,
+      "sha256": "5a2d971bba1899af5069bb1ed277d7f32818b3b4be32abd742e2f9c4ef6ccfd2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/navigation.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/navigation.ts",
+      "phase": 5,
+      "size": 596,
+      "sha256": "0556d98daf823fcb711bdcffffbdd285a960a3d47ad995f822c544dcc7cc790d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/navigation.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/notify.ts",
+      "phase": 5,
+      "size": 324,
+      "sha256": "173b0a165b683b2276ff78b55f918d451cb495592a3555e0c992589b66eec4d6",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/notify.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/pdf-font.ts",
+      "phase": 5,
+      "size": 1169,
+      "sha256": "7e898e4d94d127f1a38e155033eef43982c429a3ba16bf5ac01d7bdac1d412b7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/pdf-font.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/preferences.ts",
+      "phase": 5,
+      "size": 967,
+      "sha256": "1eaf5125bf7e2cd80a5cb230587ef03a8158b27ef564cbd166e9a793aedcd106",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/preferences.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/query.ts",
+      "phase": 5,
+      "size": 234,
+      "sha256": "8c3c2d802c444d50553636618395c0b08f0b44d2aea40a1608d8d3a434ff4931",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/query.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/stream.test.ts",
+      "phase": 9,
+      "size": 2121,
+      "sha256": "ead8c27a9c7573c8eb889f44144173e8568f8def299b4eeb4b331b28e11b2ce2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/stream.test.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/stream.ts",
+      "phase": 9,
+      "size": 2115,
+      "sha256": "57fe7898f60d9a5ac30937e958bc6aac8e16affae6648d47f16127a43f9628b5",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/stream.ts"
+    },
+    {
+      "source_path": "apps/web/src/lib/supabase.ts",
+      "phase": 5,
+      "size": 444,
+      "sha256": "782d2044a7ae7e5a085051391ff3d342dec15b1bb9fc0cf3479a3d1696fd8b75",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/lib/supabase.ts"
+    },
+    {
+      "source_path": "apps/web/src/locales/am.json",
+      "phase": 5,
+      "size": 770,
+      "sha256": "abd8de252d228b4d6d3ad2b3b4497ad632dd21b63b11d23f61e4aa3d76637f4f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/locales/am.json"
+    },
+    {
+      "source_path": "apps/web/src/locales/ar.json",
+      "phase": 5,
+      "size": 772,
+      "sha256": "2fdabd9104bd65280487c8dd15a20f90813ce2e80d30e218e04ed13ca6a133bc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/locales/ar.json"
+    },
+    {
+      "source_path": "apps/web/src/locales/en.json",
+      "phase": 5,
+      "size": 592,
+      "sha256": "f218152d853df6ad4ed9640909bacb3e1df077acee1f15ce84852d009b5aef90",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/locales/en.json"
+    },
+    {
+      "source_path": "apps/web/src/locales/es.json",
+      "phase": 5,
+      "size": 669,
+      "sha256": "fa6bd7f1e272b9a2c5f5a3770a36a46a26309e6a0866d013fd7101887f5915b9",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/locales/es.json"
+    },
+    {
+      "source_path": "apps/web/src/locales/fr.json",
+      "phase": 5,
+      "size": 674,
+      "sha256": "526da3a33eecc12eae1232984db380301d680b2c76b30874138a3697915d9288",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/locales/fr.json"
+    },
+    {
+      "source_path": "apps/web/src/main.tsx",
+      "phase": 5,
+      "size": 1402,
+      "sha256": "861690b38bc1d17aefe07ff5b3d4af4316a85655731ca42912e968381bb14676",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/main.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/AboutPage.tsx",
+      "phase": 10,
+      "size": 3497,
+      "sha256": "09d3e5a4c8c6517de7aa1c4d81beb4c1c3d291ac80515238e7552ae700f253b1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/AboutPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/AccountPage.test.tsx",
+      "phase": 11,
+      "size": 11017,
+      "sha256": "dc08f3d174e30b8d7d510cf52b6ebd9c05c1a1d5c0f2f731ff23512ba5cc0f03",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/AccountPage.test.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/AccountPage.tsx",
+      "phase": 5,
+      "size": 25878,
+      "sha256": "4918c54d9e845484eb5d446c32e49869b9efe09ee5942fec2a9934513e9366fd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/AccountPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/ArticlePage.tsx",
+      "phase": 10,
+      "size": 2158,
+      "sha256": "4a68d08405b66bdcf3bc2424ffab5da10e62b7b7264380997961e847ee67bd8b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/ArticlePage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/AssistantPage.tsx",
+      "phase": 9,
+      "size": 718,
+      "sha256": "16586daa25358bc60481a8f9b6e54b90ee07a45a8fddd6252425530891174334",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/AssistantPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/AuthPage.tsx",
+      "phase": 5,
+      "size": 11547,
+      "sha256": "1b528214fcaad48d21417df4860f011106338f4c689edbefe99602ad6eb1a7cc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/AuthPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/BlogPage.tsx",
+      "phase": 10,
+      "size": 1418,
+      "sha256": "389f980b5d86cd7bd6a2ba141fd4336be11eda4d82e648c64b50d1f268eafcda",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/BlogPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/ContactPage.tsx",
+      "phase": 10,
+      "size": 3619,
+      "sha256": "66ee999bf7cab238a46bce3e926f29c0d96d5b674d15f96537a4978c19c6ed10",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/ContactPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/HomePage.tsx",
+      "phase": 10,
+      "size": 14076,
+      "sha256": "ecb74002817d1c1fee8c9212434680a16e399c64624808939d94d6bf79db4e14",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/HomePage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/LegalPage.tsx",
+      "phase": 10,
+      "size": 9385,
+      "sha256": "b06b199c6d82e408d249ad29c1d6f6d292b84110afea34aba28e122b55b7db5f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/LegalPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/NotFoundPage.tsx",
+      "phase": 5,
+      "size": 963,
+      "sha256": "d6385dbab38e83c13074bc2b3f6a3a5c8d751105efcfb88c4a9af0ef03658442",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/NotFoundPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/ProjectPage.tsx",
+      "phase": 6,
+      "size": 41659,
+      "sha256": "da45442475fead8991767051c6a747a1b3e66c1a0a527b8559dd46a587ee6149",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/ProjectPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/ProjectsPage.tsx",
+      "phase": 6,
+      "size": 18844,
+      "sha256": "1b988590fe62d83dcdfa0da0ac12e972c0853fb1b7cec00327d602450ab77b04",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/ProjectsPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/pages/SharedProjectPage.tsx",
+      "phase": 6,
+      "size": 6535,
+      "sha256": "61ceafe27717292915e97c7f39282b5de5ba5cda62210664a899892962c06bc8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/pages/SharedProjectPage.tsx"
+    },
+    {
+      "source_path": "apps/web/src/styles.css",
+      "phase": 5,
+      "size": 38783,
+      "sha256": "be723686073fa1adf8a28eaa476550d3eba009eb0fb6aa7af095728f23a87d06",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/styles.css"
+    },
+    {
+      "source_path": "apps/web/src/test-setup.ts",
+      "phase": 11,
+      "size": 636,
+      "sha256": "007ddf11ee315e5cb007baad107fcce2cd2adf94c0f9aaa50874f4830d693c0b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/src/test-setup.ts"
+    },
+    {
+      "source_path": "apps/web/tsconfig.json",
+      "phase": 5,
+      "size": 440,
+      "sha256": "b7a3495c6b50944eb3e23a304795db7e5b0d1d9c53724ef0ea70049a9e20ef08",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/tsconfig.json"
+    },
+    {
+      "source_path": "apps/web/vite.config.ts",
+      "phase": 10,
+      "size": 2273,
+      "sha256": "7e813b093f002a31acbda63988ebc6f2cecdd456ca2470599f1d0d5680e28f7c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/apps/web/vite.config.ts"
+    },
+    {
+      "source_path": "content/blog/cidr-and-host-counts.md",
+      "phase": 10,
+      "size": 7073,
+      "sha256": "cbae85e7f28f1d8a281de892652e4eeb13b3412e4e5afd0b051367a6a866b7f8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/blog/cidr-and-host-counts.md"
+    },
+    {
+      "source_path": "content/blog/dns-records-troubleshooting.md",
+      "phase": 10,
+      "size": 7850,
+      "sha256": "b5baa095e0f7d7a9cd220a1fa7ed504dfcd731fc1f9be1ec302f62c8478143d1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/blog/dns-records-troubleshooting.md"
+    },
+    {
+      "source_path": "content/blog/ipv6-prefix-planning.md",
+      "phase": 10,
+      "size": 7379,
+      "sha256": "b1fb05e45b63da31fd3b8617167e0e7a9ecdeab45abd93ede963cd04b1f2344c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/blog/ipv6-prefix-planning.md"
+    },
+    {
+      "source_path": "content/blog/vlsm-worked-address-plan.md",
+      "phase": 10,
+      "size": 7312,
+      "sha256": "29955c20380185e92ed23488768f3b98c954f28ffdc87a09f87064f176f104cc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/blog/vlsm-worked-address-plan.md"
+    },
+    {
+      "source_path": "content/blog/wildcard-masks-and-acls.md",
+      "phase": 10,
+      "size": 6846,
+      "sha256": "be1bbac57b47126b7f01c2036036be8ddb0b1913a423352fce2221c3c1b26a0f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/blog/wildcard-masks-and-acls.md"
+    },
+    {
+      "source_path": "content/cheatsheets/binary.md",
+      "phase": 7,
+      "size": 1355,
+      "sha256": "fa800eec99547d01e99cdb3a085b0e0952da81a1f07de38ed81b65b6908f3496",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/cheatsheets/binary.md"
+    },
+    {
+      "source_path": "content/cheatsheets/cidr.md",
+      "phase": 7,
+      "size": 3995,
+      "sha256": "74357df227ff3dd8602b5b2cad338d3e1fd358d9e7c47dac022fd2ba3c125201",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/cheatsheets/cidr.md"
+    },
+    {
+      "source_path": "content/cheatsheets/common-ports.md",
+      "phase": 7,
+      "size": 7989,
+      "sha256": "75e3a7a83c610631a8590a369ac618e9ec8476e9010830a750fb8345254c0d1c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/cheatsheets/common-ports.md"
+    },
+    {
+      "source_path": "content/cheatsheets/osi-tcpip.md",
+      "phase": 7,
+      "size": 1788,
+      "sha256": "4db195a19c5eba1a8c0c47c3b9ae1b16c1b0e8643c82c884503c391be7f3e924",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/cheatsheets/osi-tcpip.md"
+    },
+    {
+      "source_path": "content/cheatsheets/private-ranges.md",
+      "phase": 7,
+      "size": 2010,
+      "sha256": "c6b082e681e5d60194b82e7a931e4fd7f803c9cd74ddf5e99ac70858e0cec157",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/cheatsheets/private-ranges.md"
+    },
+    {
+      "source_path": "content/courses/address-classes.md",
+      "phase": 7,
+      "size": 3159,
+      "sha256": "a1273cba9233116e0d0636bc8397b121f562baa56107eddd0968ee6c37a3f465",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/address-classes.md"
+    },
+    {
+      "source_path": "content/courses/binary-math.md",
+      "phase": 7,
+      "size": 2771,
+      "sha256": "723d9304668eb2e4186af8e2d8fc7fcc968547fc857db6e1d187d47a6adbec30",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/binary-math.md"
+    },
+    {
+      "source_path": "content/courses/cidr.md",
+      "phase": 7,
+      "size": 2634,
+      "sha256": "3e855c167b10cc0c5a0ca53d3eeb1ecbab6114765a63b3a93a410d8b066b8ddc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/cidr.md"
+    },
+    {
+      "source_path": "content/courses/dhcp.md",
+      "phase": 7,
+      "size": 3118,
+      "sha256": "9c143e1cbde80f8c64acfb3ebee29bd9f0bbd780bf2caabd24261940a75275ef",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/dhcp.md"
+    },
+    {
+      "source_path": "content/courses/dns.md",
+      "phase": 7,
+      "size": 3505,
+      "sha256": "4be6d9f2948daedb4b470f7e834ae9bf099d5c718ec5630f76bf6a8da2b61d35",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/dns.md"
+    },
+    {
+      "source_path": "content/courses/ip-basics.md",
+      "phase": 7,
+      "size": 3303,
+      "sha256": "78c30de8c0a0606799a5c71917cc7bb11a5a593767487e623b2d3a323fa651cf",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/ip-basics.md"
+    },
+    {
+      "source_path": "content/courses/ipv6.md",
+      "phase": 7,
+      "size": 2966,
+      "sha256": "1af21926540f4a2d4e163255fa6818c6bdb46b998e55c46e25cbd65c50757beb",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/ipv6.md"
+    },
+    {
+      "source_path": "content/courses/nat.md",
+      "phase": 7,
+      "size": 3192,
+      "sha256": "7c48abc552b8d2276b49d54bd82fb0baa548fde86a9001c698d7c8ac7e01d299",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/nat.md"
+    },
+    {
+      "source_path": "content/courses/routing.md",
+      "phase": 7,
+      "size": 3399,
+      "sha256": "548fe68f4387e590bb41d843fdcf8196e6644337e147986d921e43ce5bcb092b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/routing.md"
+    },
+    {
+      "source_path": "content/courses/subnetting.md",
+      "phase": 7,
+      "size": 2836,
+      "sha256": "4a58f002dcc70bf75e8777ffbf52ed9687790f7ff60802ff9d290f48edd342db",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/subnetting.md"
+    },
+    {
+      "source_path": "content/courses/summarization.md",
+      "phase": 7,
+      "size": 2788,
+      "sha256": "462cab32b79e4f7400438962a2f0c72fa3b11f259cc42bf0436f82a5d4601019",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/summarization.md"
+    },
+    {
+      "source_path": "content/courses/vlsm.md",
+      "phase": 7,
+      "size": 3024,
+      "sha256": "5f86dc73e104df68f1db9b3beba534b11e998577d1dfb04a9ebb3bce2c9bca3e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/content/courses/vlsm.md"
+    },
+    {
+      "source_path": "data/articles.json",
+      "phase": 10,
+      "size": 1963,
+      "sha256": "62632efc6be3b849e0dd3ea97cb9a23132ad692c0509c9c543d5fd0451a71802",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/articles.json"
+    },
+    {
+      "source_path": "data/cloud-profiles.json",
+      "phase": 2,
+      "size": 1791,
+      "sha256": "5e8cc66dfa8b2eccd86d21493769e8bfcfc468e6f214522a0ef0498543cdda2d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/cloud-profiles.json"
+    },
+    {
+      "source_path": "data/commands.json",
+      "phase": 8,
+      "size": 6832,
+      "sha256": "2a83c5f915d4f331e120a9a6b1fb750e5dd63e131c5fe2f7367ff03dda4aad22",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/commands.json"
+    },
+    {
+      "source_path": "data/courses.json",
+      "phase": 7,
+      "size": 40756,
+      "sha256": "fc908b031b324df67d59382b79d0ba0246d2f7c29bd6b32e0eeeccb64dde0cf8",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/courses.json"
+    },
+    {
+      "source_path": "data/cvss.json",
+      "phase": 8,
+      "size": 6159,
+      "sha256": "cdeb81221d6f4689ea274baab348510142730a3e2176985e5f134b6e70d2a41e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/cvss.json"
+    },
+    {
+      "source_path": "data/glossary.json",
+      "phase": 7,
+      "size": 104638,
+      "sha256": "37caac1af708bc8ba4fcc3431aebc1628386fa13b1ae87016311e34d02512cea",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/glossary.json"
+    },
+    {
+      "source_path": "data/network-templates.json",
+      "phase": 8,
+      "size": 7241,
+      "sha256": "3ac619ffe5647b38911a54ddd4ed4be57d48793fec09caeb11b2d1c71791e304",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/network-templates.json"
+    },
+    {
+      "source_path": "data/oui-subset.json",
+      "phase": 8,
+      "size": 1286,
+      "sha256": "0cda0d692d6e6ef9ee5300bc43d2311788f99fe75af65547f9fd3e8c5c84647e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/oui-subset.json"
+    },
+    {
+      "source_path": "data/ports.json",
+      "phase": 8,
+      "size": 16551,
+      "sha256": "4a58384e39f41cbffb5be6f72cc69e977bcae657dbfb0a0522a6a4898452536d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/ports.json"
+    },
+    {
+      "source_path": "data/protocols.json",
+      "phase": 8,
+      "size": 6387,
+      "sha256": "bd7b41b13472becfd5006a49b9cbb58bf2dfb7fa40648c35262f77f8ce6473ed",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/protocols.json"
+    },
+    {
+      "source_path": "data/quiz-bank.json",
+      "phase": 7,
+      "size": 86518,
+      "sha256": "32e1f6d6ebc80b7e2be4e47acc5bf6f2125e092e8c363737917dde3577f31b52",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/quiz-bank.json"
+    },
+    {
+      "source_path": "data/rfc-index.json",
+      "phase": 8,
+      "size": 4870,
+      "sha256": "3e9925c9d474eeee2f61d31d14ed1da85ea87ec01530e33de3d6499154690d07",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/rfc-index.json"
+    },
+    {
+      "source_path": "data/sources.json",
+      "phase": 8,
+      "size": 8439,
+      "sha256": "afd37bef7f6093e49c0d83a18e891bd9963aa54d6274db64d291fcec3de964b7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/sources.json"
+    },
+    {
+      "source_path": "data/special-ipv4.json",
+      "phase": 2,
+      "size": 17877,
+      "sha256": "6a9d330086df0ff00608004e5a4de5b2f96a67c2e8d2e304403204937f7faa2e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/special-ipv4.json"
+    },
+    {
+      "source_path": "data/special-ipv6.json",
+      "phase": 2,
+      "size": 16566,
+      "sha256": "49f0d2cd07aa2abf5f458d3c133004454ea3e6ff930d7916e84e82351909ea07",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/special-ipv6.json"
+    },
+    {
+      "source_path": "data/threats.json",
+      "phase": 8,
+      "size": 7682,
+      "sha256": "ef86d3cbab698a3f3eca67934f7934678c255870982cae1a7968126a1b91d0b2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/data/threats.json"
+    },
+    {
+      "source_path": "docker-compose.yml",
+      "phase": 11,
+      "size": 2142,
+      "sha256": "ef42e57b0b7a151562092a38cb5a26f73e17764087a50de6f69589a3b66ea69d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docker-compose.yml"
+    },
+    {
+      "source_path": "docs/api.openapi.yaml",
+      "phase": 11,
+      "size": 81610,
+      "sha256": "7ff782914cca50f3dde84fd755099941c990503d1d326e0a63557c05d711a862",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/api.openapi.yaml"
+    },
+    {
+      "source_path": "docs/deployment.md",
+      "phase": 11,
+      "size": 18373,
+      "sha256": "c6cf882ffb7dc984e7d03b2788742676adb9c62401a02b845354a5040d3d9352",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/deployment.md"
+    },
+    {
+      "source_path": "docs/environment.md",
+      "phase": 11,
+      "size": 12939,
+      "sha256": "3250e8d13727850d9afc8e20677d0e5fb8b4b08f17dc3eb922dbd6aa2c3fc396",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/environment.md"
+    },
+    {
+      "source_path": "docs/implementation-contract.md",
+      "phase": 1,
+      "size": 7019,
+      "sha256": "f22f63155e75ec02ab658c6c52014e095415f3bd70e42a78af29944afc962e5a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/implementation-contract.md"
+    },
+    {
+      "source_path": "docs/phases/README.md",
+      "phase": 11,
+      "size": 8113,
+      "sha256": "f43ecfc7896908ce444e2f2c2e2603453fafb8479c84e2680cae254177dece8d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/README.md"
+    },
+    {
+      "source_path": "docs/phases/phase-00-research.pdf",
+      "phase": 0,
+      "size": 146057,
+      "sha256": "a089b80a1b3d5b5e2735b2803b563cd146fed5e747ba1e8e44fbd58deba3c88f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-00-research.pdf"
+    },
+    {
+      "source_path": "docs/phases/phase-00.md",
+      "phase": 0,
+      "size": 798,
+      "sha256": "c29fc746f043336a3946d81249d1c5781acbc76993f16b66e668cba8263a55cc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-00.md"
+    },
+    {
+      "source_path": "docs/phases/phase-01.md",
+      "phase": 1,
+      "size": 1702,
+      "sha256": "8efe673a6d650fd9ffad43ccb0336970f1c57f808572a5477e5bd05bdc96930f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-01.md"
+    },
+    {
+      "source_path": "docs/phases/phase-02.md",
+      "phase": 2,
+      "size": 14424,
+      "sha256": "01aca59fff5bd1b77fe8dad81c48871ca79ff1a0aaffce26608aec876624b9ab",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-02.md"
+    },
+    {
+      "source_path": "docs/phases/phase-03.md",
+      "phase": 3,
+      "size": 3728,
+      "sha256": "3af151085b3b61fdcc59d57de850eddbd7e1310733c0fb656d5b0bf9686fe417",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-03.md"
+    },
+    {
+      "source_path": "docs/phases/phase-04.md",
+      "phase": 4,
+      "size": 7838,
+      "sha256": "71789ddfa24760725185836c50ff062f0c197c1b25b84b9ab60efec236a90347",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-04.md"
+    },
+    {
+      "source_path": "docs/phases/phase-05.md",
+      "phase": 5,
+      "size": 1986,
+      "sha256": "8c6b00d94331462203dca3b06ad41289eee32afcd1a8bcfee352f661497b60ba",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-05.md"
+    },
+    {
+      "source_path": "docs/phases/phase-06-projects.md",
+      "phase": 6,
+      "size": 9595,
+      "sha256": "89834f9e017159f4e1228e5c39b788e918879269b7ff4e27174ec47b2bbec79f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-06-projects.md"
+    },
+    {
+      "source_path": "docs/phases/phase-06.md",
+      "phase": 6,
+      "size": 6713,
+      "sha256": "7a5dbd9c99fc330c40807bdcefd770ff3b60185593e76ca9ed73ff5bc7137ff1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-06.md"
+    },
+    {
+      "source_path": "docs/phases/phase-07.md",
+      "phase": 7,
+      "size": 7794,
+      "sha256": "750079b0312d22997ebdbfb61b7dd5592cbb59e856c6375433d8650f70857115",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-07.md"
+    },
+    {
+      "source_path": "docs/phases/phase-08.md",
+      "phase": 8,
+      "size": 6467,
+      "sha256": "0531dfb3dbf428092700192f9a23d9638361e4e8c0d2ce5b4f0624fab80838a2",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-08.md"
+    },
+    {
+      "source_path": "docs/phases/phase-09.md",
+      "phase": 9,
+      "size": 6522,
+      "sha256": "00eac058e46e08fd48f6b5d39a76899d09280357317cb5ac42b06b13f19bd2d9",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-09.md"
+    },
+    {
+      "source_path": "docs/phases/phase-10.md",
+      "phase": 10,
+      "size": 1780,
+      "sha256": "4c51924be980285595b58dc0e6317e9e99bb91232505a2eece2fc38aaee09782",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-10.md"
+    },
+    {
+      "source_path": "docs/phases/phase-11.md",
+      "phase": 11,
+      "size": 5891,
+      "sha256": "4b56a4b58d66bc7b33ab2c1c2eaef179c1cf6e4a54e3838b30c2df206bcb8476",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/phases/phase-11.md"
+    },
+    {
+      "source_path": "docs/requirements-matrix.md",
+      "phase": 11,
+      "size": 46000,
+      "sha256": "40cab7ffc37ee3eb5b50ea7e097151c3eca752875e477c1ffddc2b1bd674b66d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/requirements-matrix.md"
+    },
+    {
+      "source_path": "docs/security-model.md",
+      "phase": 11,
+      "size": 13444,
+      "sha256": "ef0b2b4daa9d569943121b32c53ca89a099196bd819e72d079555f53d5c4f684",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/security-model.md"
+    },
+    {
+      "source_path": "docs/testing.md",
+      "phase": 11,
+      "size": 18554,
+      "sha256": "f7d5321a7b74d9e9187b4dc4ff4101a1f82e9cdeea531cec931e8012b561b32a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/testing.md"
+    },
+    {
+      "source_path": "docs/verification.md",
+      "phase": 11,
+      "size": 11494,
+      "sha256": "a850bb65125baa99a23d54eb38a5e87ae366882e25479a0958000b4738e89640",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/verification.md"
+    },
+    {
+      "source_path": "docs/verification/browser-launch.json",
+      "phase": 11,
+      "size": 5729,
+      "sha256": "3aa6fd86446cea5819196e96b036b433de71ecc8413dce95eab0887add13523c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/verification/browser-launch.json"
+    },
+    {
+      "source_path": "docs/verification/dependency-audit-production.json",
+      "phase": 11,
+      "size": 279,
+      "sha256": "870522257880b308619764a07dbd970898d24242feba547ca825819057dd3618",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/verification/dependency-audit-production.json"
+    },
+    {
+      "source_path": "docs/verification/dependency-audit.json",
+      "phase": 11,
+      "size": 13312,
+      "sha256": "c9faf16e2775e5f9f13408e6cb2d023a757eb93eb44653340fc533fd97f0bd2d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/verification/dependency-audit.json"
+    },
+    {
+      "source_path": "docs/verification/production-runtime.json",
+      "phase": 11,
+      "size": 680,
+      "sha256": "0a6410bf18d2b311192f771b78559a618e26a163e6afd93902638852a17237fc",
+      "mode": "0o644",
+      "archive_path": "subnetiq/docs/verification/production-runtime.json"
+    },
+    {
+      "source_path": "eslint.config.mjs",
+      "phase": 1,
+      "size": 675,
+      "sha256": "6b5ec5b91cadf99d139ebbedf0ba473b8f8fb6a3614619a6796ba718aba9ba47",
+      "mode": "0o644",
+      "archive_path": "subnetiq/eslint.config.mjs"
+    },
+    {
+      "source_path": "package.json",
+      "phase": 1,
+      "size": 2560,
+      "sha256": "796a00b3ab95bf0bcd0228109c7744f3b150ba20d2d0f1041c10aa658a067db4",
+      "mode": "0o644",
+      "archive_path": "subnetiq/package.json"
+    },
+    {
+      "source_path": "packages/netcalc/package.json",
+      "phase": 2,
+      "size": 535,
+      "sha256": "b07ab55ba58c95cdeb1c257b3e044e89f32f1145ecc913c704cb39154aef1496",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/package.json"
+    },
+    {
+      "source_path": "packages/netcalc/src/capacity-tools.ts",
+      "phase": 2,
+      "size": 11624,
+      "sha256": "595be171f186d6dcfc2c3aabf7c81d19511b7296bd17278fec01f2d0f2515239",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/capacity-tools.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/classification.ts",
+      "phase": 2,
+      "size": 9458,
+      "sha256": "31e40d41027d4558eb942b487df36ec61dd277df30c6fbf6eeddaa0d20326d64",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/classification.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/core.ts",
+      "phase": 2,
+      "size": 13660,
+      "sha256": "3b12086b404a8027cb93d0cfe79eb430a04157f2f6e41cab328ea43f0936a711",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/core.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/helpers.ts",
+      "phase": 2,
+      "size": 21827,
+      "sha256": "60df9abb6d37902151da0d388c5efd39beb21efe073ad3fdf2530b43598e6565",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/helpers.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/index.ts",
+      "phase": 2,
+      "size": 2877,
+      "sha256": "c1f1c72e6238a7d889723fab9bbe9183b8632f91bab5bfde2c34a5179c8ae144",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/index.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/planners.ts",
+      "phase": 2,
+      "size": 27435,
+      "sha256": "13711d28789b9574bf0cc239a9efcae9050df5e49400efb090d4a7a56baa4009",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/planners.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/policies.ts",
+      "phase": 2,
+      "size": 5809,
+      "sha256": "ef7ee4d2b6eed21bae738856fd2000d70d85406b6d3552b16b69b6d1bc813827",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/policies.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/ranges.ts",
+      "phase": 2,
+      "size": 14028,
+      "sha256": "5d6bcee468c7c2f74868c37605257063af73a1175f7a8106e242bceeb0abd71a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/ranges.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/registry.ts",
+      "phase": 2,
+      "size": 34046,
+      "sha256": "f4f345daafadf751ac6c933fc7fbe5c6b32c412a079d77546d8ec781f93c2a9a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/registry.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/subnets.ts",
+      "phase": 2,
+      "size": 17706,
+      "sha256": "8e57c48aab9d1731cba95fcc45d14820f931009f6d90b75e2cbdd1d26b26d1a7",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/subnets.ts"
+    },
+    {
+      "source_path": "packages/netcalc/src/transitions.ts",
+      "phase": 2,
+      "size": 8168,
+      "sha256": "3b3b243b99426bda6461b2e2697df839fbc2600a2df034cb463e9b47ad43e176",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/src/transitions.ts"
+    },
+    {
+      "source_path": "packages/netcalc/tests/calculators.test.ts",
+      "phase": 2,
+      "size": 31118,
+      "sha256": "f6146f1a2e817747b2393f32e33249730bf0d8aa192f279f4d7f2007c6bb3626",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/tests/calculators.test.ts"
+    },
+    {
+      "source_path": "packages/netcalc/tests/core.test.ts",
+      "phase": 2,
+      "size": 10496,
+      "sha256": "a4b18a6f441441dcd97fc8924a99f78da90c7d05f1d46eeabece04706e78db5d",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/tests/core.test.ts"
+    },
+    {
+      "source_path": "packages/netcalc/tests/fixtures/python-ipaddress.json",
+      "phase": 2,
+      "size": 542347,
+      "sha256": "dbf56909ee5ac3d494b6f8596c514df4644f9886a516926bb580f75513c51b15",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/tests/fixtures/python-ipaddress.json"
+    },
+    {
+      "source_path": "packages/netcalc/tests/reference.test.ts",
+      "phase": 2,
+      "size": 1990,
+      "sha256": "2b966237d819153f8d0e73a4223654bfbdb6f0a608ea32f308974c7373a30905",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/tests/reference.test.ts"
+    },
+    {
+      "source_path": "packages/netcalc/tsconfig.json",
+      "phase": 2,
+      "size": 350,
+      "sha256": "cc8230b394106977a754c1f3d771719fd4bf321557209256059452e8fb40bb16",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/netcalc/tsconfig.json"
+    },
+    {
+      "source_path": "packages/shared/package.json",
+      "phase": 1,
+      "size": 415,
+      "sha256": "0d01efc2251b7071781942ff50b1f96cc8ed711e8ba732e07245fb5085bfa395",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/shared/package.json"
+    },
+    {
+      "source_path": "packages/shared/src/index.ts",
+      "phase": 1,
+      "size": 3336,
+      "sha256": "aff0b168cd9b06cda62a047fcbffdd22ab71d05dfb62d576dd035b8331fa917f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/shared/src/index.ts"
+    },
+    {
+      "source_path": "packages/shared/src/practice.test.ts",
+      "phase": 7,
+      "size": 2774,
+      "sha256": "90c4bcc2d9c8699d23d483e053a9b560e383740cc520a65a72aba4198edc5130",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/shared/src/practice.test.ts"
+    },
+    {
+      "source_path": "packages/shared/src/practice.ts",
+      "phase": 7,
+      "size": 7824,
+      "sha256": "4a71e57be675b68c779dca9b9fa67b5ee717d5394f2d32976b1d4816e361ccf9",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/shared/src/practice.ts"
+    },
+    {
+      "source_path": "packages/shared/tsconfig.json",
+      "phase": 1,
+      "size": 350,
+      "sha256": "cc8230b394106977a754c1f3d771719fd4bf321557209256059452e8fb40bb16",
+      "mode": "0o644",
+      "archive_path": "subnetiq/packages/shared/tsconfig.json"
+    },
+    {
+      "source_path": "patches/@rollup__plugin-terser@1.0.0.patch",
+      "phase": 1,
+      "size": 1733,
+      "sha256": "8e987f675fc0d81340df00a0b2e5952b3c74dfaf3cbacc993ef9629c06a1e2ac",
+      "mode": "0o644",
+      "archive_path": "subnetiq/patches/@rollup__plugin-terser@1.0.0.patch"
+    },
+    {
+      "source_path": "patches/README.md",
+      "phase": 1,
+      "size": 1341,
+      "sha256": "e37ca3f2543e5d65f1f72ce37e7d225587ff686126ebd15b700258c8241e10bd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/patches/README.md"
+    },
+    {
+      "source_path": "playwright.config.ts",
+      "phase": 11,
+      "size": 2992,
+      "sha256": "1b598c9d73b2aba6d62e17bee2c83fe47f5234445a18b06ae5ad0b284f9ad9c1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/playwright.config.ts"
+    },
+    {
+      "source_path": "pnpm-lock.yaml",
+      "phase": 1,
+      "size": 403353,
+      "sha256": "cb25ebf3282a61b3df548ec77ec52f473675136d16066ca360e9ad6f966d9e3b",
+      "mode": "0o644",
+      "archive_path": "subnetiq/pnpm-lock.yaml"
+    },
+    {
+      "source_path": "pnpm-workspace.yaml",
+      "phase": 1,
+      "size": 201,
+      "sha256": "de51594899afc5b08b70925fc9e4495ff1c56c51d0b18e1ff85587825d7758d1",
+      "mode": "0o644",
+      "archive_path": "subnetiq/pnpm-workspace.yaml"
+    },
+    {
+      "source_path": "render.yaml",
+      "phase": 11,
+      "size": 1611,
+      "sha256": "efed01ba1360dc0d8407ecd67e1caf7ef96a7edf5e50f3b56ee5a66ccd45ef7e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/render.yaml"
+    },
+    {
+      "source_path": "scripts/generate-seo.mjs",
+      "phase": 10,
+      "size": 37859,
+      "sha256": "6a67746184e4d6fb760dc3a70619ac9417a7a6fd1ac1f5f428917c089fe37c3e",
+      "mode": "0o644",
+      "archive_path": "subnetiq/scripts/generate-seo.mjs"
+    },
+    {
+      "source_path": "scripts/package-release.py",
+      "phase": 11,
+      "size": 31433,
+      "sha256": "de6cf9462a3f6f2c7148db7c891194105c7f11bc57998bde29ef0fad0f8dd600",
+      "mode": "0o644",
+      "archive_path": "subnetiq/scripts/package-release.py"
+    },
+    {
+      "source_path": "scripts/test-package-release.py",
+      "phase": 11,
+      "size": 11551,
+      "sha256": "92740d506434cc3c5e3780c3fdc0b5549ec718f51262e5446e9b9c662d0b5429",
+      "mode": "0o644",
+      "archive_path": "subnetiq/scripts/test-package-release.py"
+    },
+    {
+      "source_path": "scripts/validate-data.mjs",
+      "phase": 11,
+      "size": 33244,
+      "sha256": "e8e8bd1ccc7ca877eeb0549a28a7e405dec5fa2730765470a1e0cb3193059584",
+      "mode": "0o644",
+      "archive_path": "subnetiq/scripts/validate-data.mjs"
+    },
+    {
+      "source_path": "supabase/README.md",
+      "phase": 3,
+      "size": 13867,
+      "sha256": "e9ac5191715882332bae297a60eaef21335385db497631832df461ff47078f2a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/README.md"
+    },
+    {
+      "source_path": "supabase/config.toml",
+      "phase": 3,
+      "size": 1829,
+      "sha256": "2bfc310d825a87c289ffca0ec485866b8083d56640e850b805d172007637027a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/config.toml"
+    },
+    {
+      "source_path": "supabase/migrations/20261004000100_core.sql",
+      "phase": 3,
+      "size": 16766,
+      "sha256": "c7a5383c43dc86a79b1f9c9302a68d96d328f2c9830364d72d799bf77b1eaac3",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/migrations/20261004000100_core.sql"
+    },
+    {
+      "source_path": "supabase/migrations/20261004000200_ownership_and_history.sql",
+      "phase": 3,
+      "size": 18582,
+      "sha256": "a5a0a8375fa157d6727a0dc0b19f6aecb3b4670ef79b6addd73d5f8aa53a14b0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/migrations/20261004000200_ownership_and_history.sql"
+    },
+    {
+      "source_path": "supabase/migrations/20261004000300_service_and_storage.sql",
+      "phase": 3,
+      "size": 10092,
+      "sha256": "c25bac82f110efec5f459772b85b115a66c3167979b4abf460a75409f994626a",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/migrations/20261004000300_service_and_storage.sql"
+    },
+    {
+      "source_path": "supabase/seed.sql",
+      "phase": 3,
+      "size": 6034,
+      "sha256": "ba41c23606fedc0035bb5f783c670aa038ac61811c1982bf554b9498554fa807",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/seed.sql"
+    },
+    {
+      "source_path": "supabase/tests/001_database.test.sql",
+      "phase": 3,
+      "size": 31320,
+      "sha256": "08fd3a163bc52f5c464971c1054af6ad5d4af3c7d98b7a7501d90e9ba2d50911",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/tests/001_database.test.sql"
+    },
+    {
+      "source_path": "supabase/verify-wasm.mjs",
+      "phase": 3,
+      "size": 2917,
+      "sha256": "32b92a47bad9b179676b8e5e07724205938c310e28f7f7f933fb71936ef3c4bd",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/verify-wasm.mjs"
+    },
+    {
+      "source_path": "supabase/wasm-bootstrap.sql",
+      "phase": 3,
+      "size": 2020,
+      "sha256": "dfdea97ba578dc46337332a799ac8ccffcde91d65b6388b85412eee1c5cb875c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/supabase/wasm-bootstrap.sql"
+    },
+    {
+      "source_path": "tests/e2e/README.md",
+      "phase": 11,
+      "size": 4134,
+      "sha256": "02925621cdc94876bd1eb3ada91bc8c5caef289986533ff7808af0902a8b2f83",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/README.md"
+    },
+    {
+      "source_path": "tests/e2e/accessibility.spec.ts",
+      "phase": 11,
+      "size": 2168,
+      "sha256": "28c9f542db9883b6f538cb2a5d9e544aab4005a91f56205ea4db3fdd90c2c2cb",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/accessibility.spec.ts"
+    },
+    {
+      "source_path": "tests/e2e/helpers.ts",
+      "phase": 11,
+      "size": 1511,
+      "sha256": "8d4201cb90da4ffbd19e26f3b597b60d0bd6a3acd69f6142c1dfdd71f4479ee4",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/helpers.ts"
+    },
+    {
+      "source_path": "tests/e2e/learning.spec.ts",
+      "phase": 11,
+      "size": 5047,
+      "sha256": "e688bab165046430fc59ffc07db10b6353dd9a3b9e9b6ea7c0bf13dfd698486c",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/learning.spec.ts"
+    },
+    {
+      "source_path": "tests/e2e/offline.production.spec.ts",
+      "phase": 11,
+      "size": 3095,
+      "sha256": "a8adb5dec3dc9dfa4f7e612e25264977d9fb7b2d906c9a512689cef4abb4c666",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/offline.production.spec.ts"
+    },
+    {
+      "source_path": "tests/e2e/responsive.mobile.spec.ts",
+      "phase": 11,
+      "size": 2584,
+      "sha256": "90b75ba7a0ad5c738967b7fcfaa56a7982fd1fb9c18b10c0b1e61d56f5ab1552",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/responsive.mobile.spec.ts"
+    },
+    {
+      "source_path": "tests/e2e/tsconfig.json",
+      "phase": 11,
+      "size": 275,
+      "sha256": "1e80fd31fe6a40ef8773c1280765dbc3655e6a53b4647d744ffe01a4e9122570",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/tsconfig.json"
+    },
+    {
+      "source_path": "tests/e2e/visual-review.spec.ts",
+      "phase": 11,
+      "size": 1315,
+      "sha256": "c4c8975e7ace792218af8e4bef2c59ae3a42dee79995c58aefca86111e34e26f",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/visual-review.spec.ts"
+    },
+    {
+      "source_path": "tests/e2e/workflows.spec.ts",
+      "phase": 11,
+      "size": 11592,
+      "sha256": "9496e5cfb4f29f0b359522eb37a0eb16e94b9b87420438c4f6d061105f5b20e0",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tests/e2e/workflows.spec.ts"
+    },
+    {
+      "source_path": "tsconfig.base.json",
+      "phase": 1,
+      "size": 268,
+      "sha256": "7da053a514d627922123d4f5dd012ff10ef1053b9246cab215c7d56c8f14ca84",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tsconfig.base.json"
+    },
+    {
+      "source_path": "tsconfig.json",
+      "phase": 1,
+      "size": 139,
+      "sha256": "775a4232ecffecd7a170d02c34d14e01ff57e13999555cca68f5762167e73640",
+      "mode": "0o644",
+      "archive_path": "subnetiq/tsconfig.json"
+    },
+    {
+      "source_path": "vercel.json",
+      "phase": 11,
+      "size": 3055,
+      "sha256": "ac1516b1a008b9b14cf706ccc0f3c53c73e02020cf870f4d6df8530ccf621ddb",
+      "mode": "0o644",
+      "archive_path": "subnetiq/vercel.json"
+    },
+    {
+      "source_path": "vitest.config.ts",
+      "phase": 11,
+      "size": 1225,
+      "sha256": "5d7f44cd534cf7c6309de60038aa900aee72e0fd7ae50fcfb101e9d171623855",
+      "mode": "0o644",
+      "archive_path": "subnetiq/vitest.config.ts"
+    }
+  ],
+  "auxiliary_files": []
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "arp-spoofing",
+    "name": "ARP spoofing",
+    "description": "Forged ARP messages can associate an attacker-controlled MAC with another host’s IPv4 address on the same LAN.",
+    "indicators": [
+      "Unexpected gateway MAC changes",
+      "Conflicting ARP replies",
+      "Traffic paths changing inside a VLAN"
+    ],
+    "defenses": [
+      "Enable Dynamic ARP Inspection with a valid binding source",
+      "Use DHCP snooping and restrict access ports",
+      "Use authenticated encryption for sensitive traffic"
+    ],
+    "source": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-12/configuration_guide/sec/b_1712_sec_9300_cg/configuring_dynamic_arp_inspection.html"
+  },
+  {
+    "id": "mitm",
+    "name": "On-path interception",
+    "description": "An intermediary observes or modifies traffic between endpoints; compromised routing, access points, or trust anchors can enable it.",
+    "indicators": [
+      "Unexpected certificate warnings",
+      "Unexplained proxy or gateway configuration",
+      "Differences between expected and received content"
+    ],
+    "defenses": [
+      "Validate peer identities and certificates",
+      "Use authenticated encryption",
+      "Protect network administration and trusted certificate stores"
+    ],
+    "source": "https://www.rfc-editor.org/rfc/rfc3552"
+  },
+  {
+    "id": "ddos",
+    "name": "Distributed denial of service",
+    "description": "Many sources or reflected responses exhaust a service’s network, connection, or application capacity.",
+    "indicators": [
+      "Traffic exceeding baseline from many sources",
+      "Connection-table exhaustion",
+      "High latency and timeouts under abnormal load"
+    ],
+    "defenses": [
+      "Use upstream filtering and an agreed response plan",
+      "Apply rate limits and resource budgets",
+      "Reduce exposed amplification services and monitor capacity"
+    ],
+    "source": "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks"
+  },
+  {
+    "id": "port-scanning",
+    "name": "Port scanning",
+    "description": "Probes identify reachable transport endpoints and sometimes infer services. Authorized scans are also a normal administration technique.",
+    "indicators": [
+      "Sequential or distributed connection probes",
+      "Connections to many unusual destination ports",
+      "Repeated failed handshakes"
+    ],
+    "defenses": [
+      "Expose only required services",
+      "Record and investigate unusual scanning patterns",
+      "Use authenticated inventory to understand real exposure"
+    ],
+    "source": "https://nmap.org/book/man.html"
+  },
+  {
+    "id": "vlan-hopping",
+    "name": "VLAN hopping",
+    "description": "A device attempts to reach another VLAN by exploiting trunk negotiation, tagging, or switch misconfiguration.",
+    "indicators": [
+      "Unexpected tagged frames on access ports",
+      "Unauthorized trunk formation",
+      "Traffic crossing intended VLAN boundaries"
+    ],
+    "defenses": [
+      "Configure access and trunk modes explicitly",
+      "Restrict allowed VLANs on trunks",
+      "Apply routed access policies between security zones"
+    ],
+    "source": "https://www.cisco.com/c/en/us/support/docs/lan-switching/vlan/10023-3.html"
+  },
+  {
+    "id": "dns-poisoning",
+    "name": "DNS cache poisoning",
+    "description": "Forged or compromised DNS data directs clients to unintended services by corrupting resolver answers.",
+    "indicators": [
+      "Unexpected address changes without an authorized update",
+      "DNSSEC validation failures",
+      "Answers differing across trusted resolvers"
+    ],
+    "defenses": [
+      "Use validating resolvers where DNSSEC is deployed",
+      "Restrict administrative and transfer access",
+      "Keep resolver software updated and monitor critical records"
+    ],
+    "source": "https://www.rfc-editor.org/rfc/rfc5452"
+  },
+  {
+    "id": "rogue-dhcp",
+    "name": "Rogue DHCP server",
+    "description": "An unauthorized server supplies addresses, gateways, or resolvers to clients.",
+    "indicators": [
+      "Unexpected DHCP server identifiers",
+      "Clients receiving wrong gateway or DNS options",
+      "Address leases from an unapproved scope"
+    ],
+    "defenses": [
+      "Enable DHCP snooping with carefully selected trusted ports",
+      "Restrict physical and wireless access",
+      "Monitor offers and scope changes"
+    ],
+    "source": "https://www.rfc-editor.org/rfc/rfc2131"
+  },
+  {
+    "id": "rogue-ra",
+    "name": "Rogue Router Advertisement",
+    "description": "Unauthorized IPv6 Router Advertisements can redirect hosts or disrupt their network configuration.",
+    "indicators": [
+      "New default IPv6 routers",
+      "Unexpected advertised prefixes",
+      "Router advertisements from access devices"
+    ],
+    "defenses": [
+      "Deploy RA Guard appropriate to the switch implementation",
+      "Authorize router-facing ports explicitly",
+      "Monitor IPv6 even on primarily IPv4 networks"
+    ],
+    "source": "https://www.rfc-editor.org/rfc/rfc6105"
+  },
+  {
+    "id": "credential-stuffing",
+    "name": "Credential stuffing",
+    "description": "Previously exposed username and password pairs are tried against other services.",
+    "indicators": [
+      "Many distributed authentication failures",
+      "Unusual successful sign-ins after failures",
+      "Repeated access to account recovery routes"
+    ],
+    "defenses": [
+      "Use passkeys or multifactor authentication",
+      "Rate-limit and monitor authentication",
+      "Encourage unique credentials and safe recovery flows"
+    ],
+    "source": "https://owasp.org/www-community/attacks/Credential_stuffing"
+  },
+  {
+    "id": "ssrf",
+    "name": "Server-side request forgery",
+    "description": "An application is induced to make requests to unintended destinations using its own network access or identity.",
+    "indicators": [
+      "Requests to internal or metadata addresses",
+      "Unexpected redirects to private endpoints",
+      "Abnormal outbound requests from a lookup service"
+    ],
+    "defenses": [
+      "Use fixed upstream allowlists",
+      "Validate and constrain destination resolution and redirects",
+      "Limit response size, duration, and egress privileges"
+    ],
+    "source": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+  },
+  {
+    "id": "route-hijack",
+    "name": "Route hijack",
+    "description": "Incorrect or unauthorized routing advertisements divert or discard traffic for a prefix.",
+    "indicators": [
+      "Unexpected origin autonomous system",
+      "Sudden path changes for critical prefixes",
+      "More-specific routes from unauthorized peers"
+    ],
+    "defenses": [
+      "Apply prefix and peer filtering",
+      "Use RPKI origin validation with operational policy",
+      "Monitor announcements and maintain an incident contact plan"
+    ],
+    "source": "https://www.rfc-editor.org/rfc/rfc7454"
+  },
+  {
+    "id": "broadcast-storm",
+    "name": "Broadcast storm",
+    "description": "Excessive broadcast traffic, often from a loop or malfunction, consumes link and endpoint resources.",
+    "indicators": [
+      "High broadcast counters across switches",
+      "MAC address flapping",
+      "Widespread LAN disruption without a WAN outage"
+    ],
+    "defenses": [
+      "Use loop-prevention mechanisms and edge-port protection",
+      "Set appropriate storm-control thresholds",
+      "Locate and remove the loop before restoring blocked links"
+    ],
+    "source": "https://standards.ieee.org/standard/802_1Q-2022.html"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "aws",
+    "name": "AWS VPC IPv4 standard subnet",
+    "family": 4,
+    "minPrefix": 16,
+    "maxPrefix": 28,
+    "firstReserved": 4,
+    "lastReserved": 1,
+    "reserved": 5,
+    "scope": "Standard IPv4 VPC subnet, excluding BYOIP",
+    "exceptions": "AWS documents a BYOIP exception allowing all IPv4 addresses. Select the explicit byoip variant to model that capacity.",
+    "variants": ["standard", "byoip"],
+    "reviewedAt": "2026-10-04",
+    "version": "2026-10-04",
+    "source": "https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html"
+  },
+  {
+    "id": "azure",
+    "name": "Azure VNet IPv4 subnet",
+    "family": 4,
+    "minPrefix": 2,
+    "maxPrefix": 29,
+    "firstReserved": 4,
+    "lastReserved": 1,
+    "reserved": 5,
+    "scope": "General IPv4 subnet; individual Azure services can require a larger minimum",
+    "exceptions": "Service-specific subnet size requirements and forbidden address ranges require separate validation. IPv6 subnets are /64.",
+    "variants": ["standard"],
+    "reviewedAt": "2026-10-04",
+    "version": "2026-10-04",
+    "source": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq"
+  },
+  {
+    "id": "gcp",
+    "name": "Google Cloud primary IPv4 subnet range",
+    "family": 4,
+    "minPrefix": 4,
+    "maxPrefix": 29,
+    "firstReserved": 2,
+    "lastReserved": 2,
+    "reserved": 4,
+    "scope": "Primary IPv4 range",
+    "exceptions": "Secondary IPv4 ranges do not reserve these four addresses; select the secondary variant. Validity also depends on restricted ranges, route conflicts, and service constraints.",
+    "variants": ["standard", "secondary"],
+    "reviewedAt": "2026-10-04",
+    "version": "2026-10-04",
+    "source": "https://docs.cloud.google.com/vpc/docs/subnets"
+  }
+]

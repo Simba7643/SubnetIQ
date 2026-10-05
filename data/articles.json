@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cidr-and-host-counts",
+    "title": "CIDR and host counts: calculate the range before counting devices",
+    "description": "Work through a /27, distinguish total addresses from usable capacity, and handle /31, /32, and allocation policies correctly.",
+    "category": "IPv4 fundamentals",
+    "publishedAt": "2026-10-04",
+    "readingMinutes": 7,
+    "file": "cidr-and-host-counts.md"
+  },
+  {
+    "id": "vlsm-worked-address-plan",
+    "title": "A VLSM address plan you can audit from start to finish",
+    "description": "Allocate a /24 across three departments and a router link, prove containment and capacity, and keep remaining space explicit.",
+    "category": "Network planning",
+    "publishedAt": "2026-10-04",
+    "readingMinutes": 8,
+    "file": "vlsm-worked-address-plan.md"
+  },
+  {
+    "id": "ipv6-prefix-planning",
+    "title": "IPv6 /64 planning, with the exceptions kept visible",
+    "description": "Design a readable /48 to /56 to /64 hierarchy, calculate its capacity, and understand /127 links and /128 routes.",
+    "category": "IPv6 planning",
+    "publishedAt": "2026-10-04",
+    "readingMinutes": 8,
+    "file": "ipv6-prefix-planning.md"
+  },
+  {
+    "id": "wildcard-masks-and-acls",
+    "title": "Wildcard masks and ACLs: prove what a rule matches",
+    "description": "Convert CIDR masks, analyze a noncontiguous wildcard, and review rule order with concrete packet examples.",
+    "category": "Network security",
+    "publishedAt": "2026-10-04",
+    "readingMinutes": 8,
+    "file": "wildcard-masks-and-acls.md"
+  },
+  {
+    "id": "dns-records-troubleshooting",
+    "title": "Read DNS records during troubleshooting without guessing",
+    "description": "Distinguish missing names from missing record types, compare resolver answers, and preserve TTL and DNSSEC context.",
+    "category": "Troubleshooting",
+    "publishedAt": "2026-10-04",
+    "readingMinutes": 8,
+    "file": "dns-records-troubleshooting.md"
+  }
+]

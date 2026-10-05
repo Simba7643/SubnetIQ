@@ -1,0 +1,443 @@
+[
+  {
+    "id": "port-20-tcp",
+    "port": 20,
+    "transport": "TCP",
+    "service": "FTP data",
+    "description": "Active-mode file-transfer data connection; passive FTP negotiates another port.",
+    "security": "FTP does not encrypt credentials or content; prefer a protected replacement.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-21-tcp",
+    "port": 21,
+    "transport": "TCP",
+    "service": "FTP control",
+    "description": "Commands and authentication for File Transfer Protocol.",
+    "security": "Disable anonymous write access and use encrypted file transfer.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-22-tcp",
+    "port": 22,
+    "transport": "TCP",
+    "service": "SSH",
+    "description": "Encrypted remote shell, tunneling, and SFTP.",
+    "security": "Prefer keys, restrict administrative sources, and review host-key changes.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-23-tcp",
+    "port": 23,
+    "transport": "TCP",
+    "service": "Telnet",
+    "description": "Legacy interactive terminal protocol.",
+    "security": "Credentials and traffic are plaintext; replace with SSH.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-25-tcp",
+    "port": 25,
+    "transport": "TCP",
+    "service": "SMTP",
+    "description": "Mail transfer between mail servers.",
+    "security": "Prevent open relays; require appropriate transport security and anti-abuse controls.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-53-udp",
+    "port": 53,
+    "transport": "UDP",
+    "service": "DNS",
+    "description": "Common transport for DNS questions and responses.",
+    "security": "Restrict recursive service to intended clients; consider DNSSEC validation.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-53-tcp",
+    "port": 53,
+    "transport": "TCP",
+    "service": "DNS",
+    "description": "DNS transport for larger responses, fallback, and transfers.",
+    "security": "TCP is required for robust DNS operation; restrict zone transfers.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-67-udp",
+    "port": 67,
+    "transport": "UDP",
+    "service": "DHCP server",
+    "description": "Receives DHCPv4 client and relay requests.",
+    "security": "Use DHCP snooping where supported to limit rogue servers.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-68-udp",
+    "port": 68,
+    "transport": "UDP",
+    "service": "DHCP client",
+    "description": "Receives DHCPv4 replies on clients.",
+    "security": "Treat address and gateway options as untrusted on unknown networks.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-69-udp",
+    "port": 69,
+    "transport": "UDP",
+    "service": "TFTP",
+    "description": "Minimal unauthenticated file transfer.",
+    "security": "Use only isolated management or provisioning networks.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-80-tcp",
+    "port": 80,
+    "transport": "TCP",
+    "service": "HTTP",
+    "description": "Web application requests without transport encryption.",
+    "security": "Redirect sensitive applications to HTTPS and avoid sending credentials.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-88-tcp-udp",
+    "port": 88,
+    "transport": "TCP/UDP",
+    "service": "Kerberos",
+    "description": "Ticket-based authentication service.",
+    "security": "Protect domain controllers and synchronize time; monitor abnormal ticket activity.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-110-tcp",
+    "port": 110,
+    "transport": "TCP",
+    "service": "POP3",
+    "description": "Retrieves messages from a mail server.",
+    "security": "Prefer implicit TLS on port 995 or enforced STARTTLS.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-123-udp",
+    "port": 123,
+    "transport": "UDP",
+    "service": "NTP",
+    "description": "Network time synchronization.",
+    "security": "Restrict unnecessary public query features and use trusted time sources.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-135-tcp",
+    "port": 135,
+    "transport": "TCP",
+    "service": "Microsoft RPC endpoint mapper",
+    "description": "Finds dynamically assigned RPC service endpoints.",
+    "security": "Restrict to managed networks; an allowed endpoint may require additional dynamic ports.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-137-udp",
+    "port": 137,
+    "transport": "UDP",
+    "service": "NetBIOS name service",
+    "description": "Legacy NetBIOS name registration and resolution.",
+    "security": "Disable if unnecessary and avoid exposure outside trusted networks.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-138-udp",
+    "port": 138,
+    "transport": "UDP",
+    "service": "NetBIOS datagram",
+    "description": "Legacy connectionless NetBIOS messaging.",
+    "security": "Restrict broadcasts and retire legacy dependencies when possible.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-139-tcp",
+    "port": 139,
+    "transport": "TCP",
+    "service": "NetBIOS session",
+    "description": "Legacy SMB transport over NetBIOS sessions.",
+    "security": "Prefer current SMB and restrict access to authorized clients.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-143-tcp",
+    "port": 143,
+    "transport": "TCP",
+    "service": "IMAP",
+    "description": "Server-based mailbox access.",
+    "security": "Prefer implicit TLS on port 993 or enforced STARTTLS.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-161-udp",
+    "port": 161,
+    "transport": "UDP",
+    "service": "SNMP",
+    "description": "Reads and manages network-device information.",
+    "security": "Prefer SNMPv3 with authentication and privacy; avoid public community strings.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-162-udp",
+    "port": 162,
+    "transport": "UDP",
+    "service": "SNMP trap",
+    "description": "Receives unsolicited management notifications.",
+    "security": "Restrict senders and validate monitoring configuration.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-179-tcp",
+    "port": 179,
+    "transport": "TCP",
+    "service": "BGP",
+    "description": "Exchanges interdomain routing reachability and policy.",
+    "security": "Apply explicit peer controls, prefix filters, maximum-prefix limits, and route validation.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-389-tcp-udp",
+    "port": 389,
+    "transport": "TCP/UDP",
+    "service": "LDAP",
+    "description": "Directory queries; UDP is connectionless LDAP.",
+    "security": "Use protected directory access and prevent unauthenticated enumeration.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-443-tcp",
+    "port": 443,
+    "transport": "TCP",
+    "service": "HTTPS",
+    "description": "HTTP carried over TLS, commonly HTTP/1.1 and HTTP/2.",
+    "security": "Validate certificates; encryption does not establish that application content is trustworthy.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-443-udp",
+    "port": 443,
+    "transport": "UDP",
+    "service": "HTTP/3",
+    "description": "HTTP over QUIC and TLS 1.3.",
+    "security": "Account for UDP in policy and observability; do not assume all HTTPS uses TCP.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-445-tcp",
+    "port": 445,
+    "transport": "TCP",
+    "service": "SMB",
+    "description": "File and printer sharing using direct-hosted SMB.",
+    "security": "Use current SMB, signing where required, least privilege, and restricted exposure.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-465-tcp",
+    "port": 465,
+    "transport": "TCP",
+    "service": "Message submission over TLS",
+    "description": "Mail submission with implicit TLS.",
+    "security": "Require authenticated users and validate the server certificate.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-500-udp",
+    "port": 500,
+    "transport": "UDP",
+    "service": "IKE",
+    "description": "Negotiates security associations for IPsec.",
+    "security": "Restrict peers where possible and select current authentication and cryptography.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-514-udp",
+    "port": 514,
+    "transport": "UDP",
+    "service": "Syslog",
+    "description": "Traditional remote system logging.",
+    "security": "Traffic is commonly plaintext and unauthenticated; prefer protected logging transport.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-546-udp",
+    "port": 546,
+    "transport": "UDP",
+    "service": "DHCPv6 client",
+    "description": "Receives DHCPv6 client messages.",
+    "security": "Do not expect DHCPv6 alone to provide the default router; Router Advertisements do that.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-547-udp",
+    "port": 547,
+    "transport": "UDP",
+    "service": "DHCPv6 server",
+    "description": "Receives DHCPv6 server and relay traffic.",
+    "security": "Use appropriate first-hop controls and trusted relay paths.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-587-tcp",
+    "port": 587,
+    "transport": "TCP",
+    "service": "Message submission",
+    "description": "Authenticated mail submission, commonly upgraded with STARTTLS.",
+    "security": "Require authentication and enforce TLS before accepting credentials.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-636-tcp",
+    "port": 636,
+    "transport": "TCP",
+    "service": "LDAPS",
+    "description": "Directory access with implicit TLS.",
+    "security": "Validate certificate identity and limit directory permissions.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-853-tcp",
+    "port": 853,
+    "transport": "TCP",
+    "service": "DNS over TLS",
+    "description": "Encrypted DNS transport to a resolver.",
+    "security": "Resolver trust and DNSSEC validation are separate from transport encryption.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-853-udp",
+    "port": 853,
+    "transport": "UDP",
+    "service": "DNS over QUIC",
+    "description": "DNS transport over QUIC.",
+    "security": "Encrypted transport still reveals network endpoints and requires a trusted resolver.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-993-tcp",
+    "port": 993,
+    "transport": "TCP",
+    "service": "IMAPS",
+    "description": "IMAP with implicit TLS.",
+    "security": "Enforce certificate validation and strong account authentication.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-995-tcp",
+    "port": 995,
+    "transport": "TCP",
+    "service": "POP3S",
+    "description": "POP3 with implicit TLS.",
+    "security": "Protect account access and avoid retaining unnecessary local mail copies.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-1433-tcp",
+    "port": 1433,
+    "transport": "TCP",
+    "service": "Microsoft SQL Server",
+    "description": "Common default database listener.",
+    "security": "Restrict to application and management networks; enforce authentication and encryption.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-1812-udp",
+    "port": 1812,
+    "transport": "UDP",
+    "service": "RADIUS authentication",
+    "description": "Network access authentication and authorization.",
+    "security": "Protect the transport and shared secrets; do not expose it unnecessarily.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-1813-udp",
+    "port": 1813,
+    "transport": "UDP",
+    "service": "RADIUS accounting",
+    "description": "Records network-access session accounting.",
+    "security": "Protect accounting integrity and align retention with operational needs.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-2049-tcp-udp",
+    "port": 2049,
+    "transport": "TCP/UDP",
+    "service": "NFS",
+    "description": "Network file sharing; modern deployments commonly use TCP.",
+    "security": "Restrict exports and prefer authenticated protected configurations.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-3306-tcp",
+    "port": 3306,
+    "transport": "TCP",
+    "service": "MySQL",
+    "description": "Common MySQL database listener.",
+    "security": "Use least-privilege accounts and restrict network reachability.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-3389-tcp-udp",
+    "port": 3389,
+    "transport": "TCP/UDP",
+    "service": "RDP",
+    "description": "Remote desktop and associated optimized transports.",
+    "security": "Use gateway or VPN controls and strong authentication; restrict public exposure.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-4500-udp",
+    "port": 4500,
+    "transport": "UDP",
+    "service": "IPsec NAT traversal",
+    "description": "Encapsulates IPsec traffic through NAT.",
+    "security": "Validate peer configuration and permit only intended VPN use.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-5432-tcp",
+    "port": 5432,
+    "transport": "TCP",
+    "service": "PostgreSQL",
+    "description": "Default PostgreSQL database listener.",
+    "security": "Require appropriate TLS, narrow role grants, and host-based access controls.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-5900-tcp",
+    "port": 5900,
+    "transport": "TCP",
+    "service": "VNC",
+    "description": "Remote framebuffer access.",
+    "security": "Use a secure implementation or protected tunnel and strong authentication.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-6379-tcp",
+    "port": 6379,
+    "transport": "TCP",
+    "service": "Redis",
+    "description": "Default Redis service port.",
+    "security": "Bind to trusted interfaces, require authentication, and avoid public exposure.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-8080-tcp",
+    "port": 8080,
+    "transport": "TCP",
+    "service": "HTTP alternate",
+    "description": "Common alternate web and proxy listener.",
+    "security": "Treat administrative consoles as sensitive and enforce access control.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  },
+  {
+    "id": "port-8443-tcp",
+    "port": 8443,
+    "transport": "TCP",
+    "service": "HTTPS alternate",
+    "description": "Common alternate TLS web listener.",
+    "security": "Certificate verification and application access controls remain necessary.",
+    "source": "https://www.iana.org/assignments/service-names-port-numbers/"
+  }
+]

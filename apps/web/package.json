@@ -1,0 +1,49 @@
+{
+  "name": "@subnetiq/web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -p tsconfig.json --noEmit && vite build && node ../../scripts/generate-seo.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@subnetiq/netcalc": "workspace:*",
+    "@subnetiq/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.80.0",
+    "@tanstack/react-query": "^5.90.5",
+    "framer-motion": "^12.23.24",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.2",
+    "lucide-react": "^0.552.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.4",
+    "remark-gfm": "^4.0.1",
+    "sonner": "^2.0.7",
+    "workbox-window": "^7.4.1",
+    "zustand": "^5.0.8",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@types/zxcvbn": "^4.4.5",
+    "@vitejs/plugin-react": "^5.1.2",
+    "tailwindcss": "^4.1.17",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "workbox-build": "^7.4.1"
+  }
+}

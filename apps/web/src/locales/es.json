@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Resumen",
+    "tools": "Calculadoras",
+    "learn": "Ruta de aprendizaje",
+    "practice": "Laboratorio de práctica",
+    "glossary": "Glosario",
+    "toolkit": "Herramientas de red",
+    "templates": "Plantillas de red",
+    "projects": "Mis proyectos",
+    "assistant": "Asistente de IA"
+  },
+  "common": {
+    "search": "Buscar herramientas y recursos",
+    "signIn": "Iniciar sesión",
+    "theme": "Tema",
+    "language": "Idioma",
+    "copy": "Copiar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "calculate": "Calcular"
+  },
+  "translationStatus": "Navigation translated; technical lessons and results fall back to English"
+}

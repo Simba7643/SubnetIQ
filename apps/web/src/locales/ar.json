@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "نظرة عامة",
+    "tools": "الحاسبات",
+    "learn": "مسار التعلم",
+    "practice": "مختبر التدريب",
+    "glossary": "المصطلحات",
+    "toolkit": "أدوات الشبكة",
+    "templates": "قوالب الشبكة",
+    "projects": "مشاريعي",
+    "assistant": "مساعد الذكاء الاصطناعي"
+  },
+  "common": {
+    "search": "البحث عن الأدوات والموارد",
+    "signIn": "تسجيل الدخول",
+    "theme": "المظهر",
+    "language": "اللغة",
+    "copy": "نسخ",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "calculate": "حساب"
+  },
+  "translationStatus": "Navigation translated; technical lessons and results fall back to English"
+}

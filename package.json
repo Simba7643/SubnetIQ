@@ -1,0 +1,70 @@
+{
+  "name": "subnetiq",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact subnet mathematics, practical network planning, and guided learning.",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "dev": "pnpm build:packages && concurrently -n api,web -c blue,green \"pnpm --filter @subnetiq/api dev\" \"pnpm --filter @subnetiq/web dev\"",
+    "build:packages": "pnpm --filter @subnetiq/shared build && pnpm --filter @subnetiq/netcalc build",
+    "build": "pnpm build:packages && pnpm --filter @subnetiq/api build && pnpm --filter @subnetiq/web build",
+    "typecheck": "pnpm build:packages && pnpm -r typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm build:packages && pnpm test:unit && pnpm --filter @subnetiq/api test",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:all": "pnpm typecheck && pnpm lint && pnpm test && pnpm test:e2e",
+    "test:data": "node scripts/validate-data.mjs",
+    "prepare": "husky",
+    "package:release": "python3 scripts/package-release.py",
+    "test:db:wasm": "node supabase/verify-wasm.mjs",
+    "test:e2e:production": "cross-env E2E_PRODUCTION=1 playwright test",
+    "test:e2e:typecheck": "tsc -p tests/e2e/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@electric-sql/pglite": "0.5.8",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.56.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "@vitest/coverage-v8": "^4.0.16",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "fast-check": "^4.3.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.16"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css,html}": "prettier --write"
+  }
+}

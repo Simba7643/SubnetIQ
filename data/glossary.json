@@ -1,0 +1,2418 @@
+[
+  {
+    "id": "ip-address",
+    "term": "IP address",
+    "category": "Addressing",
+    "definition": "A numerical identifier assigned to an interface for communication within an IP network, interpreted with its address family and prefix.",
+    "example": "192.0.2.14/24 identifies an IPv4 interface in 192.0.2.0/24.",
+    "related": ["ipv4", "ipv6", "prefix-length"]
+  },
+  {
+    "id": "ipv4",
+    "term": "IPv4",
+    "category": "Addressing",
+    "definition": "Internet Protocol version 4 uses 32-bit addresses and connectionless packet delivery. Assignment, routing, and endpoint capacity are distinct concerns.",
+    "example": "192.0.2.1 contains four decimal octets representing 32 bits.",
+    "related": ["octet", "subnet-mask", "ipv6"]
+  },
+  {
+    "id": "ipv6",
+    "term": "IPv6",
+    "category": "Addressing",
+    "definition": "Internet Protocol version 6 uses 128-bit addresses and supports unicast, anycast, and multicast; it has no broadcast address type.",
+    "example": "2001:db8:1::10 is an IPv6 documentation address.",
+    "related": ["hextet", "ipv6-multicast", "global-unicast"]
+  },
+  {
+    "id": "octet",
+    "term": "Octet",
+    "category": "Addressing",
+    "definition": "A group of eight bits. An unsigned octet represents a decimal value from zero through 255.",
+    "example": "Decimal 192 is binary 11000000.",
+    "related": ["bit", "binary", "ipv4"]
+  },
+  {
+    "id": "bit",
+    "term": "Bit",
+    "category": "Addressing",
+    "definition": "A binary digit with value zero or one. Its position determines its numerical weight in an address or mask.",
+    "example": "The leftmost bit in an octet has weight 128.",
+    "related": ["binary", "octet", "host-bits"]
+  },
+  {
+    "id": "binary",
+    "term": "Binary notation",
+    "category": "Addressing",
+    "definition": "Base-two number representation, where each position has a power-of-two weight. It reveals network masks and prefix boundaries directly.",
+    "example": "10100000 equals 128 + 32 = 160.",
+    "related": ["bit", "hexadecimal", "bitwise-and"]
+  },
+  {
+    "id": "hexadecimal",
+    "term": "Hexadecimal notation",
+    "category": "Addressing",
+    "definition": "Base-sixteen notation using 0–9 and A–F. Each digit encodes four bits.",
+    "example": "FF equals decimal 255 and binary 11111111.",
+    "related": ["nibble", "hextet", "binary"]
+  },
+  {
+    "id": "nibble",
+    "term": "Nibble",
+    "category": "Addressing",
+    "definition": "Four bits represented by one hexadecimal digit. IPv6 reverse DNS uses individual nibble labels.",
+    "example": "Hexadecimal A represents binary 1010.",
+    "related": ["hexadecimal", "reverse-dns", "hextet"]
+  },
+  {
+    "id": "hextet",
+    "term": "Hextet",
+    "category": "Addressing",
+    "definition": "An informal name for a 16-bit IPv6 group written using up to four hexadecimal digits.",
+    "example": "The group 0db8 can be shortened to db8.",
+    "related": ["ipv6", "zero-compression", "hexadecimal"]
+  },
+  {
+    "id": "prefix-length",
+    "term": "Prefix length",
+    "category": "Addressing",
+    "definition": "The number of leading bits identifying a network or routing prefix. A longer prefix describes a smaller block.",
+    "example": "IPv4 /27 leaves five host bits.",
+    "related": ["cidr", "host-bits", "subnet-mask"]
+  },
+  {
+    "id": "cidr",
+    "term": "CIDR",
+    "category": "Addressing",
+    "definition": "Classless Inter-Domain Routing uses an explicit prefix length for address allocation and routing aggregation instead of fixed historical classes.",
+    "example": "192.0.2.0/26 describes 64 aligned addresses.",
+    "related": ["prefix-length", "route-aggregation", "classful-addressing"]
+  },
+  {
+    "id": "classful-addressing",
+    "term": "Classful addressing",
+    "category": "Addressing",
+    "definition": "A historical IPv4 scheme deriving default network boundaries from leading address bits. Modern calculations require an explicit prefix.",
+    "example": "172.20.1.1 was historically Class B, but /24 is valid in classless routing.",
+    "related": ["cidr", "ipv4", "prefix-length"]
+  },
+  {
+    "id": "subnet-mask",
+    "term": "Subnet mask",
+    "category": "Addressing",
+    "definition": "An IPv4 mask containing leading ones for the network and trailing zeros for host bits, often written in dotted decimal.",
+    "example": "255.255.255.224 corresponds to /27.",
+    "related": ["prefix-length", "wildcard-mask", "bitwise-and"]
+  },
+  {
+    "id": "network-address",
+    "term": "Network address",
+    "category": "Addressing",
+    "definition": "The lowest aligned address of a subnet, found by clearing all host bits. Conventional IPv4 LANs reserve it as the subnet identifier.",
+    "example": "192.0.2.77/26 belongs to network 192.0.2.64.",
+    "related": ["broadcast-address", "bitwise-and", "host-bits"]
+  },
+  {
+    "id": "broadcast-address",
+    "term": "Broadcast address",
+    "category": "Addressing",
+    "definition": "A conventional IPv4 subnet address with every host bit set to one. IPv6 has no corresponding broadcast address.",
+    "example": "192.0.2.127 is the broadcast of 192.0.2.64/26.",
+    "related": ["network-address", "directed-broadcast", "ipv6"]
+  },
+  {
+    "id": "usable-hosts",
+    "term": "Usable host count",
+    "category": "Addressing",
+    "definition": "Assignable endpoint capacity under a stated policy. Conventional IPv4 LANs exclude network and broadcast; point-to-point and cloud policies differ.",
+    "example": "A conventional /26 has 64 total addresses and 62 usable hosts.",
+    "related": ["host-bits", "point-to-point", "provider-reservation"]
+  },
+  {
+    "id": "host-bits",
+    "term": "Host bits",
+    "category": "Addressing",
+    "definition": "The address positions following the network prefix. With h such bits, the block contains 2^h addresses.",
+    "example": "An IPv4 /28 leaves four host bits and 16 total addresses.",
+    "related": ["prefix-length", "usable-hosts", "block-size"]
+  },
+  {
+    "id": "subnet-bits",
+    "term": "Subnet bits",
+    "category": "Addressing",
+    "definition": "Bits added to an explicitly chosen parent prefix to distinguish child networks.",
+    "example": "Moving from /24 to /27 adds three bits and creates eight children.",
+    "related": ["equal-subnetting", "prefix-length", "cidr"]
+  },
+  {
+    "id": "block-size",
+    "term": "Block size",
+    "category": "Addressing",
+    "definition": "The total address count of a prefix, calculated as 2^(address width − prefix length).",
+    "example": "An IPv4 /29 contains eight addresses.",
+    "related": ["alignment", "host-bits", "magic-number"]
+  },
+  {
+    "id": "alignment",
+    "term": "Subnet alignment",
+    "category": "Addressing",
+    "definition": "The requirement that a CIDR block begins on a multiple of its size and has zero host bits in its network identifier.",
+    "example": "192.0.2.64/26 is aligned; .96 is inside that block.",
+    "related": ["network-address", "block-size", "range-to-cidr"]
+  },
+  {
+    "id": "bitwise-and",
+    "term": "Bitwise AND",
+    "category": "Addressing",
+    "definition": "A binary operation producing one only when both input bits are one. Address AND mask extracts the network.",
+    "example": "01001101 AND 11000000 equals 01000000.",
+    "related": ["binary", "subnet-mask", "network-address"]
+  },
+  {
+    "id": "magic-number",
+    "term": "Magic-number method",
+    "category": "Addressing",
+    "definition": "An IPv4 shortcut using 256 minus the relevant mask octet to find subnet increments, while respecting preceding and following octets.",
+    "example": "For 255.255.255.224, the final-octet increment is 32.",
+    "related": ["subnet-mask", "block-size", "alignment"]
+  },
+  {
+    "id": "wildcard-mask",
+    "term": "Wildcard mask",
+    "category": "Addressing",
+    "definition": "A matching mask where zero means compare and one means ignore. Only suitable contiguous inverse patterns represent one CIDR.",
+    "example": "0.0.0.31 paired with a /27 network matches that subnet.",
+    "related": ["access-control-list", "subnet-mask", "noncontiguous-mask"]
+  },
+  {
+    "id": "noncontiguous-mask",
+    "term": "Noncontiguous wildcard",
+    "category": "Addressing",
+    "definition": "A wildcard whose ignored bits do not form one trailing run, expressing a bit pattern that may cover disjoint intervals.",
+    "example": "A wildcard can match alternate octet values rather than one address range.",
+    "related": ["wildcard-mask", "access-control-list", "cidr"]
+  },
+  {
+    "id": "private-address",
+    "term": "Private IPv4 address",
+    "category": "Addressing",
+    "definition": "An address in the RFC 1918 blocks 10/8, 172.16/12, or 192.168/16, reusable within private networks.",
+    "example": "172.20.5.2 is private; 172.32.5.2 is outside these ranges.",
+    "related": ["rfc1918", "nat", "overlap"]
+  },
+  {
+    "id": "rfc1918",
+    "term": "RFC 1918",
+    "category": "Addressing",
+    "definition": "The specification reserving three private IPv4 blocks. Reusing them requires care when separately designed networks connect.",
+    "example": "Two companies using the same 10.1.0.0/16 need an overlap plan before interconnection.",
+    "related": ["private-address", "overlap", "renumbering"]
+  },
+  {
+    "id": "public-address",
+    "term": "Public address",
+    "category": "Addressing",
+    "definition": "An informal label for globally unique addressing. Being outside RFC 1918 does not establish global reachability or permission to use an address.",
+    "example": "192.0.2.1 is outside private space but reserved for documentation.",
+    "related": ["special-purpose", "documentation-prefix", "global-unicast"]
+  },
+  {
+    "id": "special-purpose",
+    "term": "Special-purpose address",
+    "category": "Addressing",
+    "definition": "An address covered by a defined registry purpose, with independent source, destination, forwarding, and global-reachability properties.",
+    "example": "Loopback and documentation blocks are special for different reasons.",
+    "related": ["loopback", "documentation-prefix", "cgnat"]
+  },
+  {
+    "id": "loopback",
+    "term": "Loopback address",
+    "category": "Addressing",
+    "definition": "An address referring to the local host: IPv4 reserves 127.0.0.0/8; IPv6 uses ::1/128.",
+    "example": "A service bound to 127.0.0.1 is reachable locally, not via that host's LAN address.",
+    "related": ["loopback-interface", "unspecified-address", "bind-address"]
+  },
+  {
+    "id": "link-local",
+    "term": "Link-local address",
+    "category": "Addressing",
+    "definition": "An address scoped to one link and not forwarded by routers to other links.",
+    "example": "fe80::1%eth0 identifies an IPv6 neighbor on a selected interface.",
+    "related": ["apipa", "zone-id", "ndp"]
+  },
+  {
+    "id": "apipa",
+    "term": "APIPA",
+    "category": "Addressing",
+    "definition": "Microsoft's term for automatic IPv4 link-local addressing, commonly seen when DHCP configuration is unavailable, governed by RFC 3927 rules.",
+    "example": "A workstation assigns 169.254.20.30 after failing to obtain a DHCP lease.",
+    "related": ["link-local", "dhcp", "duplicate-address"]
+  },
+  {
+    "id": "cgnat",
+    "term": "Carrier-grade NAT",
+    "category": "Addressing",
+    "definition": "Provider-operated address translation sharing public IPv4 addresses among customers, often using RFC 6598 shared space internally.",
+    "example": "A customer's WAN address may lie in 100.64.0.0/10.",
+    "related": ["shared-address-space", "nat", "port-forwarding"]
+  },
+  {
+    "id": "shared-address-space",
+    "term": "Shared address space",
+    "category": "Addressing",
+    "definition": "The RFC 6598 block 100.64.0.0/10 for provider shared-address deployments, distinct from RFC 1918 private space.",
+    "example": "100.127.255.254 is inside; 100.128.0.1 is outside.",
+    "related": ["cgnat", "private-address", "special-purpose"]
+  },
+  {
+    "id": "documentation-prefix",
+    "term": "Documentation prefix",
+    "category": "Addressing",
+    "definition": "Address space reserved for examples, reducing accidental references to real operational networks.",
+    "example": "192.0.2.0/24 and 2001:db8::/32 are documentation prefixes.",
+    "related": ["special-purpose", "ipv4", "ipv6"]
+  },
+  {
+    "id": "multicast",
+    "term": "Multicast",
+    "category": "Addressing",
+    "definition": "Delivery to members of a group represented by a multicast address, requiring suitable group membership and forwarding behavior.",
+    "example": "IPv4 multicast addresses are in 224.0.0.0/4.",
+    "related": ["igmp", "ipv6-multicast", "unicast"]
+  },
+  {
+    "id": "unicast",
+    "term": "Unicast",
+    "category": "Addressing",
+    "definition": "Addressing an individual interface in its network context, directing delivery toward one destination.",
+    "example": "A client sends a query to one resolver's address.",
+    "related": ["multicast", "anycast", "ip-address"]
+  },
+  {
+    "id": "anycast",
+    "term": "Anycast",
+    "category": "Addressing",
+    "definition": "Assigning the same address to multiple locations so routing selects one instance according to topology and policy.",
+    "example": "A distributed DNS service advertises one address from several sites.",
+    "related": ["unicast", "bgp", "longest-prefix-match"]
+  },
+  {
+    "id": "limited-broadcast",
+    "term": "Limited broadcast",
+    "category": "Addressing",
+    "definition": "IPv4 destination 255.255.255.255, used for local-link broadcasts and not routed to other links.",
+    "example": "A DHCP client broadcasts before acquiring its address.",
+    "related": ["directed-broadcast", "dhcp", "broadcast-address"]
+  },
+  {
+    "id": "directed-broadcast",
+    "term": "Directed broadcast",
+    "category": "Addressing",
+    "definition": "A subnet's IPv4 all-host-bits-one address. Router forwarding of directed broadcasts is usually disabled.",
+    "example": "192.0.2.255 targets all hosts in 192.0.2.0/24 under broadcast rules.",
+    "related": ["broadcast-address", "limited-broadcast", "ddos"]
+  },
+  {
+    "id": "unspecified-address",
+    "term": "Unspecified address",
+    "category": "Addressing",
+    "definition": "A value indicating absence of a configured address in defined contexts. IPv6 uses ::; IPv4 0.0.0.0 has related protocol and API uses.",
+    "example": "IPv6 Duplicate Address Detection can use :: as its source.",
+    "related": ["duplicate-address", "bind-address", "loopback"]
+  },
+  {
+    "id": "global-unicast",
+    "term": "Global unicast",
+    "category": "Addressing",
+    "definition": "IPv6 unicast addressing intended for global routing, subject to allocations and special-purpose exceptions. Format alone does not prove reachability.",
+    "example": "2001:db8::1 has global-unicast format but is documentation-only.",
+    "related": ["ipv6", "documentation-prefix", "special-purpose"]
+  },
+  {
+    "id": "ula",
+    "term": "Unique local address",
+    "category": "Addressing",
+    "definition": "IPv6 space fc00::/7 for local communication; locally generated prefixes use fd00::/8 with random global identifiers to reduce collisions.",
+    "example": "A generated fd7a:6e2d:9301::/48 can support internal addressing.",
+    "related": ["ipv6", "renumbering", "overlap"]
+  },
+  {
+    "id": "ipv6-multicast",
+    "term": "IPv6 multicast",
+    "category": "Addressing",
+    "definition": "Group addresses in ff00::/8 containing scope and flag information, replacing many IPv4 broadcast functions.",
+    "example": "ff02::1 reaches all IPv6 nodes on the link.",
+    "related": ["multicast", "solicited-node", "ndp"]
+  },
+  {
+    "id": "solicited-node",
+    "term": "Solicited-node multicast",
+    "category": "Addressing",
+    "definition": "An IPv6 group derived from the low 24 address bits, used in Neighbor Discovery.",
+    "example": "2001:db8::1234:5678 maps to ff02::1:ff34:5678.",
+    "related": ["ndp", "ipv6-multicast", "duplicate-address"]
+  },
+  {
+    "id": "zero-compression",
+    "term": "IPv6 zero compression",
+    "category": "Addressing",
+    "definition": "Using :: once to replace zero groups. Canonical text selects the longest qualifying run and the leftmost on a tie.",
+    "example": "2001:0db8:0:0:0:0:0:1 becomes 2001:db8::1.",
+    "related": ["hextet", "ipv6", "canonical-form"]
+  },
+  {
+    "id": "canonical-form",
+    "term": "Canonical IPv6 form",
+    "category": "Addressing",
+    "definition": "RFC 5952's consistent representation: lowercase hexadecimal, removed leading group zeros, and specific zero-compression rules.",
+    "example": "2001:DB8:0000:0001:0:0:0:1 becomes 2001:db8:0:1::1.",
+    "related": ["zero-compression", "ipv6", "hexadecimal"]
+  },
+  {
+    "id": "zone-id",
+    "term": "Zone identifier",
+    "category": "Addressing",
+    "definition": "A local suffix selecting an interface or scope zone when an address such as IPv6 link-local would otherwise be ambiguous.",
+    "example": "fe80::1%eth0 selects the neighbor on eth0.",
+    "related": ["link-local", "interface", "ipv6"]
+  },
+  {
+    "id": "interface-id",
+    "term": "Interface identifier",
+    "category": "Addressing",
+    "definition": "The low-order portion of many IPv6 unicast addresses, commonly 64 bits on standard LANs, generated through several possible mechanisms.",
+    "example": "A stable opaque identifier need not embed a MAC address.",
+    "related": ["eui64", "slaac", "privacy-address"]
+  },
+  {
+    "id": "eui64",
+    "term": "Modified EUI-64",
+    "category": "Addressing",
+    "definition": "Deriving a 64-bit IPv6 identifier from a 48-bit MAC by inserting FFFE and flipping the universal/local bit.",
+    "example": "00:11:22:33:44:55 becomes 0211:22ff:fe33:4455.",
+    "related": ["mac-address", "interface-id", "privacy-address"]
+  },
+  {
+    "id": "privacy-address",
+    "term": "Temporary IPv6 address",
+    "category": "Addressing",
+    "definition": "An IPv6 address rotated to reduce long-term correlation by an interface identifier; it does not provide anonymity.",
+    "example": "A host keeps a stable address while using temporary addresses for outgoing connections.",
+    "related": ["slaac", "interface-id", "eui64"]
+  },
+  {
+    "id": "ipv4-mapped",
+    "term": "IPv4-mapped IPv6 address",
+    "category": "Addressing",
+    "definition": "An address in ::ffff:0:0/96 representing an IPv4 endpoint in IPv6-capable APIs; it is not a tunnel.",
+    "example": "::ffff:192.0.2.10 represents IPv4 192.0.2.10.",
+    "related": ["dual-stack", "nat64", "ipv6"]
+  },
+  {
+    "id": "nat64",
+    "term": "NAT64",
+    "category": "Addressing",
+    "definition": "Translation between IPv6 and IPv4, often paired with DNS64 so IPv6-only clients can reach IPv4-only services.",
+    "example": "64:ff9b::c000:20a embeds 192.0.2.10 with the well-known /96 prefix.",
+    "related": ["dns64", "nat", "ipv4-mapped"]
+  },
+  {
+    "id": "dual-stack",
+    "term": "Dual stack",
+    "category": "Addressing",
+    "definition": "Operating IPv4 and IPv6 concurrently, with separate addressing, routing, filtering, and diagnostics for each.",
+    "example": "A hostname publishes both A and AAAA records.",
+    "related": ["ipv4", "ipv6", "happy-eyeballs"]
+  },
+  {
+    "id": "six-to-four",
+    "term": "6to4",
+    "category": "Addressing",
+    "definition": "A historical automatic tunnel using 2002::/16 and embedded IPv4 addressing. Relay-based 6to4 is deprecated and unsuitable for new designs.",
+    "example": "2002:c000:0201::/48 contains an example IPv4 value.",
+    "related": ["tunnel", "dual-stack", "nat64"]
+  },
+  {
+    "id": "address-space",
+    "term": "Address space",
+    "category": "Addressing",
+    "definition": "The possible address range plus the context where addresses are interpreted. Separate routing domains can intentionally reuse private values.",
+    "example": "Lab and production VRFs may each contain 10.1.0.0/16.",
+    "related": ["vrf", "overlap", "ipam"]
+  },
+  {
+    "id": "provider-reservation",
+    "term": "Provider reservation",
+    "category": "Addressing",
+    "definition": "Platform-specific address exclusions beyond conventional subnet mathematics. Capacity must follow the actual platform's documented policy.",
+    "example": "A cloud subnet may offer fewer addresses than total count minus two.",
+    "related": ["usable-hosts", "ipam", "subnet-mask"]
+  },
+  {
+    "id": "ipam",
+    "term": "IP address management",
+    "category": "Addressing",
+    "definition": "Tracking blocks, assignments, owners, purposes, availability, and revisions across an organization's networks.",
+    "example": "An IPAM record associates a prefix with its VLAN, gateway, and owner.",
+    "related": ["address-space", "dhcp", "reservation"]
+  },
+  {
+    "id": "reservation",
+    "term": "Address reservation",
+    "category": "Addressing",
+    "definition": "An address or block set aside for a purpose, or a DHCP mapping ensuring a client receives a specific address.",
+    "example": "A plan reserves /26 for growth and a DHCP address for a printer.",
+    "related": ["dhcp", "ipam", "growth-allowance"]
+  },
+  {
+    "id": "renumbering",
+    "term": "Renumbering",
+    "category": "Addressing",
+    "definition": "Changing assigned addresses and all dependent routes, DNS, firewall rules, and application references.",
+    "example": "A merger moves one overlapping site to a different private block.",
+    "related": ["overlap", "ipam", "dns"]
+  },
+  {
+    "id": "range-to-cidr",
+    "term": "Range-to-CIDR conversion",
+    "category": "Addressing",
+    "definition": "Expressing an inclusive interval as a minimal exact set of aligned CIDR blocks without adding addresses.",
+    "example": "192.0.2.0–192.0.2.5 becomes .0/30 and .4/31.",
+    "related": ["alignment", "cidr", "route-aggregation"]
+  },
+  {
+    "id": "overlap",
+    "term": "Address overlap",
+    "category": "Addressing",
+    "definition": "Two ranges intersect when at least one address occurs in both within the relevant address-space context.",
+    "example": "10.0.0.0/24 overlaps 10.0.0.128/25.",
+    "related": ["containment", "vrf", "renumbering"]
+  },
+  {
+    "id": "containment",
+    "term": "Subnet containment",
+    "category": "Addressing",
+    "definition": "Every address of one network lies inside another; this is a specific form of overlap.",
+    "example": "192.0.2.64/26 is contained in 192.0.2.0/24.",
+    "related": ["overlap", "cidr", "route-aggregation"]
+  },
+  {
+    "id": "point-to-point",
+    "term": "Point-to-point link",
+    "category": "Addressing",
+    "definition": "A two-endpoint connection. RFC 3021 permits both IPv4 /31 addresses; RFC 6164 describes IPv6 /127 inter-router links.",
+    "example": "192.0.2.0/31 provides endpoints .0 and .1 in point-to-point mode.",
+    "related": ["usable-hosts", "host-route", "transit-network"]
+  },
+  {
+    "id": "growth-allowance",
+    "term": "Growth allowance",
+    "category": "Addressing",
+    "definition": "An explicit capacity margin added to current requirements before choosing a subnet, with rounding and gateway assumptions stated.",
+    "example": "80 addresses plus 25% growth requires capacity for at least 100.",
+    "related": ["vlsm", "reservation", "ipam"]
+  },
+  {
+    "id": "router",
+    "term": "Router",
+    "category": "Routing",
+    "definition": "A device or function forwarding IP packets between networks according to routing and policy information.",
+    "example": "A host sends off-link traffic to its configured gateway.",
+    "related": ["routing-table", "next-hop", "default-gateway"]
+  },
+  {
+    "id": "routing-table",
+    "term": "Routing table",
+    "category": "Routing",
+    "definition": "A set of destination prefixes and associated next hops, interfaces, or actions used to select forwarding behavior.",
+    "example": "A matching /24 route takes precedence over a default route.",
+    "related": ["longest-prefix-match", "default-route", "metric"]
+  },
+  {
+    "id": "next-hop",
+    "term": "Next hop",
+    "category": "Routing",
+    "definition": "The immediate forwarding destination selected for a packet, often a router reachable on an attached link.",
+    "example": "A route to 10.4.0.0/16 uses next hop 192.0.2.1.",
+    "related": ["arp", "ndp", "routing-table"]
+  },
+  {
+    "id": "default-gateway",
+    "term": "Default gateway",
+    "category": "Routing",
+    "definition": "A host's usual router for destinations without a more specific route; it must be reachable in that host's routing context.",
+    "example": "192.0.2.1 serves as the gateway for a workstation on 192.0.2.0/24.",
+    "related": ["default-route", "on-link", "next-hop"]
+  },
+  {
+    "id": "default-route",
+    "term": "Default route",
+    "category": "Routing",
+    "definition": "The /0 route, matching destinations not selected by a more specific route: 0.0.0.0/0 or ::/0.",
+    "example": "An edge sends otherwise unmatched internet traffic upstream.",
+    "related": ["longest-prefix-match", "routing-table", "cidr"]
+  },
+  {
+    "id": "host-route",
+    "term": "Host route",
+    "category": "Routing",
+    "definition": "A route covering exactly one address, written /32 in IPv4 or /128 in IPv6.",
+    "example": "10.0.0.5/32 identifies one loopback address.",
+    "related": ["prefix-length", "loopback-interface", "point-to-point"]
+  },
+  {
+    "id": "longest-prefix-match",
+    "term": "Longest-prefix match",
+    "category": "Routing",
+    "definition": "Selecting the matching route with the greatest prefix length before resolving alternatives for that same prefix.",
+    "example": "10.2.3.0/24 is preferred over 10.2.0.0/16 for a destination inside both.",
+    "related": ["routing-table", "route-aggregation", "default-route"]
+  },
+  {
+    "id": "static-route",
+    "term": "Static route",
+    "category": "Routing",
+    "definition": "A route configured directly rather than learned by a routing protocol.",
+    "example": "An appliance uses a manually configured route to its management network.",
+    "related": ["dynamic-routing", "next-hop", "floating-static"]
+  },
+  {
+    "id": "dynamic-routing",
+    "term": "Dynamic routing",
+    "category": "Routing",
+    "definition": "Route discovery and adjustment through protocols exchanging reachability or topology information.",
+    "example": "OSPF updates paths after a link fails.",
+    "related": ["ospf", "bgp", "convergence"]
+  },
+  {
+    "id": "metric",
+    "term": "Routing metric",
+    "category": "Routing",
+    "definition": "A protocol-specific path-comparison value such as cost or hop count; values across different protocols are not directly comparable.",
+    "example": "OSPF selects a path using accumulated cost.",
+    "related": ["administrative-distance", "ospf", "ecmp"]
+  },
+  {
+    "id": "administrative-distance",
+    "term": "Administrative distance",
+    "category": "Routing",
+    "definition": "A vendor-specific local preference among route sources for the same prefix, distinct from longest-prefix matching and protocol metrics.",
+    "example": "A configured router prefers one protocol's /24 to another source's identical /24.",
+    "related": ["metric", "static-route", "longest-prefix-match"]
+  },
+  {
+    "id": "control-plane",
+    "term": "Control plane",
+    "category": "Routing",
+    "definition": "Functions learning topology, exchanging routes, and programming forwarding behavior.",
+    "example": "An OSPF adjacency belongs to the control plane.",
+    "related": ["data-plane", "management-plane", "convergence"]
+  },
+  {
+    "id": "data-plane",
+    "term": "Data plane",
+    "category": "Routing",
+    "definition": "Functions that forward or filter traffic using installed decisions.",
+    "example": "A switch forwards a frame through its MAC table.",
+    "related": ["control-plane", "forwarding-table", "acl"]
+  },
+  {
+    "id": "management-plane",
+    "term": "Management plane",
+    "category": "Routing",
+    "definition": "Interfaces and services used for administration and monitoring rather than ordinary transit forwarding.",
+    "example": "SSH and configuration APIs receive restricted administrative access.",
+    "related": ["control-plane", "management-vlan", "least-privilege"]
+  },
+  {
+    "id": "forwarding-table",
+    "term": "Forwarding table",
+    "category": "Routing",
+    "definition": "A structure optimized for actual packet forwarding, derived from selected routes and resolved adjacency information.",
+    "example": "A router installs a prefix with its next-hop forwarding action.",
+    "related": ["routing-table", "data-plane", "next-hop"]
+  },
+  {
+    "id": "route-aggregation",
+    "term": "Route aggregation",
+    "category": "Routing",
+    "definition": "Combining compatible prefixes into broader routing or address-set representations. A covering aggregate may add addresses while exact aggregation does not.",
+    "example": "Two aligned adjacent /25 blocks merge exactly into one /24.",
+    "related": ["summarization", "alignment", "blackhole-route"]
+  },
+  {
+    "id": "summarization",
+    "term": "Route summarization",
+    "category": "Routing",
+    "definition": "Advertising a broader prefix for multiple routes to reduce state. Safe use depends on topology and actual reachability.",
+    "example": "A building's contiguous networks are summarized at its distribution router.",
+    "related": ["route-aggregation", "topology", "longest-prefix-match"]
+  },
+  {
+    "id": "equal-subnetting",
+    "term": "Equal subnetting",
+    "category": "Routing",
+    "definition": "Dividing a parent into same-sized aligned children. A complete exact partition contains a power-of-two number of subnets.",
+    "example": "Four equal children of /24 are /26 networks.",
+    "related": ["subnet-bits", "vlsm", "alignment"]
+  },
+  {
+    "id": "vlsm",
+    "term": "VLSM",
+    "category": "Routing",
+    "definition": "Variable-Length Subnet Masking assigns different prefix lengths to fit differing requirements within a parent.",
+    "example": "A 100-host group gets /25 and a 20-host group gets /27.",
+    "related": ["growth-allowance", "equal-subnetting", "alignment"]
+  },
+  {
+    "id": "blackhole-route",
+    "term": "Blackhole route",
+    "category": "Routing",
+    "definition": "A route deliberately discarding matching traffic, often protecting against loops in unused parts of an aggregate.",
+    "example": "Unassigned addresses within a site's summary are discarded locally.",
+    "related": ["route-aggregation", "routing-loop", "default-route"]
+  },
+  {
+    "id": "routing-loop",
+    "term": "Routing loop",
+    "category": "Routing",
+    "definition": "A forwarding cycle where routers repeatedly send a packet among themselves, until a limit or failure stops it.",
+    "example": "Router A sends a destination to B and B sends it back to A.",
+    "related": ["ttl", "convergence", "blackhole-route"]
+  },
+  {
+    "id": "ttl",
+    "term": "Time to Live",
+    "category": "Routing",
+    "definition": "An IPv4 header field decremented during forwarding to bound packet lifetime. DNS TTL has a different meaning.",
+    "example": "TTL expiry can cause an ICMP Time Exceeded reply.",
+    "related": ["hop-limit", "traceroute", "icmp"]
+  },
+  {
+    "id": "hop-limit",
+    "term": "Hop Limit",
+    "category": "Routing",
+    "definition": "IPv6's forwarding-hop limit, decremented by routers to prevent indefinite packet circulation.",
+    "example": "A traceroute probe's small Hop Limit elicits an early-hop response.",
+    "related": ["ttl", "ipv6", "traceroute"]
+  },
+  {
+    "id": "on-link",
+    "term": "On-link destination",
+    "category": "Routing",
+    "definition": "A destination considered directly reachable on an attached link according to routing and prefix information.",
+    "example": "The host resolves a local peer through ARP instead of sending to a gateway.",
+    "related": ["default-gateway", "arp", "ndp"]
+  },
+  {
+    "id": "ospf",
+    "term": "OSPF",
+    "category": "Routing",
+    "definition": "A link-state interior routing protocol using topology information, areas, and shortest-path computation.",
+    "example": "Routers exchange link-state advertisements before selecting paths.",
+    "related": ["link-state", "area", "adjacency"]
+  },
+  {
+    "id": "bgp",
+    "term": "BGP",
+    "category": "Routing",
+    "definition": "A path-vector protocol exchanging prefixes and attributes for policy-based routing within and between autonomous systems.",
+    "example": "An ISP advertises authorized customer prefixes to a peer.",
+    "related": ["autonomous-system", "as-path", "prefix-filter"]
+  },
+  {
+    "id": "rip",
+    "term": "RIP",
+    "category": "Routing",
+    "definition": "A distance-vector protocol using hop count, with 15 as the maximum usable route metric.",
+    "example": "Metric 16 indicates an unreachable route.",
+    "related": ["distance-vector", "metric", "convergence"]
+  },
+  {
+    "id": "link-state",
+    "term": "Link-state routing",
+    "category": "Routing",
+    "definition": "Sharing link information so routers can compute paths from a topology database.",
+    "example": "OSPF builds a graph and calculates shortest paths.",
+    "related": ["ospf", "topology", "metric"]
+  },
+  {
+    "id": "distance-vector",
+    "term": "Distance-vector routing",
+    "category": "Routing",
+    "definition": "Learning destination distances and next hops from neighboring routers, with loop-reduction mechanisms.",
+    "example": "RIP exchanges routes and hop counts.",
+    "related": ["rip", "split-horizon", "metric"]
+  },
+  {
+    "id": "autonomous-system",
+    "term": "Autonomous system",
+    "category": "Routing",
+    "definition": "Networks under a defined routing policy, identified by an ASN for interdomain routing.",
+    "example": "A provider's ASN appears in a BGP path.",
+    "related": ["bgp", "as-path", "ebgp"]
+  },
+  {
+    "id": "as-path",
+    "term": "AS_PATH",
+    "category": "Routing",
+    "definition": "A BGP attribute carrying autonomous-system path information for loop detection and policy decisions.",
+    "example": "A router normally rejects an external route containing its own ASN.",
+    "related": ["bgp", "autonomous-system", "route-policy"]
+  },
+  {
+    "id": "ebgp",
+    "term": "eBGP",
+    "category": "Routing",
+    "definition": "BGP peering between different autonomous systems.",
+    "example": "A company exchanges routes with its internet provider.",
+    "related": ["bgp", "ibgp", "autonomous-system"]
+  },
+  {
+    "id": "ibgp",
+    "term": "iBGP",
+    "category": "Routing",
+    "definition": "BGP peering within one autonomous system, distributing BGP information internally.",
+    "example": "Border routers share external routes across the provider's network.",
+    "related": ["bgp", "ebgp", "route-reflector"]
+  },
+  {
+    "id": "route-reflector",
+    "term": "Route reflector",
+    "category": "Routing",
+    "definition": "An iBGP speaker that reflects routes to reduce full-mesh session requirements while using loop-prevention attributes.",
+    "example": "Client routers peer with reflectors rather than every iBGP speaker.",
+    "related": ["ibgp", "bgp", "topology"]
+  },
+  {
+    "id": "area",
+    "term": "OSPF area",
+    "category": "Routing",
+    "definition": "A logical region bounding part of the link-state topology and enabling hierarchy around the backbone.",
+    "example": "A campus uses Area 0 plus regional areas.",
+    "related": ["ospf", "link-state", "summarization"]
+  },
+  {
+    "id": "adjacency",
+    "term": "Routing adjacency",
+    "category": "Routing",
+    "definition": "A neighbor relationship supporting the routing or topology exchange required by a protocol.",
+    "example": "Two OSPF routers can discover each other yet fail to become fully adjacent.",
+    "related": ["ospf", "hello", "mtu"]
+  },
+  {
+    "id": "hello",
+    "term": "Hello message",
+    "category": "Routing",
+    "definition": "A protocol message discovering and maintaining neighbor relationships, often carrying timers and compatibility information.",
+    "example": "OSPF Hellos identify neighbors and selected interface parameters.",
+    "related": ["adjacency", "convergence", "ospf"]
+  },
+  {
+    "id": "convergence",
+    "term": "Convergence",
+    "category": "Routing",
+    "definition": "Reaching a consistent usable routing state after a change, including fault detection, computation, and update delays.",
+    "example": "After a link fails, routers stop using it and install alternate paths.",
+    "related": ["dynamic-routing", "routing-loop", "failover"]
+  },
+  {
+    "id": "ecmp",
+    "term": "ECMP",
+    "category": "Routing",
+    "definition": "Equal-Cost Multipath distributes traffic across equivalent forwarding paths, usually by flow hashing to preserve ordering.",
+    "example": "Two equal-cost uplinks carry different flows.",
+    "related": ["metric", "asymmetric-routing", "flow"]
+  },
+  {
+    "id": "asymmetric-routing",
+    "term": "Asymmetric routing",
+    "category": "Routing",
+    "definition": "Forward and return traffic follow different paths; this can be valid but affects stateful inspection and diagnosis.",
+    "example": "A request and its reply traverse different firewalls.",
+    "related": ["stateful-firewall", "ecmp", "traceroute"]
+  },
+  {
+    "id": "vrf",
+    "term": "VRF",
+    "category": "Routing",
+    "definition": "Virtual Routing and Forwarding separates routing contexts on one device, supporting isolation and address reuse.",
+    "example": "Two tenants use the same private /24 in different VRFs.",
+    "related": ["address-space", "overlap", "routing-table"]
+  },
+  {
+    "id": "transit-network",
+    "term": "Transit network",
+    "category": "Routing",
+    "definition": "A network connecting routers rather than ordinary endpoint access devices.",
+    "example": "A dedicated /31 connects two routing interfaces.",
+    "related": ["point-to-point", "router", "loopback-interface"]
+  },
+  {
+    "id": "loopback-interface",
+    "term": "Loopback interface",
+    "category": "Routing",
+    "definition": "A logical interface independent of a specific physical link, often assigned a host route for stable identification.",
+    "example": "10.255.0.1/32 acts as a router management address.",
+    "related": ["host-route", "router", "management-plane"]
+  },
+  {
+    "id": "floating-static",
+    "term": "Floating static route",
+    "category": "Routing",
+    "definition": "A lower-preference static route that becomes active when the preferred same-prefix route disappears.",
+    "example": "A backup path activates after a dynamic route is withdrawn.",
+    "related": ["static-route", "administrative-distance", "failover"]
+  },
+  {
+    "id": "route-policy",
+    "term": "Route policy",
+    "category": "Routing",
+    "definition": "Rules to accept, reject, modify, or prefer routing information according to administrative intent.",
+    "example": "A provider accepts only a customer's authorized prefixes.",
+    "related": ["prefix-filter", "bgp", "rpki"]
+  },
+  {
+    "id": "prefix-filter",
+    "term": "Prefix filter",
+    "category": "Routing",
+    "definition": "A routing control matching prefix values and often permitted length ranges to constrain advertisements.",
+    "example": "A customer authorized for one /24 cannot announce every /24.",
+    "related": ["route-policy", "bgp", "route-hijack"]
+  },
+  {
+    "id": "rpki",
+    "term": "RPKI",
+    "category": "Routing",
+    "definition": "Resource Public Key Infrastructure supplies signed routing-resource data, including origin authorization for route validation.",
+    "example": "An origin can be valid, invalid, or not found relative to available ROAs.",
+    "related": ["bgp", "route-hijack", "prefix-filter"]
+  },
+  {
+    "id": "split-horizon",
+    "term": "Split horizon",
+    "category": "Routing",
+    "definition": "A distance-vector loop-reduction rule suppressing advertisement back toward the route's learning path.",
+    "example": "A router avoids sending a learned RIP route back through the same interface.",
+    "related": ["distance-vector", "rip", "routing-loop"]
+  },
+  {
+    "id": "topology",
+    "term": "Network topology",
+    "category": "Routing",
+    "definition": "The physical and logical arrangement of nodes, links, and forwarding relationships.",
+    "example": "A physical redundant ring becomes a logical tree under spanning tree.",
+    "related": ["spanning-tree", "router", "convergence"]
+  },
+  {
+    "id": "failover",
+    "term": "Failover",
+    "category": "Routing",
+    "definition": "Transferring a service or forwarding role to an alternate component after a fault or planned change.",
+    "example": "A standby gateway assumes a virtual address.",
+    "related": ["convergence", "floating-static", "default-gateway"]
+  },
+  {
+    "id": "switch",
+    "term": "Ethernet switch",
+    "category": "Switching",
+    "definition": "A bridge learning source MAC addresses and forwarding frames by destination and VLAN context.",
+    "example": "A known unicast frame is forwarded toward the learned destination port.",
+    "related": ["mac-table", "frame", "vlan"]
+  },
+  {
+    "id": "frame",
+    "term": "Ethernet frame",
+    "category": "Switching",
+    "definition": "A link-layer unit containing addressing, payload, and error-detection information; link encapsulation changes at routed boundaries.",
+    "example": "An IP packet travels inside an Ethernet frame.",
+    "related": ["packet", "ethernet", "frame-check-sequence"]
+  },
+  {
+    "id": "packet",
+    "term": "IP packet",
+    "category": "Switching",
+    "definition": "A network-layer unit containing an IP header and payload, forwarded between links by routers.",
+    "example": "A TCP segment becomes an IP packet's payload.",
+    "related": ["frame", "segment", "encapsulation"]
+  },
+  {
+    "id": "segment",
+    "term": "TCP segment",
+    "category": "Switching",
+    "definition": "A TCP unit containing a header and stream data; the phrase network segment has a separate topological meaning.",
+    "example": "A segment carries sequence and acknowledgement numbers.",
+    "related": ["tcp", "mss", "packet"]
+  },
+  {
+    "id": "encapsulation",
+    "term": "Encapsulation",
+    "category": "Switching",
+    "definition": "Wrapping one protocol's data inside another protocol's payload to cross a layer or tunnel.",
+    "example": "HTTP travels inside transport, IP, and Ethernet framing.",
+    "related": ["frame", "packet", "tunnel"]
+  },
+  {
+    "id": "ethernet",
+    "term": "Ethernet",
+    "category": "Switching",
+    "definition": "IEEE link technologies defining frame and physical transmission behavior, commonly using full-duplex switched links today.",
+    "example": "A workstation connects through a 1 Gb/s copper link.",
+    "related": ["switch", "frame", "duplex"]
+  },
+  {
+    "id": "mac-address",
+    "term": "MAC address",
+    "category": "Switching",
+    "definition": "A link-layer identifier, commonly 48 bits for Ethernet, with universal, local, or randomized assignment behavior.",
+    "example": "00:11:22:33:44:55 contains six hexadecimal bytes.",
+    "related": ["oui", "local-mac", "eui64"]
+  },
+  {
+    "id": "oui",
+    "term": "OUI",
+    "category": "Switching",
+    "definition": "An IEEE organizational identifier; in a traditional MA-L assignment the first 24 bits identify the registrant, not a guaranteed device type.",
+    "example": "A VMware prefix is registration evidence, not proof of a virtual machine.",
+    "related": ["mac-address", "local-mac", "mac-spoofing"]
+  },
+  {
+    "id": "local-mac",
+    "term": "Locally administered MAC",
+    "category": "Switching",
+    "definition": "A MAC with its universal/local bit set, indicating local assignment rather than ordinary vendor-prefix interpretation.",
+    "example": "02:00:00:00:00:01 is locally administered.",
+    "related": ["mac-address", "oui", "mac-spoofing"]
+  },
+  {
+    "id": "mac-table",
+    "term": "MAC address table",
+    "category": "Switching",
+    "definition": "A switch mapping learned MAC addresses and VLANs to ports, with entries typically aging over time.",
+    "example": "A source frame teaches which port leads to its sender.",
+    "related": ["switch", "unknown-unicast", "mac-flapping"]
+  },
+  {
+    "id": "unknown-unicast",
+    "term": "Unknown unicast flooding",
+    "category": "Switching",
+    "definition": "Flooding a unicast frame within eligible VLAN ports when its destination has not been learned.",
+    "example": "An aged-out destination temporarily causes flooding.",
+    "related": ["mac-table", "broadcast-domain", "switch"]
+  },
+  {
+    "id": "broadcast-domain",
+    "term": "Broadcast domain",
+    "category": "Switching",
+    "definition": "Interfaces receiving a link-layer broadcast under the forwarding rules, usually one VLAN.",
+    "example": "Routed VLAN interfaces separate broadcast domains.",
+    "related": ["vlan", "broadcast-storm", "router"]
+  },
+  {
+    "id": "collision-domain",
+    "term": "Collision domain",
+    "category": "Switching",
+    "definition": "A shared half-duplex Ethernet medium where simultaneous transmitters can collide; full-duplex switched links do not operate this way.",
+    "example": "A legacy hub shares one collision domain among endpoints.",
+    "related": ["duplex", "ethernet", "switch"]
+  },
+  {
+    "id": "vlan",
+    "term": "VLAN",
+    "category": "Switching",
+    "definition": "A Virtual LAN separates a bridged network into logical broadcast domains.",
+    "example": "Staff and guests use distinct VLANs on the same physical switch.",
+    "related": ["access-port", "trunk-port", "inter-vlan-routing"]
+  },
+  {
+    "id": "vlan-id",
+    "term": "VLAN ID",
+    "category": "Switching",
+    "definition": "The 12-bit 802.1Q identifier; ordinary VLAN assignment uses 1–4094, with other values reserved for specific meanings.",
+    "example": "VLAN 20 carries a department across several trunks.",
+    "related": ["vlan", "dot1q", "trunk-port"]
+  },
+  {
+    "id": "dot1q",
+    "term": "802.1Q tagging",
+    "category": "Switching",
+    "definition": "Ethernet tagging carrying VLAN identity and priority information.",
+    "example": "A trunk distinguishes VLAN 10 and VLAN 20 frames with tags.",
+    "related": ["vlan-id", "trunk-port", "native-vlan"]
+  },
+  {
+    "id": "access-port",
+    "term": "Access port",
+    "category": "Switching",
+    "definition": "A port assigning ordinary endpoint untagged traffic to a configured VLAN, with additional voice behavior explicitly defined.",
+    "example": "A desktop port places untagged frames into VLAN 10.",
+    "related": ["vlan", "trunk-port", "port-security"]
+  },
+  {
+    "id": "trunk-port",
+    "term": "Trunk port",
+    "category": "Switching",
+    "definition": "A link carrying multiple VLANs, commonly with 802.1Q tags and an explicit permitted list.",
+    "example": "Two switches transport VLANs 10, 20, and 99 on one link.",
+    "related": ["dot1q", "allowed-vlans", "native-vlan"]
+  },
+  {
+    "id": "native-vlan",
+    "term": "Native VLAN",
+    "category": "Switching",
+    "definition": "A configuration mapping untagged traffic on a trunk to a VLAN; both ends and tagging behavior must agree.",
+    "example": "A mismatch can place untagged traffic into unintended VLANs.",
+    "related": ["trunk-port", "vlan-hopping", "dot1q"]
+  },
+  {
+    "id": "allowed-vlans",
+    "term": "Allowed VLAN list",
+    "category": "Switching",
+    "definition": "The explicitly permitted VLAN set on a trunk, limiting unnecessary forwarding and exposure.",
+    "example": "A server trunk only allows its required VLANs 30 and 40.",
+    "related": ["trunk-port", "vlan", "vlan-hopping"]
+  },
+  {
+    "id": "inter-vlan-routing",
+    "term": "Inter-VLAN routing",
+    "category": "Switching",
+    "definition": "Layer-three forwarding between VLANs using a router or multilayer switch, with policy defining permitted flows.",
+    "example": "Staff may reach a server VLAN while guests cannot.",
+    "related": ["svi", "subinterface", "access-control-list"]
+  },
+  {
+    "id": "svi",
+    "term": "Switched Virtual Interface",
+    "category": "Switching",
+    "definition": "A logical layer-three interface associated with a VLAN on a multilayer switch.",
+    "example": "A VLAN 10 SVI at 192.0.2.1 supplies a gateway.",
+    "related": ["vlan", "inter-vlan-routing", "default-gateway"]
+  },
+  {
+    "id": "subinterface",
+    "term": "Subinterface",
+    "category": "Switching",
+    "definition": "A logical interface within a physical interface, often selected by a VLAN tag or encapsulation context.",
+    "example": "One router link provides several tagged VLAN gateways.",
+    "related": ["dot1q", "inter-vlan-routing", "trunk-port"]
+  },
+  {
+    "id": "spanning-tree",
+    "term": "Spanning Tree Protocol",
+    "category": "Switching",
+    "definition": "Bridge protocols preventing forwarding loops by selecting a loop-free active topology while retaining redundant links.",
+    "example": "One redundant path stays non-forwarding until needed.",
+    "related": ["root-bridge", "bpdu", "broadcast-storm"]
+  },
+  {
+    "id": "rstp",
+    "term": "Rapid Spanning Tree",
+    "category": "Switching",
+    "definition": "A spanning-tree evolution providing faster topology transitions through improved state and agreement mechanisms.",
+    "example": "A compatible point-to-point link can recover quickly after topology change.",
+    "related": ["spanning-tree", "bpdu", "convergence"]
+  },
+  {
+    "id": "root-bridge",
+    "term": "Root bridge",
+    "category": "Switching",
+    "definition": "The elected bridge used as the reference for spanning-tree path calculations.",
+    "example": "A distribution switch receives a deliberate preferred priority.",
+    "related": ["spanning-tree", "bpdu", "topology"]
+  },
+  {
+    "id": "bpdu",
+    "term": "BPDU",
+    "category": "Switching",
+    "definition": "A Bridge Protocol Data Unit exchanging spanning-tree information between bridges.",
+    "example": "An unexpected BPDU on a desktop port can reveal an attached switch.",
+    "related": ["spanning-tree", "bpdu-guard", "root-bridge"]
+  },
+  {
+    "id": "bpdu-guard",
+    "term": "BPDU Guard",
+    "category": "Switching",
+    "definition": "Protection reacting to BPDUs on a port intended for an endpoint rather than another bridge.",
+    "example": "An access port is disabled after detecting an unauthorized switch.",
+    "related": ["bpdu", "edge-port", "spanning-tree"]
+  },
+  {
+    "id": "edge-port",
+    "term": "Edge port",
+    "category": "Switching",
+    "definition": "A spanning-tree port designated for an endpoint, enabling appropriate rapid forwarding behavior.",
+    "example": "A desktop port is marked edge and protected with BPDU Guard.",
+    "related": ["bpdu-guard", "access-port", "rstp"]
+  },
+  {
+    "id": "link-aggregation",
+    "term": "Link aggregation",
+    "category": "Switching",
+    "definition": "Combining multiple physical links into a logical interface for resilience and aggregate capacity, usually distributing complete flows.",
+    "example": "Two uplinks form one logical bundle.",
+    "related": ["lacp", "flow", "failover"]
+  },
+  {
+    "id": "lacp",
+    "term": "LACP",
+    "category": "Switching",
+    "definition": "A protocol negotiating membership and operation of standards-based link aggregation groups.",
+    "example": "A switch and server agree which links belong to the same bundle.",
+    "related": ["link-aggregation", "duplex", "flow"]
+  },
+  {
+    "id": "mtu",
+    "term": "MTU",
+    "category": "Switching",
+    "definition": "The largest network-layer packet a link can carry without link-specific fragmentation; tunnel overhead lowers effective inner capacity.",
+    "example": "A 1500-byte IP MTU excludes Ethernet framing.",
+    "related": ["mss", "path-mtu", "jumbo-frame"]
+  },
+  {
+    "id": "mss",
+    "term": "MSS",
+    "category": "Switching",
+    "definition": "The maximum TCP payload a peer advertises, excluding IP and TCP headers.",
+    "example": "1500-byte IPv4 MTU with minimum IP/TCP headers gives MSS 1460.",
+    "related": ["mtu", "tcp", "tcp-options"]
+  },
+  {
+    "id": "jumbo-frame",
+    "term": "Jumbo frame",
+    "category": "Switching",
+    "definition": "An Ethernet frame exceeding conventional size, requiring compatible end-to-end configuration.",
+    "example": "A storage path uses larger MTU only after every hop is verified.",
+    "related": ["mtu", "path-mtu", "frame"]
+  },
+  {
+    "id": "path-mtu",
+    "term": "Path MTU",
+    "category": "Switching",
+    "definition": "The smallest link MTU on a forwarding path, affected by routing and encapsulation.",
+    "example": "A VPN path supports less inner payload than a local Ethernet link.",
+    "related": ["mtu", "pmtud", "tunnel"]
+  },
+  {
+    "id": "pmtud",
+    "term": "Path MTU Discovery",
+    "category": "Switching",
+    "definition": "Learning packet-size limits through control feedback or suitable transport probing.",
+    "example": "IPv6 Packet Too Big messages tell a sender to reduce packet size.",
+    "related": ["path-mtu", "icmpv6", "fragmentation"]
+  },
+  {
+    "id": "fragmentation",
+    "term": "IP fragmentation",
+    "category": "Switching",
+    "definition": "Dividing packets into smaller units; IPv4 routers can fragment when allowed, while IPv6 routers never fragment transit packets.",
+    "example": "An IPv6 sender adjusts or fragments after learning a size constraint.",
+    "related": ["mtu", "pmtud", "ipv6"]
+  },
+  {
+    "id": "frame-check-sequence",
+    "term": "Frame Check Sequence",
+    "category": "Switching",
+    "definition": "A CRC-based link error detector, not cryptographic authentication.",
+    "example": "A switch discards an Ethernet frame with invalid FCS.",
+    "related": ["frame", "ethernet", "integrity"]
+  },
+  {
+    "id": "duplex",
+    "term": "Duplex",
+    "category": "Switching",
+    "definition": "Whether communication is simultaneous in both directions: full duplex permits it, while half duplex shares access.",
+    "example": "A legacy duplex mismatch can cause errors and low throughput.",
+    "related": ["collision-domain", "ethernet", "auto-negotiation"]
+  },
+  {
+    "id": "auto-negotiation",
+    "term": "Auto-negotiation",
+    "category": "Switching",
+    "definition": "A link mechanism selecting compatible operating parameters according to the relevant media standard.",
+    "example": "Two interfaces agree on supported speed and duplex.",
+    "related": ["duplex", "ethernet", "interface"]
+  },
+  {
+    "id": "poe",
+    "term": "Power over Ethernet",
+    "category": "Switching",
+    "definition": "IEEE mechanisms supplying negotiated electrical power over compatible Ethernet cabling.",
+    "example": "An access point receives power from its switch.",
+    "related": ["ethernet", "interface", "management-plane"]
+  },
+  {
+    "id": "management-vlan",
+    "term": "Management VLAN",
+    "category": "Switching",
+    "definition": "A VLAN dedicated to equipment administration, with reachability restricted to approved operators and services.",
+    "example": "Only an administrator subnet can reach switch SSH addresses.",
+    "related": ["management-plane", "vlan", "least-privilege"]
+  },
+  {
+    "id": "voice-vlan",
+    "term": "Voice VLAN",
+    "category": "Switching",
+    "definition": "A VLAN arrangement separating phone traffic for addressing, policy, and quality-of-service handling.",
+    "example": "A phone tags voice while its attached workstation uses the data VLAN.",
+    "related": ["vlan", "qos", "access-port"]
+  },
+  {
+    "id": "mac-flapping",
+    "term": "MAC flapping",
+    "category": "Switching",
+    "definition": "Repeated learning of one MAC on different ports, potentially caused by loops, configuration faults, or legitimate mobility.",
+    "example": "A switch log alternates one source between unexpected ports.",
+    "related": ["mac-table", "spanning-tree", "broadcast-storm"]
+  },
+  {
+    "id": "port-security",
+    "term": "Port security",
+    "category": "Switching",
+    "definition": "Switch controls limiting accepted source MACs or their count; these supplement stronger identity mechanisms.",
+    "example": "An access port limits unapproved extra devices.",
+    "related": ["access-port", "mac-spoofing", "dot1x"]
+  },
+  {
+    "id": "storm-control",
+    "term": "Storm control",
+    "category": "Switching",
+    "definition": "Rate controls on broadcast, multicast, or unknown-unicast traffic to reduce flooding disruption.",
+    "example": "An edge port drops broadcasts beyond a configured threshold.",
+    "related": ["broadcast-storm", "unknown-unicast", "qos"]
+  },
+  {
+    "id": "interface",
+    "term": "Network interface",
+    "category": "Switching",
+    "definition": "A physical or logical attachment point with link, address, and configuration context.",
+    "example": "A server has Ethernet, loopback, and tunnel interfaces.",
+    "related": ["ip-address", "zone-id", "loopback-interface"]
+  },
+  {
+    "id": "access-control-list",
+    "term": "Access control list",
+    "category": "Security",
+    "definition": "Ordered matching rules and actions controlling traffic or resources, with platform-specific evaluation and default behavior.",
+    "example": "An ACL permits one source subnet to a selected TCP service.",
+    "related": ["acl", "wildcard-mask", "least-privilege"]
+  },
+  {
+    "id": "acl",
+    "term": "ACL entry",
+    "category": "Security",
+    "definition": "One match-and-action rule within an access control list.",
+    "example": "A rule allows 192.0.2.0/24 to a server's TCP port 443.",
+    "related": ["access-control-list", "stateless-firewall", "implicit-deny"]
+  },
+  {
+    "id": "implicit-deny",
+    "term": "Implicit deny",
+    "category": "Security",
+    "definition": "A policy default refusing traffic after no explicit permit matches, when defined by the platform.",
+    "example": "An unmatched Cisco-style ACL packet reaches the implicit deny.",
+    "related": ["access-control-list", "least-privilege", "rule-order"]
+  },
+  {
+    "id": "rule-order",
+    "term": "Rule order",
+    "category": "Security",
+    "definition": "The rule evaluation sequence, crucial in first-match systems where broad earlier rules can hide later exceptions.",
+    "example": "An early deny-all prevents a later permit-HTTPS from taking effect.",
+    "related": ["access-control-list", "implicit-deny", "shadowed-rule"]
+  },
+  {
+    "id": "shadowed-rule",
+    "term": "Shadowed rule",
+    "category": "Security",
+    "definition": "A rule whose possible traffic has already matched earlier rules, so it never affects the result.",
+    "example": "A permit-all before deny-SSH shadows the deny in first-match processing.",
+    "related": ["rule-order", "access-control-list", "least-privilege"]
+  },
+  {
+    "id": "stateful-firewall",
+    "term": "Stateful firewall",
+    "category": "Security",
+    "definition": "Filtering that tracks connection state and permits related return traffic according to policy.",
+    "example": "A permitted outgoing TCP session creates state for its replies.",
+    "related": ["stateless-firewall", "connection-tracking", "asymmetric-routing"]
+  },
+  {
+    "id": "stateless-firewall",
+    "term": "Stateless firewall",
+    "category": "Security",
+    "definition": "Packet filtering without maintained per-connection state.",
+    "example": "A router ACL checks addresses and ports independently on each packet.",
+    "related": ["stateful-firewall", "access-control-list", "acl"]
+  },
+  {
+    "id": "connection-tracking",
+    "term": "Connection tracking",
+    "category": "Security",
+    "definition": "Maintaining flow state for filtering, translation, and related actions, subject to timeouts and capacity limits.",
+    "example": "A NAT device records internal and translated endpoints.",
+    "related": ["stateful-firewall", "nat", "flow"]
+  },
+  {
+    "id": "least-privilege",
+    "term": "Least privilege",
+    "category": "Security",
+    "definition": "Granting only access necessary for a defined purpose, limited in identity, scope, and duration.",
+    "example": "An application role cannot read unrelated users' projects.",
+    "related": ["access-control-list", "segmentation", "authorization"]
+  },
+  {
+    "id": "segmentation",
+    "term": "Segmentation",
+    "category": "Security",
+    "definition": "Dividing networks into zones with deliberate connectivity controls and operational boundaries.",
+    "example": "Guests reach the internet but cannot initiate management connections.",
+    "related": ["vlan", "least-privilege", "zero-trust"]
+  },
+  {
+    "id": "zero-trust",
+    "term": "Zero trust",
+    "category": "Security",
+    "definition": "Access evaluation based on identity, device, resource, and context rather than trust implied solely by location.",
+    "example": "Being on office Wi-Fi does not bypass application authentication.",
+    "related": ["authentication", "authorization", "least-privilege"]
+  },
+  {
+    "id": "authentication",
+    "term": "Authentication",
+    "category": "Security",
+    "definition": "Establishing a claimed identity using suitable evidence; it does not decide every permitted action.",
+    "example": "A passkey proves possession before a session is issued.",
+    "related": ["authorization", "mfa", "session-token"]
+  },
+  {
+    "id": "authorization",
+    "term": "Authorization",
+    "category": "Security",
+    "definition": "Determining whether an actor may access a particular resource or operation.",
+    "example": "The API checks project ownership for every protected request.",
+    "related": ["authentication", "least-privilege", "idor"]
+  },
+  {
+    "id": "mfa",
+    "term": "Multifactor authentication",
+    "category": "Security",
+    "definition": "Using evidence from distinct factor categories; two passwords remain one knowledge factor.",
+    "example": "A hardware security key supplements password authentication.",
+    "related": ["authentication", "phishing", "passkey"]
+  },
+  {
+    "id": "passkey",
+    "term": "Passkey",
+    "category": "Security",
+    "definition": "A public-key credential bound to its relying party and unlocked using local user verification through FIDO/WebAuthn mechanisms.",
+    "example": "A site receives a signed challenge, never the device PIN.",
+    "related": ["mfa", "phishing", "authentication"]
+  },
+  {
+    "id": "session-token",
+    "term": "Session token",
+    "category": "Security",
+    "definition": "A value representing a session or access grant, whose possession can confer scoped access.",
+    "example": "A bearer access token accompanies an API request.",
+    "related": ["jwt", "authentication", "csrf"]
+  },
+  {
+    "id": "jwt",
+    "term": "JSON Web Token",
+    "category": "Security",
+    "definition": "Structured claims often signed for integrity; decoding is not validation, and signatures do not encrypt claims.",
+    "example": "An API verifies issuer, audience, expiry, and signature.",
+    "related": ["session-token", "integrity", "authorization"]
+  },
+  {
+    "id": "csrf",
+    "term": "Cross-site request forgery",
+    "category": "Security",
+    "definition": "Inducing a browser to perform an unintended authenticated action, especially when credentials attach automatically.",
+    "example": "Cookie-based writes need suitable origin and anti-CSRF protection.",
+    "related": ["session-token", "cors", "origin"]
+  },
+  {
+    "id": "cors",
+    "term": "CORS",
+    "category": "Security",
+    "definition": "Browser rules governing whether cross-origin scripts may read responses, separate from API authentication or outbound firewall policy.",
+    "example": "The server permits a frontend origin and still verifies its access token.",
+    "related": ["csrf", "origin", "authorization"]
+  },
+  {
+    "id": "origin",
+    "term": "Web origin",
+    "category": "Security",
+    "definition": "The scheme, host, and port used by browsers to define same-origin boundaries.",
+    "example": "HTTP and HTTPS versions of the same hostname have different origins.",
+    "related": ["cors", "xss", "tls"]
+  },
+  {
+    "id": "xss",
+    "term": "Cross-site scripting",
+    "category": "Security",
+    "definition": "Executing untrusted content as script in a trusted web origin.",
+    "example": "Unsafe HTML rendering of a chat answer can expose session-accessible data.",
+    "related": ["output-encoding", "origin", "csp"]
+  },
+  {
+    "id": "output-encoding",
+    "term": "Output encoding",
+    "category": "Security",
+    "definition": "Representing untrusted data safely for the exact output context, such as HTML text, attributes, or URLs.",
+    "example": "Rendering text as text avoids interpreting it as HTML.",
+    "related": ["xss", "input-validation", "sql-injection"]
+  },
+  {
+    "id": "csp",
+    "term": "Content Security Policy",
+    "category": "Security",
+    "definition": "Browser restrictions on content sources and execution behavior, providing defense in depth.",
+    "example": "A policy blocks arbitrary inline scripts.",
+    "related": ["xss", "origin", "http-header"]
+  },
+  {
+    "id": "ssrf",
+    "term": "Server-side request forgery",
+    "category": "Security",
+    "definition": "Abusing a server's outbound request ability to reach unintended services with its network access or identity.",
+    "example": "An unchecked URL lookup fetches an internal metadata endpoint.",
+    "related": ["allowlist", "input-validation", "egress-filtering"]
+  },
+  {
+    "id": "allowlist",
+    "term": "Allowlist",
+    "category": "Security",
+    "definition": "Accepting only explicitly permitted values, destinations, actions, or identities.",
+    "example": "A DNS service queries only its configured resolver.",
+    "related": ["ssrf", "least-privilege", "input-validation"]
+  },
+  {
+    "id": "input-validation",
+    "term": "Input validation",
+    "category": "Security",
+    "definition": "Checking types, syntax, bounds, and context before processing; validity does not replace authorization.",
+    "example": "A lookup rejects unsupported DNS record types and overlong names.",
+    "related": ["authorization", "output-encoding", "allowlist"]
+  },
+  {
+    "id": "sql-injection",
+    "term": "SQL injection",
+    "category": "Security",
+    "definition": "Untrusted input changes SQL command structure. Parameter binding separates values from executable syntax.",
+    "example": "A project name is passed as a parameter rather than concatenated into SQL.",
+    "related": ["input-validation", "least-privilege", "authorization"]
+  },
+  {
+    "id": "idor",
+    "term": "Insecure direct object reference",
+    "category": "Security",
+    "definition": "An ownership or authorization flaw allowing access by manipulating a resource identifier; random IDs alone do not solve it.",
+    "example": "A changed project UUID must not reveal another user's plan.",
+    "related": ["authorization", "least-privilege", "rls"]
+  },
+  {
+    "id": "rls",
+    "term": "Row Level Security",
+    "category": "Security",
+    "definition": "Database policies restricting rows according to execution identity or session context.",
+    "example": "A SELECT policy requires owner_id to match the authenticated user.",
+    "related": ["authorization", "idor", "least-privilege"]
+  },
+  {
+    "id": "arp-spoofing",
+    "term": "ARP spoofing",
+    "category": "Security",
+    "definition": "Forged ARP information associates an attacker's MAC with another IPv4 address.",
+    "example": "A victim learns the wrong MAC for its gateway.",
+    "related": ["arp", "dynamic-arp-inspection", "on-path"]
+  },
+  {
+    "id": "on-path",
+    "term": "On-path attacker",
+    "category": "Security",
+    "definition": "An actor able to observe or modify traffic as an intermediary.",
+    "example": "An untrusted gateway replaces unencrypted HTTP content.",
+    "related": ["tls", "arp-spoofing", "certificate"]
+  },
+  {
+    "id": "mac-spoofing",
+    "term": "MAC spoofing",
+    "category": "Security",
+    "definition": "Changing a source MAC to impersonate another interface or evade weak address-based controls.",
+    "example": "An endpoint copies an allowed MAC, bypassing a naive identity assumption.",
+    "related": ["mac-address", "port-security", "dot1x"]
+  },
+  {
+    "id": "dynamic-arp-inspection",
+    "term": "Dynamic ARP Inspection",
+    "category": "Security",
+    "definition": "Switch validation of ARP against trusted bindings or configured policy to reduce spoofing.",
+    "example": "An ARP reply is checked against DHCP snooping data.",
+    "related": ["arp-spoofing", "dhcp-snooping", "arp"]
+  },
+  {
+    "id": "dhcp-snooping",
+    "term": "DHCP snooping",
+    "category": "Security",
+    "definition": "Switch filtering and binding collection that distinguish approved DHCP server paths from untrusted ports.",
+    "example": "A rogue offer arriving on an endpoint port is blocked.",
+    "related": ["rogue-dhcp", "dynamic-arp-inspection", "dhcp"]
+  },
+  {
+    "id": "rogue-dhcp",
+    "term": "Rogue DHCP",
+    "category": "Security",
+    "definition": "Unauthorized DHCP service supplying unwanted addresses, routers, or resolvers.",
+    "example": "A client receives an attacker's DNS resolver through a false offer.",
+    "related": ["dhcp", "dhcp-snooping", "dns-poisoning"]
+  },
+  {
+    "id": "ra-guard",
+    "term": "RA Guard",
+    "category": "Security",
+    "definition": "Layer-two restrictions on which ports may send IPv6 Router Advertisements, with implementation-specific limits.",
+    "example": "Only trusted router-facing ports advertise a default router.",
+    "related": ["router-advertisement", "ndp", "rogue-ra"]
+  },
+  {
+    "id": "rogue-ra",
+    "term": "Rogue Router Advertisement",
+    "category": "Security",
+    "definition": "An unauthorized IPv6 advertisement changing host routing or configuration.",
+    "example": "A workstation advertises itself as the default router.",
+    "related": ["ra-guard", "router-advertisement", "on-path"]
+  },
+  {
+    "id": "dot1x",
+    "term": "802.1X",
+    "category": "Security",
+    "definition": "Port-based network access control coordinating a supplicant, authenticator, and authentication server.",
+    "example": "A switch authenticates a device before granting ordinary LAN access.",
+    "related": ["radius", "authentication", "port-security"]
+  },
+  {
+    "id": "radius",
+    "term": "RADIUS",
+    "category": "Security",
+    "definition": "A protocol family supporting network-access authentication, authorization, and accounting.",
+    "example": "A wireless controller requests access decisions from a central server.",
+    "related": ["dot1x", "authentication", "authorization"]
+  },
+  {
+    "id": "vlan-hopping",
+    "term": "VLAN hopping",
+    "category": "Security",
+    "definition": "Attempts to cross VLAN boundaries through trunking, tagging, or configuration weaknesses.",
+    "example": "An incorrectly negotiated trunk exposes unintended VLANs.",
+    "related": ["native-vlan", "trunk-port", "segmentation"]
+  },
+  {
+    "id": "dns-poisoning",
+    "term": "DNS poisoning",
+    "category": "Security",
+    "definition": "Introducing false DNS answers into resolution or caching to redirect or disrupt clients.",
+    "example": "A forged record points a hostname at an attacker's server.",
+    "related": ["dnssec", "resolver", "on-path"]
+  },
+  {
+    "id": "ddos",
+    "term": "DDoS",
+    "category": "Security",
+    "definition": "Distributed denial of service overwhelms network, connection, or application capacity through many sources or reflected traffic.",
+    "example": "Large reflected UDP responses fill a victim's upstream link.",
+    "related": ["amplification", "rate-limit", "availability"]
+  },
+  {
+    "id": "amplification",
+    "term": "Reflection amplification",
+    "category": "Security",
+    "definition": "Soliciting responses larger than requests, often spoofing a victim as the source so replies converge on it.",
+    "example": "An exposed UDP service returns large unauthenticated responses.",
+    "related": ["ddos", "source-validation", "udp"]
+  },
+  {
+    "id": "source-validation",
+    "term": "Source address validation",
+    "category": "Security",
+    "definition": "Rejecting traffic whose source addresses conflict with authorized or expected ingress behavior.",
+    "example": "An edge blocks customer packets claiming arbitrary spoofed sources.",
+    "related": ["amplification", "egress-filtering", "access-control-list"]
+  },
+  {
+    "id": "rate-limit",
+    "term": "Rate limiting",
+    "category": "Security",
+    "definition": "Constraining traffic or request rates using explicit keys and budgets.",
+    "example": "A lookup API bounds per-user requests and concurrent upstream calls.",
+    "related": ["ddos", "availability", "quota"]
+  },
+  {
+    "id": "quota",
+    "term": "Usage quota",
+    "category": "Security",
+    "definition": "A cumulative resource allowance over a period, distinct from a short-window rate limit.",
+    "example": "An AI account has both a monthly budget and per-minute request limit.",
+    "related": ["rate-limit", "availability", "least-privilege"]
+  },
+  {
+    "id": "egress-filtering",
+    "term": "Egress filtering",
+    "category": "Security",
+    "definition": "Controls on outbound traffic destinations, sources, and protocols.",
+    "example": "A backend reaches approved lookups while metadata services remain inaccessible.",
+    "related": ["ssrf", "source-validation", "allowlist"]
+  },
+  {
+    "id": "phishing",
+    "term": "Phishing",
+    "category": "Security",
+    "definition": "Impersonating a trusted context to induce credential disclosure, malicious execution, or unauthorized actions.",
+    "example": "A fake portal asks the user to enter an account password.",
+    "related": ["passkey", "mfa", "authentication"]
+  },
+  {
+    "id": "password-hashing",
+    "term": "Password hashing",
+    "category": "Security",
+    "definition": "Purpose-built salted, expensive derivation for verifying passwords without storing plaintext. Fast hashes alone are inappropriate.",
+    "example": "A server uses a suitable Argon2id configuration for password verification.",
+    "related": ["salt", "hash", "kdf"]
+  },
+  {
+    "id": "salt",
+    "term": "Cryptographic salt",
+    "category": "Security",
+    "definition": "A unique or random nonsecret derivation input preventing identical passwords sharing reusable verifier values.",
+    "example": "Two identical passwords produce different stored hashes because of different salts.",
+    "related": ["password-hashing", "kdf", "hash"]
+  },
+  {
+    "id": "kdf",
+    "term": "Key derivation function",
+    "category": "Security",
+    "definition": "Deriving key or verification material from inputs, with password-specific designs imposing memory or computational cost.",
+    "example": "Argon2id combines a password and salt into verifier material.",
+    "related": ["password-hashing", "salt", "hash"]
+  },
+  {
+    "id": "hash",
+    "term": "Cryptographic hash",
+    "category": "Security",
+    "definition": "A fixed-size digest function with properties including preimage and collision resistance. It does not encrypt content.",
+    "example": "SHA-256 gives a 256-bit digest for comparing file integrity.",
+    "related": ["integrity", "password-hashing", "hmac"]
+  },
+  {
+    "id": "hmac",
+    "term": "HMAC",
+    "category": "Security",
+    "definition": "A keyed hash construction authenticating integrity between parties sharing a secret.",
+    "example": "A webhook receiver verifies an HMAC over the exact body bytes.",
+    "related": ["hash", "integrity", "authentication"]
+  },
+  {
+    "id": "confidentiality",
+    "term": "Confidentiality",
+    "category": "Security",
+    "definition": "Protection against unauthorized information disclosure.",
+    "example": "TLS protects application content in transit between validated endpoints.",
+    "related": ["integrity", "availability", "tls"]
+  },
+  {
+    "id": "integrity",
+    "term": "Integrity",
+    "category": "Security",
+    "definition": "Protection against unauthorized or undetected data changes.",
+    "example": "An authenticated message check detects modification.",
+    "related": ["confidentiality", "hmac", "hash"]
+  },
+  {
+    "id": "availability",
+    "term": "Availability",
+    "category": "Security",
+    "definition": "Authorized users' ability to access a service when required.",
+    "example": "Redundancy and resource budgets reduce outages.",
+    "related": ["ddos", "failover", "rate-limit"]
+  },
+  {
+    "id": "cvss",
+    "term": "CVSS",
+    "category": "Security",
+    "definition": "A versioned framework describing technical vulnerability severity. Its vector explains assumptions; a score is not complete business risk.",
+    "example": "A CVSS 4.0 vector distinguishes vulnerable and subsequent-system impacts.",
+    "related": ["vulnerability", "threat", "risk"]
+  },
+  {
+    "id": "vulnerability",
+    "term": "Vulnerability",
+    "category": "Security",
+    "definition": "A weakness exploitable to violate intended security properties.",
+    "example": "Missing ownership checks expose another user's private project.",
+    "related": ["cvss", "threat", "patching"]
+  },
+  {
+    "id": "threat",
+    "term": "Threat",
+    "category": "Security",
+    "definition": "A potential cause of harm involving actors, events, or conditions.",
+    "example": "A phishing campaign threatens account access.",
+    "related": ["risk", "vulnerability", "phishing"]
+  },
+  {
+    "id": "risk",
+    "term": "Risk",
+    "category": "Security",
+    "definition": "Potential harm assessed through likelihood, impact, exposure, and local context.",
+    "example": "The same flaw receives different priority on a critical exposed system and an isolated lab.",
+    "related": ["cvss", "threat", "vulnerability"]
+  },
+  {
+    "id": "patching",
+    "term": "Patching",
+    "category": "Security",
+    "definition": "Applying supported updates that correct defects, with suitable testing and recovery planning.",
+    "example": "A resolver is updated and its resolution behavior verified.",
+    "related": ["vulnerability", "risk", "failover"]
+  },
+  {
+    "id": "route-hijack",
+    "term": "Route hijack",
+    "category": "Security",
+    "definition": "An incorrect or unauthorized route advertisement that diverts or discards prefix traffic.",
+    "example": "An unauthorized more-specific BGP route attracts traffic.",
+    "related": ["rpki", "prefix-filter", "bgp"]
+  },
+  {
+    "id": "broadcast-storm",
+    "term": "Broadcast storm",
+    "category": "Security",
+    "definition": "Excessive broadcast or flooded traffic exhausting LAN resources, often caused by a forwarding loop.",
+    "example": "A switch loop saturates links and destabilizes MAC learning.",
+    "related": ["spanning-tree", "storm-control", "mac-flapping"]
+  },
+  {
+    "id": "tcp",
+    "term": "TCP",
+    "category": "Protocols",
+    "definition": "Reliable ordered byte-stream transport using sequence numbers, acknowledgements, flow control, and congestion control.",
+    "example": "SSH relies on TCP to recover missing stream data.",
+    "related": ["udp", "segment", "three-way-handshake"]
+  },
+  {
+    "id": "udp",
+    "term": "UDP",
+    "category": "Protocols",
+    "definition": "Datagram transport with ports and checksum but no built-in ordering, retries, or connection setup.",
+    "example": "A DNS client handles its own retry after a lost UDP response.",
+    "related": ["tcp", "dns", "quic"]
+  },
+  {
+    "id": "port",
+    "term": "Transport port",
+    "category": "Protocols",
+    "definition": "A 16-bit identifier interpreted with its transport protocol, distinguishing endpoints without proving actual service identity.",
+    "example": "TCP 53 and UDP 53 are separate service endpoints.",
+    "related": ["socket", "ephemeral-port", "tcp"]
+  },
+  {
+    "id": "socket",
+    "term": "Socket",
+    "category": "Protocols",
+    "definition": "An operating-system communication endpoint, commonly identified by local address, port, and protocol.",
+    "example": "A server listens on TCP 443 at 192.0.2.10.",
+    "related": ["port", "bind-address", "flow"]
+  },
+  {
+    "id": "bind-address",
+    "term": "Bind address",
+    "category": "Protocols",
+    "definition": "The local address on which a service opens a socket; wildcard binding may expose it through several interfaces.",
+    "example": "Binding to 127.0.0.1 restricts an IPv4 service to local access.",
+    "related": ["socket", "loopback", "unspecified-address"]
+  },
+  {
+    "id": "flow",
+    "term": "Network flow",
+    "category": "Protocols",
+    "definition": "Related packets often grouped by source/destination addresses and ports plus protocol and network context.",
+    "example": "One client-to-server TCP connection is a flow.",
+    "related": ["socket", "connection-tracking", "ecmp"]
+  },
+  {
+    "id": "ephemeral-port",
+    "term": "Ephemeral port",
+    "category": "Protocols",
+    "definition": "A temporary local port selected for an endpoint. IANA's dynamic/private range is 49152–65535, while OS selection ranges can differ.",
+    "example": "A browser connects from a temporary port to server TCP 443.",
+    "related": ["socket", "port", "tcp"]
+  },
+  {
+    "id": "three-way-handshake",
+    "term": "TCP three-way handshake",
+    "category": "Protocols",
+    "definition": "The ordinary SYN, SYN-ACK, ACK exchange synchronizing connection sequence state.",
+    "example": "A client acknowledges the server's initial SYN response.",
+    "related": ["tcp", "sequence-number", "window"]
+  },
+  {
+    "id": "sequence-number",
+    "term": "TCP sequence number",
+    "category": "Protocols",
+    "definition": "A stream position used for ordering and acknowledgement; SYN and FIN also consume sequence space.",
+    "example": "An ACK indicates the next sequence position expected.",
+    "related": ["tcp", "retransmission", "window"]
+  },
+  {
+    "id": "window",
+    "term": "TCP receive window",
+    "category": "Protocols",
+    "definition": "The additional stream data a receiver advertises it can accept, supporting receiver flow control.",
+    "example": "A low-buffer receiver advertises a small window.",
+    "related": ["tcp", "flow-control", "congestion-control"]
+  },
+  {
+    "id": "flow-control",
+    "term": "Flow control",
+    "category": "Protocols",
+    "definition": "Preventing the sender from overwhelming receiver buffering or processing.",
+    "example": "TCP limits data using the advertised receive window.",
+    "related": ["window", "congestion-control", "tcp"]
+  },
+  {
+    "id": "congestion-control",
+    "term": "Congestion control",
+    "category": "Protocols",
+    "definition": "Adapting sending behavior to network congestion, separately from receiver capacity.",
+    "example": "A TCP sender reduces its rate after congestion signals.",
+    "related": ["flow-control", "packet-loss", "ecn"]
+  },
+  {
+    "id": "retransmission",
+    "term": "Retransmission",
+    "category": "Protocols",
+    "definition": "Resending data whose delivery is not sufficiently confirmed by the protocol's recovery logic.",
+    "example": "TCP sends missing bytes again after detecting a loss.",
+    "related": ["tcp", "sequence-number", "rtt"]
+  },
+  {
+    "id": "rtt",
+    "term": "Round-trip time",
+    "category": "Protocols",
+    "definition": "Delay between sending information and receiving its corresponding response or acknowledgement.",
+    "example": "A 40 ms ping measures both directions plus endpoint processing.",
+    "related": ["latency", "retransmission", "traceroute"]
+  },
+  {
+    "id": "latency",
+    "term": "Latency",
+    "category": "Protocols",
+    "definition": "Delay for data or operations; one-way delay, RTT, and application response time are different measures.",
+    "example": "A long-delay path can still deliver high sustained throughput.",
+    "related": ["rtt", "bandwidth-delay-product", "throughput"]
+  },
+  {
+    "id": "jitter",
+    "term": "Delay variation",
+    "category": "Protocols",
+    "definition": "Variation in packet arrival delay, relevant to real-time application buffering.",
+    "example": "Voice packets arriving unevenly need a jitter buffer.",
+    "related": ["latency", "qos", "udp"]
+  },
+  {
+    "id": "packet-loss",
+    "term": "Packet loss",
+    "category": "Protocols",
+    "definition": "Failure of transmitted packets to reach the receiver within the relevant measurement context.",
+    "example": "Congestion drops reduce performance and trigger recovery.",
+    "related": ["congestion-control", "retransmission", "qos"]
+  },
+  {
+    "id": "bandwidth",
+    "term": "Bandwidth",
+    "category": "Protocols",
+    "definition": "Nominal link capacity, usually bits per second, distinct from achieved application transfer rates.",
+    "example": "100 Mb/s equals an ideal 12.5 MB/s before overhead.",
+    "related": ["throughput", "goodput", "bandwidth-delay-product"]
+  },
+  {
+    "id": "throughput",
+    "term": "Throughput",
+    "category": "Protocols",
+    "definition": "Measured successful data delivery rate at a stated layer and interval.",
+    "example": "A 100 Mb/s link carries measured throughput of 85 Mb/s.",
+    "related": ["bandwidth", "goodput", "latency"]
+  },
+  {
+    "id": "goodput",
+    "term": "Goodput",
+    "category": "Protocols",
+    "definition": "Useful application data delivered per time, excluding protocol overhead and retransmission.",
+    "example": "An application receives 10 MB/s while link traffic is higher.",
+    "related": ["throughput", "bandwidth", "retransmission"]
+  },
+  {
+    "id": "bandwidth-delay-product",
+    "term": "Bandwidth-delay product",
+    "category": "Protocols",
+    "definition": "Capacity multiplied by path delay, commonly RTT for TCP flight-size estimation.",
+    "example": "100 Mb/s × 0.1 s gives 10 Mb or 1.25 MB in flight.",
+    "related": ["bandwidth", "rtt", "window"]
+  },
+  {
+    "id": "qos",
+    "term": "Quality of Service",
+    "category": "Protocols",
+    "definition": "Classification, scheduling, shaping, and policing to manage differentiated traffic under capacity constraints.",
+    "example": "Voice receives a bounded low-latency queue.",
+    "related": ["dscp", "shaping", "policing"]
+  },
+  {
+    "id": "dscp",
+    "term": "DSCP",
+    "category": "Protocols",
+    "definition": "The six-bit Differentiated Services Code Point used for configured per-hop treatment.",
+    "example": "EF-marked voice may enter a priority queue.",
+    "related": ["qos", "ecn", "packet"]
+  },
+  {
+    "id": "shaping",
+    "term": "Traffic shaping",
+    "category": "Protocols",
+    "definition": "Buffering traffic to smooth output toward a configured profile, at the cost of delay.",
+    "example": "A WAN edge queues bursts before transmitting at contract rate.",
+    "related": ["qos", "policing", "jitter"]
+  },
+  {
+    "id": "policing",
+    "term": "Traffic policing",
+    "category": "Protocols",
+    "definition": "Dropping or remarking traffic exceeding a configured profile rather than buffering all excess.",
+    "example": "A provider drops packets exceeding the contracted allowance.",
+    "related": ["shaping", "qos", "packet-loss"]
+  },
+  {
+    "id": "ecn",
+    "term": "Explicit Congestion Notification",
+    "category": "Protocols",
+    "definition": "Signaling congestion through packet marking when endpoints and path support it.",
+    "example": "A router marks eligible traffic instead of immediately dropping it.",
+    "related": ["congestion-control", "dscp", "tcp"]
+  },
+  {
+    "id": "tcp-options",
+    "term": "TCP options",
+    "category": "Protocols",
+    "definition": "Extensions supporting MSS, window scaling, timestamps, and other features, increasing header length.",
+    "example": "Timestamp options consume space relevant to payload sizing.",
+    "related": ["mss", "window", "mtu"]
+  },
+  {
+    "id": "arp",
+    "term": "ARP",
+    "category": "Protocols",
+    "definition": "Mapping an IPv4 next-hop address to a local link-layer address, rather than directly resolving remote hosts.",
+    "example": "A host ARPs for its gateway before sending off-link traffic.",
+    "related": ["mac-address", "on-link", "arp-spoofing"]
+  },
+  {
+    "id": "ndp",
+    "term": "Neighbor Discovery",
+    "category": "Protocols",
+    "definition": "ICMPv6 procedures discovering neighbors and routers, resolving addresses, and testing reachability.",
+    "example": "A host sends Neighbor Solicitation instead of ARP.",
+    "related": ["icmpv6", "router-advertisement", "solicited-node"]
+  },
+  {
+    "id": "icmp",
+    "term": "ICMP",
+    "category": "Protocols",
+    "definition": "IPv4 control and error messaging, including echo and Time Exceeded responses.",
+    "example": "A router sends Time Exceeded when a probe's TTL expires.",
+    "related": ["ttl", "traceroute", "ping"]
+  },
+  {
+    "id": "icmpv6",
+    "term": "ICMPv6",
+    "category": "Protocols",
+    "definition": "IPv6 control and error messaging with essential Neighbor Discovery and Packet Too Big functions.",
+    "example": "Blocking all ICMPv6 can break normal IPv6 operation.",
+    "related": ["ndp", "pmtud", "ipv6"]
+  },
+  {
+    "id": "ping",
+    "term": "Ping",
+    "category": "Protocols",
+    "definition": "An echo-based diagnostic sampling reachability and RTT; filtering can suppress replies without proving a host is down.",
+    "example": "Four replies confirm only those probe exchanges.",
+    "related": ["icmp", "rtt", "traceroute"]
+  },
+  {
+    "id": "traceroute",
+    "term": "Traceroute",
+    "category": "Protocols",
+    "definition": "Probing with increasing TTL or Hop Limit to identify responding forwarding hops.",
+    "example": "An asterisk denotes no timely probe reply, not necessarily transit failure.",
+    "related": ["ttl", "hop-limit", "icmp"]
+  },
+  {
+    "id": "router-advertisement",
+    "term": "Router Advertisement",
+    "category": "Protocols",
+    "definition": "An ICMPv6 message describing router availability, prefixes, and selected link parameters.",
+    "example": "A host learns its default IPv6 router from an RA.",
+    "related": ["ndp", "slaac", "ra-guard"]
+  },
+  {
+    "id": "slaac",
+    "term": "SLAAC",
+    "category": "Protocols",
+    "definition": "Stateless IPv6 autoconfiguration using advertised prefixes and local identifiers, with Duplicate Address Detection.",
+    "example": "A host forms an address from a router's advertised /64.",
+    "related": ["router-advertisement", "duplicate-address", "privacy-address"]
+  },
+  {
+    "id": "duplicate-address",
+    "term": "Duplicate Address Detection",
+    "category": "Protocols",
+    "definition": "Testing whether a tentative IPv6 unicast address is already used before normal assignment.",
+    "example": "A host probes its intended address using Neighbor Discovery.",
+    "related": ["ndp", "slaac", "unspecified-address"]
+  },
+  {
+    "id": "dhcp",
+    "term": "DHCPv4",
+    "category": "Protocols",
+    "definition": "Leasing IPv4 addresses and options using client/server exchanges, including the initial DORA sequence.",
+    "example": "A client obtains its address, mask, gateway, and DNS options.",
+    "related": ["dhcp-lease", "dhcp-relay", "dora"]
+  },
+  {
+    "id": "dora",
+    "term": "DORA",
+    "category": "Protocols",
+    "definition": "Mnemonic for DHCPv4 Discover, Offer, Request, Acknowledge; renewals and other states differ.",
+    "example": "A new client broadcasts Discover before selecting an Offer.",
+    "related": ["dhcp", "dhcp-lease", "dhcp-relay"]
+  },
+  {
+    "id": "dhcp-lease",
+    "term": "DHCP lease",
+    "category": "Protocols",
+    "definition": "A time-limited address assignment with defined renewal and rebinding behavior.",
+    "example": "A client renews before expiry rather than keeping the address forever.",
+    "related": ["dhcp", "dora", "reservation"]
+  },
+  {
+    "id": "dhcp-relay",
+    "term": "DHCP relay",
+    "category": "Protocols",
+    "definition": "Forwarding client/server DHCP messages across subnet boundaries while preserving subnet context.",
+    "example": "A router relays several VLANs to a central server.",
+    "related": ["dhcp", "vlan", "default-gateway"]
+  },
+  {
+    "id": "dhcpv6",
+    "term": "DHCPv6",
+    "category": "Protocols",
+    "definition": "Delivering IPv6 addresses, delegated prefixes, and configuration, while default-router discovery remains an RA function.",
+    "example": "A router acquires a delegated block through DHCPv6.",
+    "related": ["prefix-delegation", "router-advertisement", "slaac"]
+  },
+  {
+    "id": "prefix-delegation",
+    "term": "Prefix delegation",
+    "category": "Protocols",
+    "definition": "Assigning an IPv6 block to a downstream router for its own links, commonly via DHCPv6.",
+    "example": "A delegated /56 contains 256 /64 LAN prefixes.",
+    "related": ["dhcpv6", "ipv6", "subnet-bits"]
+  },
+  {
+    "id": "dns",
+    "term": "DNS",
+    "category": "Protocols",
+    "definition": "A distributed hierarchy of names and resource records, supporting many functions beyond name-to-address conversion.",
+    "example": "A resolver retrieves a hostname's AAAA record.",
+    "related": ["resolver", "authoritative-dns", "resource-record"]
+  },
+  {
+    "id": "resolver",
+    "term": "DNS resolver",
+    "category": "Protocols",
+    "definition": "A component obtaining answers, potentially following referrals, validating data, and caching results.",
+    "example": "A recursive resolver queries authoritative servers for its clients.",
+    "related": ["dns-cache", "authoritative-dns", "dns"]
+  },
+  {
+    "id": "authoritative-dns",
+    "term": "Authoritative DNS",
+    "category": "Protocols",
+    "definition": "A server or response based on zone data under its authority, rather than solely cached recursive information.",
+    "example": "A domain's nameserver publishes its current MX records.",
+    "related": ["dns-zone", "delegation", "resource-record"]
+  },
+  {
+    "id": "dns-zone",
+    "term": "DNS zone",
+    "category": "Protocols",
+    "definition": "An administratively served part of the namespace, bounded by delegated child zones.",
+    "example": "example.com delegates lab.example.com separately.",
+    "related": ["delegation", "soa", "authoritative-dns"]
+  },
+  {
+    "id": "delegation",
+    "term": "DNS delegation",
+    "category": "Protocols",
+    "definition": "A parent zone referring authority for a child to selected nameservers with necessary supporting data.",
+    "example": "A parent publishes NS records for a child zone.",
+    "related": ["dns-zone", "ns-record", "glue-record"]
+  },
+  {
+    "id": "resource-record",
+    "term": "Resource record",
+    "category": "Protocols",
+    "definition": "A typed DNS data item containing owner, class, TTL, and type-specific content.",
+    "example": "An A record associates a name with IPv4 data.",
+    "related": ["a-record", "aaaa-record", "dns-ttl"]
+  },
+  {
+    "id": "a-record",
+    "term": "A record",
+    "category": "Protocols",
+    "definition": "A DNS record containing one IPv4 address; a name can have several.",
+    "example": "www.example.com has A value 192.0.2.10.",
+    "related": ["aaaa-record", "resource-record", "dns"]
+  },
+  {
+    "id": "aaaa-record",
+    "term": "AAAA record",
+    "category": "Protocols",
+    "definition": "A DNS record containing one IPv6 address.",
+    "example": "www.example.com has AAAA value 2001:db8::10.",
+    "related": ["a-record", "ipv6", "dual-stack"]
+  },
+  {
+    "id": "cname-record",
+    "term": "CNAME record",
+    "category": "Protocols",
+    "definition": "A DNS alias to another canonical name; an ordinary CNAME owner cannot also hold unrelated record data.",
+    "example": "www.example.com aliases app.example.net.",
+    "related": ["resource-record", "dns", "dns-zone"]
+  },
+  {
+    "id": "mx-record",
+    "term": "MX record",
+    "category": "Protocols",
+    "definition": "A DNS mail-exchanger hostname plus preference; lower values are preferred and targets are names rather than literal addresses.",
+    "example": "Preference 10 points to mail.example.com.",
+    "related": ["dns", "resource-record", "a-record"]
+  },
+  {
+    "id": "ns-record",
+    "term": "NS record",
+    "category": "Protocols",
+    "definition": "A DNS record identifying a nameserver for a zone or delegated child.",
+    "example": "example.com lists ns1.example.net as authoritative.",
+    "related": ["delegation", "glue-record", "authoritative-dns"]
+  },
+  {
+    "id": "txt-record",
+    "term": "TXT record",
+    "category": "Protocols",
+    "definition": "A DNS record containing one or more character strings, used by several application and verification protocols.",
+    "example": "A domain publishes an SPF policy in TXT data.",
+    "related": ["resource-record", "dns", "mx-record"]
+  },
+  {
+    "id": "ptr-record",
+    "term": "PTR record",
+    "category": "Protocols",
+    "definition": "A DNS record containing a domain name, commonly used for reverse address lookup.",
+    "example": "10.2.0.192.in-addr.arpa points to host.example.com.",
+    "related": ["reverse-dns", "resource-record", "dns"]
+  },
+  {
+    "id": "soa",
+    "term": "SOA record",
+    "category": "Protocols",
+    "definition": "Start of Authority data describing zone administration, serial, and timer information.",
+    "example": "A secondary detects a new serial before retrieving changes.",
+    "related": ["dns-zone", "zone-transfer", "negative-cache"]
+  },
+  {
+    "id": "glue-record",
+    "term": "Glue record",
+    "category": "Protocols",
+    "definition": "Parent-zone address data needed to reach a delegated nameserver whose name depends on the delegation itself.",
+    "example": "A parent supplies the address of ns1.child.example.",
+    "related": ["delegation", "ns-record", "a-record"]
+  },
+  {
+    "id": "dns-ttl",
+    "term": "DNS TTL",
+    "category": "Protocols",
+    "definition": "A record's caching lifetime in seconds; it differs from IP TTL and does not promise immediate universal update visibility.",
+    "example": "A TTL of 300 allows five minutes of caching after retrieval.",
+    "related": ["dns-cache", "negative-cache", "ttl"]
+  },
+  {
+    "id": "dns-cache",
+    "term": "DNS cache",
+    "category": "Protocols",
+    "definition": "Stored answers reused according to validity and resolver policy to reduce queries and latency.",
+    "example": "A repeated query uses cached data without contacting the authority.",
+    "related": ["dns-ttl", "resolver", "negative-cache"]
+  },
+  {
+    "id": "negative-cache",
+    "term": "Negative DNS caching",
+    "category": "Protocols",
+    "definition": "Caching the absence of a name or requested data under DNS negative-response rules.",
+    "example": "A resolver may retain NXDOMAIN after a new name has been created.",
+    "related": ["soa", "nxdomain", "dns-cache"]
+  },
+  {
+    "id": "nxdomain",
+    "term": "NXDOMAIN",
+    "category": "Protocols",
+    "definition": "A response code meaning the queried domain name does not exist in that view; missing one record type is different.",
+    "example": "An existing name without AAAA can give an empty successful response.",
+    "related": ["negative-cache", "resource-record", "dns"]
+  },
+  {
+    "id": "reverse-dns",
+    "term": "Reverse DNS",
+    "category": "Protocols",
+    "definition": "Address-derived lookup using in-addr.arpa for IPv4 and ip6.arpa for IPv6, commonly returning PTR data.",
+    "example": "192.0.2.10 becomes 10.2.0.192.in-addr.arpa.",
+    "related": ["ptr-record", "nibble", "delegation"]
+  },
+  {
+    "id": "zone-transfer",
+    "term": "DNS zone transfer",
+    "category": "Protocols",
+    "definition": "Replicating authoritative data, commonly full AXFR or incremental IXFR, with access intentionally restricted.",
+    "example": "A secondary retrieves approved zone updates.",
+    "related": ["soa", "authoritative-dns", "tcp"]
+  },
+  {
+    "id": "dnssec",
+    "term": "DNSSEC",
+    "category": "Protocols",
+    "definition": "DNS data-origin authentication and integrity through signatures and a trust chain; it does not encrypt queries.",
+    "example": "A validating resolver rejects required signatures that fail validation.",
+    "related": ["dns-poisoning", "integrity", "dns"]
+  },
+  {
+    "id": "dns64",
+    "term": "DNS64",
+    "category": "Protocols",
+    "definition": "Synthesizing IPv6 AAAA answers from IPv4 A records for a compatible NAT64 translator and prefix.",
+    "example": "An IPv6-only client gets a synthesized address for an IPv4-only service.",
+    "related": ["nat64", "aaaa-record", "a-record"]
+  },
+  {
+    "id": "nat",
+    "term": "NAT",
+    "category": "Protocols",
+    "definition": "Translating addresses across a boundary, sometimes also ports. Translation alone is not a complete security policy.",
+    "example": "A private client source becomes an assigned public address.",
+    "related": ["pat", "connection-tracking", "port-forwarding"]
+  },
+  {
+    "id": "pat",
+    "term": "Port Address Translation",
+    "category": "Protocols",
+    "definition": "Multiplexing internal endpoints through external addresses by translating transport ports.",
+    "example": "Several clients share one public address with distinct mappings.",
+    "related": ["nat", "port", "connection-tracking"]
+  },
+  {
+    "id": "port-forwarding",
+    "term": "Port forwarding",
+    "category": "Protocols",
+    "definition": "Mapping an external transport endpoint to an internal service, subject to access policy.",
+    "example": "An edge forwards an external TCP port to one server.",
+    "related": ["nat", "pat", "stateful-firewall"]
+  },
+  {
+    "id": "tunnel",
+    "term": "Network tunnel",
+    "category": "Protocols",
+    "definition": "Carrying one protocol inside another, adding overhead and changing effective path behavior.",
+    "example": "A VPN wraps inner packets in protected outer packets.",
+    "related": ["encapsulation", "mtu", "ipsec"]
+  },
+  {
+    "id": "ipsec",
+    "term": "IPsec",
+    "category": "Protocols",
+    "definition": "IP-layer protection through security policies and associations, commonly using ESP for protected traffic.",
+    "example": "Two gateways authenticate and encrypt a site-to-site tunnel.",
+    "related": ["tunnel", "confidentiality", "integrity"]
+  },
+  {
+    "id": "http",
+    "term": "HTTP",
+    "category": "Protocols",
+    "definition": "Application request/response semantics defining methods, status, headers, and representations, across different transport mappings.",
+    "example": "GET receives a response status and representation.",
+    "related": ["http-header", "https", "quic"]
+  },
+  {
+    "id": "https",
+    "term": "HTTPS",
+    "category": "Protocols",
+    "definition": "HTTP over TLS-based secure transport with peer identity validation.",
+    "example": "A browser verifies a certificate matching the requested hostname.",
+    "related": ["http", "tls", "certificate"]
+  },
+  {
+    "id": "http-header",
+    "term": "HTTP header",
+    "category": "Protocols",
+    "definition": "A named metadata field describing a request, response, representation, or policy.",
+    "example": "Content-Type identifies the intended response media type.",
+    "related": ["http", "csp", "https"]
+  },
+  {
+    "id": "tls",
+    "term": "TLS",
+    "category": "Protocols",
+    "definition": "Authenticating peers and protecting application data against interception and tampering when properly configured and validated.",
+    "example": "TLS 1.3 authenticates a server and derives traffic keys.",
+    "related": ["certificate", "https", "confidentiality"]
+  },
+  {
+    "id": "certificate",
+    "term": "Digital certificate",
+    "category": "Protocols",
+    "definition": "A signed binding of an identity or name to a public key under a trust model and validity constraints.",
+    "example": "A web certificate includes the requested hostname.",
+    "related": ["tls", "authentication", "integrity"]
+  },
+  {
+    "id": "igmp",
+    "term": "IGMP",
+    "category": "Protocols",
+    "definition": "IPv4 group-membership communication between hosts and local multicast routers.",
+    "example": "A host reports interest in a multicast group.",
+    "related": ["multicast", "ipv6-multicast", "switch"]
+  },
+  {
+    "id": "quic",
+    "term": "QUIC",
+    "category": "Protocols",
+    "definition": "A secure multiplexed transport over UDP with stream delivery, connection identifiers, and TLS-based establishment.",
+    "example": "HTTP/3 carries independent requests on QUIC streams.",
+    "related": ["udp", "http", "tls"]
+  },
+  {
+    "id": "happy-eyeballs",
+    "term": "Happy Eyeballs",
+    "category": "Protocols",
+    "definition": "Connection strategies trying suitable address-family alternatives with controlled timing to reduce failures and delays.",
+    "example": "A browser recovers when one family's route is impaired.",
+    "related": ["dual-stack", "aaaa-record", "latency"]
+  }
+]

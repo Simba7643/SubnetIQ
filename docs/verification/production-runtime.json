@@ -1,0 +1,30 @@
+{
+  "runtime": "compiled API with a clean production dependency tree",
+  "dockerExecuted": false,
+  "productionInstall": "passed",
+  "developmentPackagesAbsent": ["braces", "jest"],
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/ready",
+      "status": 200,
+      "mode": "test guest memory quotas"
+    },
+    {
+      "path": "/api/calculate/ipv4-subnet",
+      "status": 200,
+      "title": "IPv4 subnet calculation"
+    },
+    {
+      "workspaceImports": "passed",
+      "calculation": "IPv4 subnet calculation"
+    },
+    {
+      "rootQuizData": "present at the runtime path"
+    }
+  ]
+}

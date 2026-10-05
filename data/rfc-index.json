@@ -1,0 +1,170 @@
+[
+  {
+    "id": "rfc-791",
+    "number": 791,
+    "title": "Internet Protocol",
+    "description": "IPv4 packet and address foundation",
+    "url": "https://www.rfc-editor.org/rfc/rfc791"
+  },
+  {
+    "id": "rfc-792",
+    "number": 792,
+    "title": "Internet Control Message Protocol",
+    "description": "IPv4 error and echo messages",
+    "url": "https://www.rfc-editor.org/rfc/rfc792"
+  },
+  {
+    "id": "rfc-826",
+    "number": 826,
+    "title": "Address Resolution Protocol",
+    "description": "IPv4-to-link mapping",
+    "url": "https://www.rfc-editor.org/rfc/rfc826"
+  },
+  {
+    "id": "rfc-1918",
+    "number": 1918,
+    "title": "Address Allocation for Private Internets",
+    "description": "Private IPv4 allocations",
+    "url": "https://www.rfc-editor.org/rfc/rfc1918"
+  },
+  {
+    "id": "rfc-2131",
+    "number": 2131,
+    "title": "Dynamic Host Configuration Protocol",
+    "description": "DHCPv4 behavior",
+    "url": "https://www.rfc-editor.org/rfc/rfc2131"
+  },
+  {
+    "id": "rfc-3021",
+    "number": 3021,
+    "title": "Using 31-Bit Prefixes on IPv4 Point-to-Point Links",
+    "description": "Two-address link exception",
+    "url": "https://www.rfc-editor.org/rfc/rfc3021"
+  },
+  {
+    "id": "rfc-4632",
+    "number": 4632,
+    "title": "Classless Inter-domain Routing",
+    "description": "CIDR allocation and aggregation",
+    "url": "https://www.rfc-editor.org/rfc/rfc4632"
+  },
+  {
+    "id": "rfc-4291",
+    "number": 4291,
+    "title": "IP Version 6 Addressing Architecture",
+    "description": "IPv6 forms and address types",
+    "url": "https://www.rfc-editor.org/rfc/rfc4291"
+  },
+  {
+    "id": "rfc-5952",
+    "number": 5952,
+    "title": "IPv6 Address Text Representation",
+    "description": "Canonical IPv6 formatting",
+    "url": "https://www.rfc-editor.org/rfc/rfc5952"
+  },
+  {
+    "id": "rfc-6164",
+    "number": 6164,
+    "title": "127-Bit IPv6 Prefixes on Inter-Router Links",
+    "description": "IPv6 point-to-point prefix guidance",
+    "url": "https://www.rfc-editor.org/rfc/rfc6164"
+  },
+  {
+    "id": "rfc-6598",
+    "number": 6598,
+    "title": "Shared Address Space Request",
+    "description": "100.64.0.0/10 shared space",
+    "url": "https://www.rfc-editor.org/rfc/rfc6598"
+  },
+  {
+    "id": "rfc-5737",
+    "number": 5737,
+    "title": "IPv4 Address Blocks Reserved for Documentation",
+    "description": "Safe IPv4 examples",
+    "url": "https://www.rfc-editor.org/rfc/rfc5737"
+  },
+  {
+    "id": "rfc-3849",
+    "number": 3849,
+    "title": "IPv6 Address Prefix Reserved for Documentation",
+    "description": "2001:db8::/32 examples",
+    "url": "https://www.rfc-editor.org/rfc/rfc3849"
+  },
+  {
+    "id": "rfc-1034",
+    "number": 1034,
+    "title": "Domain Names: Concepts and Facilities",
+    "description": "DNS hierarchy",
+    "url": "https://www.rfc-editor.org/rfc/rfc1034"
+  },
+  {
+    "id": "rfc-1035",
+    "number": 1035,
+    "title": "Domain Names: Implementation and Specification",
+    "description": "DNS messages and records",
+    "url": "https://www.rfc-editor.org/rfc/rfc1035"
+  },
+  {
+    "id": "rfc-2317",
+    "number": 2317,
+    "title": "Classless IN-ADDR.ARPA Delegation",
+    "description": "Reverse DNS for non-octet IPv4 blocks",
+    "url": "https://www.rfc-editor.org/rfc/rfc2317"
+  },
+  {
+    "id": "rfc-8200",
+    "number": 8200,
+    "title": "Internet Protocol, Version 6 Specification",
+    "description": "IPv6 protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc8200"
+  },
+  {
+    "id": "rfc-4861",
+    "number": 4861,
+    "title": "Neighbor Discovery for IPv6",
+    "description": "IPv6 first-hop behavior",
+    "url": "https://www.rfc-editor.org/rfc/rfc4861"
+  },
+  {
+    "id": "rfc-4862",
+    "number": 4862,
+    "title": "IPv6 Stateless Address Autoconfiguration",
+    "description": "SLAAC and DAD",
+    "url": "https://www.rfc-editor.org/rfc/rfc4862"
+  },
+  {
+    "id": "rfc-6052",
+    "number": 6052,
+    "title": "IPv6 Addressing of IPv4/IPv6 Translators",
+    "description": "NAT64 address synthesis",
+    "url": "https://www.rfc-editor.org/rfc/rfc6052"
+  },
+  {
+    "id": "rfc-8415",
+    "number": 8415,
+    "title": "Dynamic Host Configuration Protocol for IPv6",
+    "description": "DHCPv6",
+    "url": "https://www.rfc-editor.org/rfc/rfc8415"
+  },
+  {
+    "id": "rfc-9293",
+    "number": 9293,
+    "title": "Transmission Control Protocol",
+    "description": "TCP specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc9293"
+  },
+  {
+    "id": "rfc-9000",
+    "number": 9000,
+    "title": "QUIC: A UDP-Based Multiplexed and Secure Transport",
+    "description": "QUIC transport",
+    "url": "https://www.rfc-editor.org/rfc/rfc9000"
+  },
+  {
+    "id": "rfc-9846",
+    "number": 9846,
+    "title": "The Transport Layer Security Protocol Version 1.3",
+    "description": "Current TLS 1.3 specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc9846"
+  }
+]

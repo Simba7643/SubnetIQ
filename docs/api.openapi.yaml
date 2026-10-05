@@ -1,0 +1,2803 @@
+openapi: 3.1.0
+info:
+  title: SubnetIQ REST and Streaming API
+  version: 1.0.0
+  description:
+    'Guest mathematics and lookups; Supabase bearer-token persistence; typed assistant SSE. Requests
+    accept application/json and are limited to 512 KiB, except project POST/PATCH envelopes (2.25 MiB) with
+    a 2 MiB plan cap. Success bodies are returned directly. Failure bodies follow Error. API responses default
+    to Cache-Control: no-store. Global quota is 180 requests/minute per IP identity. Production quotas are
+    atomic PostgreSQL RPC calls. No credentials means honest guest mode in development; protected operations
+    return 503. All ordinary user database access retains the verified user RLS context.'
+servers:
+  - url: http://localhost:3001
+    description: Local API
+  - url: /
+    description: Current deployment
+tags:
+  - name: Operations
+  - name: Calculations
+  - name: Projects
+  - name: Sharing
+  - name: Lookups
+  - name: Assistant
+  - name: Learning
+  - name: Accounts
+paths:
+  /api/health:
+    get:
+      operationId: get_health
+      summary: Process liveness
+      tags:
+        - Operations
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: No external dependency check. Returns status ok.
+  /api/ready:
+    get:
+      operationId: get_ready
+      summary: Configuration and database readiness
+      tags:
+        - Operations
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Guest mode is ready without Supabase. PostgreSQL quota mode verifies the service cache RPC.
+        No AI provider request is made.
+  /api/calculate/{tool}:
+    post:
+      operationId: post_calculate_tool
+      summary: Perform deterministic calculation
+      tags:
+        - Calculations
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResult'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Input shapes are documented in docs/implementation-contract.md and docs/calculation-semantics.md.
+        The tool is calculated locally with the same pure engine used by the browser. 90 calculations per minute
+        per identity.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      parameters:
+        - name: tool
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: &id011
+              - ipv4-subnet
+              - ipv4-split
+              - vlsm
+              - aggregate
+              - range-to-cidr
+              - cidr-to-range
+              - overlap
+              - wildcard
+              - convert
+              - classify
+              - reverse-dns
+              - netmask-table
+              - ipv6-subnet
+              - ipv6-format
+              - eui64
+              - ipv6-plan
+              - ipv4-map
+              - bandwidth
+              - mtu
+              - mac
+  /api/projects:
+    get:
+      operationId: get_projects
+      summary: List own projects
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - &id002
+          name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+            minimum: 1
+            maximum: 200
+        - &id003
+          name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+            maximum: 100000
+    post:
+      operationId: post_projects
+      summary: Create a project
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProject'
+      description: Project request envelope is limited to 2.25 MiB; the plan JSON is limited to 2 MiB.
+  /api/projects/{id}:
+    get:
+      operationId: get_projects_id
+      summary: Read own project
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: &id001
+            type: string
+            format: uuid
+    patch:
+      operationId: patch_projects_id
+      summary: Atomically update and version a project
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Stale version; reload before saving.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        version is the expected current version. The database captures the previous snapshot and
+        increments version in the same transaction. The project request envelope is limited to 2.25 MiB and
+        plan JSON to 2 MiB.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProject'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+    delete:
+      operationId: delete_projects_id
+      summary: Delete own project and its children
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '204':
+          description: Deleted or revoked; response body is empty.
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/projects/{id}/revisions:
+    get:
+      operationId: get_projects_id_revisions
+      summary: List project revisions
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Revision'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+        - *id002
+        - *id003
+    post:
+      operationId: post_projects_id_revisions
+      summary: Capture a manual checkpoint
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  maxLength: 100
+                  default: Manual checkpoint
+              additionalProperties: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/projects/{id}/restore:
+    post:
+      operationId: post_projects_id_restore
+      summary: Restore a saved revision atomically
+      tags:
+        - Projects
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Stale version; reload before restoring.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Send version to detect concurrent editing. If omitted, the API reads the current version
+        and still uses an atomic compare-and-update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                revisionId: *id001
+                version:
+                  type: integer
+                  minimum: 1
+              required:
+                - revisionId
+              additionalProperties: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/projects/{id}/shares:
+    get:
+      operationId: get_projects_id_shares
+      summary: List share metadata without tokens
+      tags:
+        - Sharing
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Share'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+    post:
+      operationId: post_projects_id_shares
+      summary: Publish an expiring immutable snapshot
+      tags:
+        - Sharing
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewShare'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        A cryptographically random token is returned once. Only its SHA-256 hash is stored; the
+        current project is captured by the database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expiresInDays:
+                  type: integer
+                  minimum: 1
+                  maximum: 90
+                  default: 30
+              additionalProperties: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/shares/{id}:
+    delete:
+      operationId: delete_shares_id
+      summary: Revoke a share
+      tags:
+        - Sharing
+      security:
+        - supabaseBearer: []
+      responses:
+        '204':
+          description: Deleted or revoked; response body is empty.
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/share/{token}:
+    get:
+      operationId: get_share_token
+      summary: Resolve a public snapshot
+      tags:
+        - Sharing
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Invalid, expired, revoked, or missing link.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Expires and revocation are checked in the service-only RPC. Responses use no-store and no-referrer.
+        The same 404 is returned for invalid, expired, and revoked tokens.
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema: &id004
+            type: string
+  /api/saved-calculations:
+    get:
+      operationId: get_saved_calculations
+      summary: List own saved calculations
+      tags:
+        - Calculations
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SavedCalculation'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - *id002
+        - *id003
+    post:
+      operationId: post_saved_calculations
+      summary: Save a recomputed calculation
+      tags:
+        - Calculations
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedCalculation'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCalculation'
+  /api/saved-calculations/{id}:
+    delete:
+      operationId: delete_saved_calculations_id
+      summary: Delete a saved calculation
+      tags:
+        - Calculations
+      security:
+        - supabaseBearer: []
+      responses:
+        '204':
+          description: Deleted or revoked; response body is empty.
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/lookups/dns:
+    post:
+      operationId: post_lookups_dns
+      summary: Query the configured public DNS resolver
+      tags:
+        - Lookups
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResult'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: Resolver failure or invalid response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: Lookup timed out.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        PTR accepts an IP or reverse name. No arbitrary upstream URL or resolver selection. Results
+        contain source, retrieval time and cache status. Rate 30 combined lookups/minute.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 253
+                type:
+                  type: string
+                  enum:
+                    - A
+                    - AAAA
+                    - MX
+                    - TXT
+                    - NS
+                    - CNAME
+                    - PTR
+              required:
+                - name
+                - type
+              additionalProperties: false
+  /api/lookups/ip-info:
+    post:
+      operationId: post_lookups_ip_info
+      summary: Fetch public registration information
+      tags:
+        - Lookups
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResult'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No public registration record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: Registry failure or invalid response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: Lookup timed out.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Single IPv4/IPv6 address only. Longest-prefix IANA bootstrap selection, fixed RIR allowlist,
+        pinned public connection addresses, no redirects. Optional bounded legacy WHOIS fallback is disabled
+        by default. Registration country is not geolocation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  maxLength: 45
+              required:
+                - address
+              additionalProperties: false
+  /api/ai/status:
+    get:
+      operationId: get_ai_status
+      summary: Read actual AI adapter configuration
+      tags:
+        - Assistant
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Reports provider, requestedProvider, configured, mode, authenticationRequired, persistenceConfigured,
+        dailyLimit, message, and explicit adapter availability.
+  /api/ai/chat:
+    post:
+      operationId: post_ai_chat
+      summary: Stream assistant output
+      tags:
+        - Assistant
+      security:
+        - {}
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: SSE stream; inspect the error event because HTTP headers are already sent.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+              example: 'data: {"type":"meta","provider":"mock","mode":"demo","persisted":false}
+
+
+                data: {"type":"delta","content":"AI not configured — demo response"}
+
+
+                data: {"type":"done","provider":"mock","mode":"demo"}
+
+
+                '
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        'Optional bearer token. Guests always receive a deterministic labeled demo. Live OpenAI
+        requires verified authentication and server service configuration. Sum of message content is limited
+        to 48,000 characters. The last message must be user. Saved conversation history is loaded through RLS.
+        SSE data JSON types: meta, delta, done, error. meta includes provider, mode, conversationId when saved,
+        and persisted. Deltas use content. In-stream errors use code/message. Stop the request to cancel generation.
+        Demo responses are not live AI. Anthropic/Gemini adapters are unimplemented. Quotas count request attempts;
+        provider usage is recorded when returned.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+  /api/ai/conversations:
+    get:
+      operationId: get_ai_conversations
+      summary: List own conversations
+      tags:
+        - Assistant
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Conversation'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - *id002
+        - *id003
+    post:
+      operationId: post_ai_conversations
+      summary: Create a conversation
+      tags:
+        - Assistant
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  minLength: 1
+                  maxLength: 200
+                  default: New conversation
+              additionalProperties: false
+  /api/ai/conversations/{id}:
+    get:
+      operationId: get_ai_conversations_id
+      summary: Read a conversation
+      tags:
+        - Assistant
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+    delete:
+      operationId: delete_ai_conversations_id
+      summary: Delete a conversation and messages
+      tags:
+        - Assistant
+      security:
+        - supabaseBearer: []
+      responses:
+        '204':
+          description: Deleted or revoked; response body is empty.
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/ai/conversations/{id}/messages:
+    get:
+      operationId: get_ai_conversations_id_messages
+      summary: Read conversation messages
+      tags:
+        - Assistant
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChatMessage'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 200
+            minimum: 1
+            maximum: 500
+        - *id003
+  /api/favorites:
+    get:
+      operationId: get_favorites
+      summary: List favorite tools
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Favorite'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      operationId: post_favorites
+      summary: Add or relabel a favorite
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Favorite'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tool_id:
+                  type: string
+                  pattern: ^[a-z][a-z0-9-]{1,80}$
+                label:
+                  type: string
+                  maxLength: 100
+                  default: ''
+              required:
+                - tool_id
+              additionalProperties: false
+  /api/favorites/{id}:
+    delete:
+      operationId: delete_favorites_id
+      summary: Remove a favorite
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '204':
+          description: Deleted or revoked; response body is empty.
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: *id001
+  /api/quiz-attempts:
+    get:
+      operationId: get_quiz_attempts
+      summary: List own graded attempts
+      tags:
+        - Learning
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      parameters:
+        - *id002
+        - *id003
+    post:
+      operationId: post_quiz_attempts
+      summary: Grade and record a quiz attempt
+      tags:
+        - Learning
+      security:
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attempt:
+                    type: object
+                    additionalProperties: true
+                  correct:
+                    type: boolean
+                  correctIndex:
+                    type: integer
+                  explanation: *id004
+                required:
+                  - attempt
+                  - correct
+                  - correctIndex
+                  - explanation
+                additionalProperties: false
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        The server reconstructs a generated question ID or finds the curated bank entry, validates
+        its topic/difficulty and choice index, and grades it. A client-supplied correct flag is rejected. Service-only
+        insert maintains derived statistics transactionally.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuizAttemptInput'
+  /api/practice/stats:
+    get:
+      operationId: get_practice_stats
+      summary: Read personal topic statistics
+      tags:
+        - Learning
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PracticeStats'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/history:
+    get:
+      operationId: get_history
+      summary: Read recent cross-feature history
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Contains calculations, quizAttempts, conversations and limitPerCategory=100. Use paginated
+        individual endpoints for older records.
+  /api/profile:
+    get:
+      operationId: get_profile
+      summary: Read own profile and preferences
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: patch_profile
+      summary: Update own profile and preferences
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Avatar must be within the caller UUID prefix. Preferences are limited to 8,000 JSON characters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                display_name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                avatar_path:
+                  type:
+                    - string
+                    - 'null'
+                  maxLength: 300
+                preferences:
+                  type: object
+                  additionalProperties: true
+              additionalProperties: false
+  /api/feedback:
+    post:
+      operationId: post_feedback
+      summary: Record product feedback
+      tags:
+        - Accounts
+      security:
+        - {}
+        - supabaseBearer: []
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: *id001
+                  created_at:
+                    type: string
+                    format: date-time
+                required:
+                  - id
+                  - created_at
+                additionalProperties: false
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Optional authentication. Guest feedback requires the server service key. Five submissions/hour.
+        Returns success only after a real database write.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  minLength: 10
+                  maxLength: 5000
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+              required:
+                - message
+              additionalProperties: false
+  /api/account/export:
+    get:
+      operationId: get_account_export
+      summary: Export own account records
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: Interactive export limit exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        JSON attachment includes all owned records and identity metadata, excluding share token
+        hashes. Bearer tokens/provider keys are never included. Pagination is performed internally. Exports
+        above 25 MiB or 50,000 rows per table fail explicitly rather than truncating; use paginated endpoints
+        or an operator-assisted export.
+  /api/account:
+    delete:
+      operationId: delete_account
+      summary: Remove owned storage, account and records
+      tags:
+        - Accounts
+      security:
+        - supabaseBearer: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deleted:
+                    type: boolean
+                  removedFiles:
+                    type: integer
+                required:
+                  - deleted
+                  - removedFiles
+                additionalProperties: false
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Quota exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until retry.
+        '503':
+          description: Required credentials, migrations, or service are unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing, invalid, or expired Supabase bearer token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Insufficient permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description:
+        Deletes objects only below the verified UUID in private exports/avatars buckets, purges
+        the user HMAC quota subject, then deletes the Auth user, cascading owned database rows. Requires the
+        server service key. Partial cleanup failures are reported honestly; retries complete remaining work.
+components:
+  securitySchemes:
+    supabaseBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: Supabase access JWT
+      description:
+        A verified Supabase access token; API calls auth.getUser to verify it before creating a
+        user-scoped database client.
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: *id004
+            message: *id004
+            requestId: *id004
+            details: {}
+          required:
+            - code
+            - message
+          additionalProperties: false
+      required:
+        - error
+      additionalProperties: false
+    CalculationResult:
+      type: object
+      properties:
+        toolId: *id004
+        title: *id004
+        normalizedInput:
+          type: object
+          additionalProperties: true
+        summary:
+          type: array
+          items:
+            type: object
+            properties:
+              label: *id004
+              value:
+                type:
+                  - string
+                  - number
+                  - boolean
+                  - 'null'
+              description: *id004
+            required:
+              - label
+              - value
+            additionalProperties: false
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type:
+                - string
+                - number
+                - boolean
+                - 'null'
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              key: *id004
+              label: *id004
+            required:
+              - key
+              - label
+            additionalProperties: false
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              title: *id004
+              description: *id004
+              formula: *id004
+            required:
+              - title
+              - description
+            additionalProperties: false
+        warnings:
+          type: array
+          items: *id004
+        blocks:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data:
+          type: object
+          additionalProperties: true
+        sources:
+          type: array
+          items:
+            type: string
+            format: uri
+        engineVersion: *id004
+      required:
+        - toolId
+        - title
+        - normalizedInput
+        - summary
+        - steps
+        - warnings
+        - engineVersion
+      additionalProperties: false
+    Project:
+      type: object
+      properties:
+        id: *id001
+        name: &id005
+          type: string
+          minLength: 1
+          maxLength: 100
+        description: &id006
+          type: string
+          maxLength: 3000
+        address_space: &id007
+          type: string
+          maxLength: 100
+        plan: &id008
+          type: object
+          additionalProperties: true
+        version: &id010
+          type: integer
+          minimum: 1
+        archived: &id009
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - description
+        - address_space
+        - plan
+        - version
+        - created_at
+        - updated_at
+      additionalProperties: true
+    CreateProject:
+      type: object
+      properties:
+        name: *id005
+        description: *id006
+        address_space: *id007
+        plan: *id008
+        archived: *id009
+      required:
+        - name
+      additionalProperties: false
+    UpdateProject:
+      type: object
+      properties:
+        name: *id005
+        description: *id006
+        address_space: *id007
+        plan: *id008
+        version: *id010
+        archived: *id009
+      required:
+        - version
+      additionalProperties: false
+    Revision:
+      type: object
+      properties:
+        id: *id001
+        project_id: *id001
+        name: *id004
+        snapshot:
+          $ref: '#/components/schemas/Project'
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - project_id
+        - snapshot
+        - created_at
+      additionalProperties: false
+    Share:
+      type: object
+      properties:
+        id: *id001
+        project_id: *id001
+        expires_at:
+          type: string
+          format: date-time
+        revoked_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - expires_at
+        - created_at
+      additionalProperties: false
+    NewShare:
+      type: object
+      properties:
+        id: *id001
+        token:
+          type: string
+          pattern: ^[A-Za-z0-9_-]{43}$
+        url:
+          type: string
+          description: Relative /share/{token} path. Token is returned only on creation.
+        expires_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - token
+        - url
+        - expires_at
+      additionalProperties: false
+    SavedCalculation:
+      type: object
+      properties:
+        id: *id001
+        project_id:
+          type:
+            - string
+            - 'null'
+          format: uuid
+        name: *id004
+        tool_id:
+          type: string
+          enum: *id011
+        input:
+          type: object
+          additionalProperties: true
+        result:
+          $ref: '#/components/schemas/CalculationResult'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - tool_id
+        - input
+        - result
+      additionalProperties: false
+    CreateCalculation:
+      type: object
+      properties:
+        tool_id:
+          type: string
+          enum: *id011
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        title:
+          type: string
+          description: Compatibility alias for name.
+          minLength: 1
+          maxLength: 100
+        project_id:
+          type:
+            - string
+            - 'null'
+          format: uuid
+        input:
+          type: object
+          additionalProperties: true
+        result:
+          description:
+            Accepted for client compatibility; the API ignores this field and recomputes results
+            from input.
+      required:
+        - tool_id
+        - input
+      additionalProperties: false
+    Favorite:
+      type: object
+      properties:
+        id: *id001
+        tool_id: *id004
+        label: *id004
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - tool_id
+      additionalProperties: false
+    ChatMessage:
+      type: object
+      properties:
+        id: *id001
+        role:
+          type: string
+          enum:
+            - user
+            - assistant
+        content:
+          type: string
+          minLength: 1
+          maxLength: 16000
+        provider: *id004
+        mode:
+          type: string
+          enum:
+            - live
+            - demo
+            - mock
+        created_at:
+          type: string
+          format: date-time
+      required:
+        - role
+        - content
+      additionalProperties: false
+    ChatRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          minItems: 1
+          maxItems: 30
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                enum:
+                  - user
+                  - assistant
+              content:
+                type: string
+                minLength: 1
+                maxLength: 16000
+            required:
+              - role
+              - content
+            additionalProperties: false
+        context:
+          type: object
+          description:
+            A CalculationResult with toolId and normalizedInput, or {toolId,input}. The API recomputes
+            the attachment; arbitrary context is rejected.
+          additionalProperties: true
+        conversationId: *id001
+      required:
+        - messages
+      additionalProperties: false
+    Conversation:
+      type: object
+      properties:
+        id: *id001
+        title: *id004
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - title
+        - created_at
+      additionalProperties: false
+    QuizAttemptInput:
+      type: object
+      properties:
+        questionId:
+          type: string
+          minLength: 1
+          maxLength: 150
+        answerIndex:
+          type: integer
+          minimum: 0
+          maximum: 7
+        topic:
+          type: string
+          minLength: 1
+          maxLength: 100
+        difficulty:
+          type: string
+          enum:
+            - beginner
+            - intermediate
+            - advanced
+            - exam
+        durationMs:
+          type: integer
+          minimum: 0
+          maximum: 86400000
+        seed:
+          type:
+            - string
+            - integer
+      required:
+        - questionId
+        - answerIndex
+        - topic
+        - difficulty
+        - durationMs
+      additionalProperties: false
+    PracticeStats:
+      type: object
+      properties:
+        topic: *id004
+        difficulty: *id004
+        attempts:
+          type: integer
+        correct_answers:
+          type: integer
+        total_duration_ms:
+          type: integer
+        best_streak:
+          type: integer
+        current_streak:
+          type: integer
+        last_practiced_at:
+          type: string
+          format: date-time
+      required:
+        - topic
+        - difficulty
+        - attempts
+        - correct_answers
+      additionalProperties: false
+    Profile:
+      type: object
+      properties:
+        id: *id001
+        display_name: *id004
+        avatar_path:
+          type:
+            - string
+            - 'null'
+        preferences:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - display_name
+        - preferences
+      additionalProperties: false

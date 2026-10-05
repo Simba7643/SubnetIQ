@@ -1,0 +1,244 @@
+[
+  {
+    "id": "home",
+    "name": "Segmented home",
+    "description": "Separate trusted devices, guests, and household IoT within a compact private allocation.",
+    "network": "192.168.50.0/24",
+    "policy": "lan",
+    "segments": [
+      {
+        "name": "Trusted devices",
+        "hosts": 50,
+        "vlan": 10,
+        "cidr": "192.168.50.0/26",
+        "gateway": "192.168.50.1",
+        "purpose": "Computers and phones",
+        "ipv6": "2001:db8:50:10::/64"
+      },
+      {
+        "name": "IoT",
+        "hosts": 30,
+        "vlan": 20,
+        "cidr": "192.168.50.64/27",
+        "gateway": "192.168.50.65",
+        "purpose": "Appliances and sensors",
+        "ipv6": "2001:db8:50:20::/64"
+      },
+      {
+        "name": "Guests",
+        "hosts": 20,
+        "vlan": 30,
+        "cidr": "192.168.50.96/27",
+        "gateway": "192.168.50.97",
+        "purpose": "Internet-only visitors",
+        "ipv6": "2001:db8:50:30::/64"
+      },
+      {
+        "name": "Management",
+        "hosts": 10,
+        "vlan": 99,
+        "cidr": "192.168.50.128/28",
+        "gateway": "192.168.50.129",
+        "purpose": "Network equipment",
+        "ipv6": "2001:db8:50:99::/64"
+      }
+    ],
+    "notes": [
+      "Host requirements include gateway addresses.",
+      "Default-deny inter-VLAN access; permit specific required services.",
+      "Use a real delegated IPv6 prefix before deployment; 2001:db8::/32 is documentation space.",
+      "Avoid allocating management addresses dynamically without reservations."
+    ]
+  },
+  {
+    "id": "smb",
+    "name": "Small business",
+    "description": "A routed office plan with user, voice, guest, server, and management zones.",
+    "network": "10.20.0.0/22",
+    "policy": "lan",
+    "segments": [
+      {
+        "name": "Staff",
+        "hosts": 180,
+        "vlan": 10,
+        "cidr": "10.20.0.0/24",
+        "gateway": "10.20.0.1",
+        "purpose": "Managed endpoints",
+        "ipv6": "2001:db8:20:10::/64"
+      },
+      {
+        "name": "Voice",
+        "hosts": 90,
+        "vlan": 20,
+        "cidr": "10.20.1.0/25",
+        "gateway": "10.20.1.1",
+        "purpose": "IP phones",
+        "ipv6": "2001:db8:20:20::/64"
+      },
+      {
+        "name": "Guests",
+        "hosts": 60,
+        "vlan": 30,
+        "cidr": "10.20.1.128/26",
+        "gateway": "10.20.1.129",
+        "purpose": "Guest access",
+        "ipv6": "2001:db8:20:30::/64"
+      },
+      {
+        "name": "Servers",
+        "hosts": 40,
+        "vlan": 40,
+        "cidr": "10.20.1.192/26",
+        "gateway": "10.20.1.193",
+        "purpose": "Business applications",
+        "ipv6": "2001:db8:20:40::/64"
+      },
+      {
+        "name": "Management",
+        "hosts": 25,
+        "vlan": 99,
+        "cidr": "10.20.2.0/27",
+        "gateway": "10.20.2.1",
+        "purpose": "Privileged administration",
+        "ipv6": "2001:db8:20:99::/64"
+      }
+    ],
+    "notes": [
+      "Reserve remaining space for growth and new services.",
+      "Permit guest access to the internet while blocking internal ranges.",
+      "Document DHCP scopes, exclusions, and DNS resolvers per VLAN.",
+      "IPv6 prefixes are examples and must be replaced with an assigned range."
+    ]
+  },
+  {
+    "id": "campus",
+    "name": "Multi-building campus",
+    "description": "A summarizable campus allocation with distinct teaching, staff, research, and operations segments.",
+    "network": "10.40.0.0/20",
+    "policy": "lan",
+    "segments": [
+      {
+        "name": "Student access",
+        "hosts": 900,
+        "vlan": 110,
+        "cidr": "10.40.0.0/22",
+        "gateway": "10.40.0.1",
+        "purpose": "Student devices",
+        "ipv6": "2001:db8:40:110::/64"
+      },
+      {
+        "name": "Staff",
+        "hosts": 450,
+        "vlan": 120,
+        "cidr": "10.40.4.0/23",
+        "gateway": "10.40.4.1",
+        "purpose": "Managed staff devices",
+        "ipv6": "2001:db8:40:120::/64"
+      },
+      {
+        "name": "Research",
+        "hosts": 400,
+        "vlan": 130,
+        "cidr": "10.40.6.0/23",
+        "gateway": "10.40.6.1",
+        "purpose": "Research systems",
+        "ipv6": "2001:db8:40:130::/64"
+      },
+      {
+        "name": "Guest wireless",
+        "hosts": 250,
+        "vlan": 140,
+        "cidr": "10.40.8.0/24",
+        "gateway": "10.40.8.1",
+        "purpose": "Isolated visitor access",
+        "ipv6": "2001:db8:40:140::/64"
+      },
+      {
+        "name": "Facilities",
+        "hosts": 120,
+        "vlan": 150,
+        "cidr": "10.40.9.0/25",
+        "gateway": "10.40.9.1",
+        "purpose": "Building systems",
+        "ipv6": "2001:db8:40:150::/64"
+      },
+      {
+        "name": "Management",
+        "hosts": 60,
+        "vlan": 199,
+        "cidr": "10.40.9.128/26",
+        "gateway": "10.40.9.129",
+        "purpose": "Network administration",
+        "ipv6": "2001:db8:40:199::/64"
+      }
+    ],
+    "notes": [
+      "An example segment may need further subdivision by building or failure domain.",
+      "Keep route summaries aligned with actual topology; an allocation alone does not guarantee safe advertisement.",
+      "Use access controls between users, research, and facilities.",
+      "Plan redundant gateway reservations and DHCP relay addresses separately if needed.",
+      "IPv6 prefixes use documentation space."
+    ]
+  },
+  {
+    "id": "data-center",
+    "name": "Data-center service zones",
+    "description": "A service-oriented example for application, database, storage, infrastructure, and management networks.",
+    "network": "10.80.0.0/21",
+    "policy": "lan",
+    "segments": [
+      {
+        "name": "Application workloads",
+        "hosts": 400,
+        "vlan": 210,
+        "cidr": "10.80.0.0/23",
+        "gateway": "10.80.0.1",
+        "purpose": "Application tier",
+        "ipv6": "2001:db8:80:210::/64"
+      },
+      {
+        "name": "Storage",
+        "hosts": 200,
+        "vlan": 220,
+        "cidr": "10.80.2.0/24",
+        "gateway": "10.80.2.1",
+        "purpose": "Storage traffic",
+        "ipv6": "2001:db8:80:220::/64"
+      },
+      {
+        "name": "Database",
+        "hosts": 100,
+        "vlan": 230,
+        "cidr": "10.80.3.0/25",
+        "gateway": "10.80.3.1",
+        "purpose": "Data tier",
+        "ipv6": "2001:db8:80:230::/64"
+      },
+      {
+        "name": "Infrastructure",
+        "hosts": 60,
+        "vlan": 240,
+        "cidr": "10.80.3.128/26",
+        "gateway": "10.80.3.129",
+        "purpose": "Shared services",
+        "ipv6": "2001:db8:80:240::/64"
+      },
+      {
+        "name": "Out-of-band management",
+        "hosts": 50,
+        "vlan": 299,
+        "cidr": "10.80.3.192/26",
+        "gateway": "10.80.3.193",
+        "purpose": "Dedicated administration",
+        "ipv6": "2001:db8:80:299::/64"
+      }
+    ],
+    "notes": [
+      "This is an addressing example, not a validated physical fabric design.",
+      "Separate storage, management, and application policy domains.",
+      "Use dedicated transit/loopback allocations for the routing fabric; /31 and /127 links need explicit policies.",
+      "Apply least-privilege east-west rules and test required failure scenarios.",
+      "Replace all documentation IPv6 addresses before deployment."
+    ]
+  }
+]

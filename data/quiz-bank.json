@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "curated-001",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.20.17.37/24?",
+    "options": ["10.20.17.1", "10.20.18.0", "10.20.17.0", "10.20.17.255"],
+    "correctIndex": 2,
+    "explanation": "The /24 mask is 255.255.255.0. Applying address AND mask clears 8 host bits. The aligned network is 10.20.17.0/24; its complete range ends at 10.20.17.255."
+  },
+  {
+    "id": "curated-002",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.20.17.0/24?",
+    "options": ["10.20.18.0", "10.20.17.255", "10.20.17.254", "10.20.17.0"],
+    "correctIndex": 1,
+    "explanation": "This block contains 256 addresses. Add 255 to its network address, or set all 8 host bits to one, to obtain 10.20.17.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-003",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.21.20.44/25?",
+    "options": ["10.21.20.1", "10.21.20.0", "10.21.20.128", "10.21.20.127"],
+    "correctIndex": 1,
+    "explanation": "The /25 mask is 255.255.255.128. Applying address AND mask clears 7 host bits. The aligned network is 10.21.20.0/25; its complete range ends at 10.21.20.127."
+  },
+  {
+    "id": "curated-004",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.21.20.0/25?",
+    "options": ["10.21.20.127", "10.21.20.126", "10.21.20.128", "10.21.20.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 128 addresses. Add 127 to its network address, or set all 7 host bits to one, to obtain 10.21.20.127. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-005",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.22.23.51/26?",
+    "options": ["10.22.23.64", "10.22.23.1", "10.22.23.0", "10.22.23.63"],
+    "correctIndex": 2,
+    "explanation": "The /26 mask is 255.255.255.192. Applying address AND mask clears 6 host bits. The aligned network is 10.22.23.0/26; its complete range ends at 10.22.23.63."
+  },
+  {
+    "id": "curated-006",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.22.23.0/26?",
+    "options": ["10.22.23.64", "10.22.23.0", "10.22.23.63", "10.22.23.62"],
+    "correctIndex": 2,
+    "explanation": "This block contains 64 addresses. Add 63 to its network address, or set all 6 host bits to one, to obtain 10.22.23.63. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-007",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.23.26.58/27?",
+    "options": ["10.23.26.33", "10.23.26.32", "10.23.26.63", "10.23.26.64"],
+    "correctIndex": 1,
+    "explanation": "The /27 mask is 255.255.255.224. Applying address AND mask clears 5 host bits. The aligned network is 10.23.26.32/27; its complete range ends at 10.23.26.63."
+  },
+  {
+    "id": "curated-008",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.23.26.32/27?",
+    "options": ["10.23.26.32", "10.23.26.63", "10.23.26.64", "10.23.26.62"],
+    "correctIndex": 1,
+    "explanation": "This block contains 32 addresses. Add 31 to its network address, or set all 5 host bits to one, to obtain 10.23.26.63. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-009",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.24.29.65/28?",
+    "options": ["10.24.29.65", "10.24.29.79", "10.24.29.80", "10.24.29.64"],
+    "correctIndex": 3,
+    "explanation": "The /28 mask is 255.255.255.240. Applying address AND mask clears 4 host bits. The aligned network is 10.24.29.64/28; its complete range ends at 10.24.29.79."
+  },
+  {
+    "id": "curated-010",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.24.29.64/28?",
+    "options": ["10.24.29.80", "10.24.29.78", "10.24.29.79", "10.24.29.64"],
+    "correctIndex": 2,
+    "explanation": "This block contains 16 addresses. Add 15 to its network address, or set all 4 host bits to one, to obtain 10.24.29.79. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-011",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.25.32.72/29?",
+    "options": ["10.25.32.73", "10.25.32.79", "10.25.32.80", "10.25.32.72"],
+    "correctIndex": 3,
+    "explanation": "The /29 mask is 255.255.255.248. Applying address AND mask clears 3 host bits. The aligned network is 10.25.32.72/29; its complete range ends at 10.25.32.79."
+  },
+  {
+    "id": "curated-012",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.25.32.72/29?",
+    "options": ["10.25.32.79", "10.25.32.78", "10.25.32.80", "10.25.32.72"],
+    "correctIndex": 0,
+    "explanation": "This block contains 8 addresses. Add 7 to its network address, or set all 3 host bits to one, to obtain 10.25.32.79. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-013",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.26.35.79/30?",
+    "options": ["10.26.35.76", "10.26.35.80", "10.26.35.79", "10.26.35.77"],
+    "correctIndex": 0,
+    "explanation": "The /30 mask is 255.255.255.252. Applying address AND mask clears 2 host bits. The aligned network is 10.26.35.76/30; its complete range ends at 10.26.35.79."
+  },
+  {
+    "id": "curated-014",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.26.35.76/30?",
+    "options": ["10.26.35.80", "10.26.35.78", "10.26.35.76", "10.26.35.79"],
+    "correctIndex": 3,
+    "explanation": "This block contains 4 addresses. Add 3 to its network address, or set all 2 host bits to one, to obtain 10.26.35.79. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-015",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.27.38.86/23?",
+    "options": ["10.27.38.1", "10.27.40.0", "10.27.38.0", "10.27.39.255"],
+    "correctIndex": 2,
+    "explanation": "The /23 mask is 255.255.254.0. Applying address AND mask clears 9 host bits. The aligned network is 10.27.38.0/23; its complete range ends at 10.27.39.255."
+  },
+  {
+    "id": "curated-016",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.27.38.0/23?",
+    "options": ["10.27.39.254", "10.27.40.0", "10.27.39.255", "10.27.38.0"],
+    "correctIndex": 2,
+    "explanation": "This block contains 512 addresses. Add 511 to its network address, or set all 9 host bits to one, to obtain 10.27.39.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-017",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.28.41.93/22?",
+    "options": ["10.28.40.0", "10.28.40.1", "10.28.44.0", "10.28.43.255"],
+    "correctIndex": 0,
+    "explanation": "The /22 mask is 255.255.252.0. Applying address AND mask clears 10 host bits. The aligned network is 10.28.40.0/22; its complete range ends at 10.28.43.255."
+  },
+  {
+    "id": "curated-018",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.28.40.0/22?",
+    "options": ["10.28.43.255", "10.28.43.254", "10.28.44.0", "10.28.40.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 1,024 addresses. Add 1,023 to its network address, or set all 10 host bits to one, to obtain 10.28.43.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-019",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.29.44.100/21?",
+    "options": ["10.29.47.255", "10.29.40.1", "10.29.48.0", "10.29.40.0"],
+    "correctIndex": 3,
+    "explanation": "The /21 mask is 255.255.248.0. Applying address AND mask clears 11 host bits. The aligned network is 10.29.40.0/21; its complete range ends at 10.29.47.255."
+  },
+  {
+    "id": "curated-020",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.29.40.0/21?",
+    "options": ["10.29.47.255", "10.29.47.254", "10.29.40.0", "10.29.48.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 2,048 addresses. Add 2,047 to its network address, or set all 11 host bits to one, to obtain 10.29.47.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-021",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.30.47.107/20?",
+    "options": ["10.30.32.0", "10.30.47.255", "10.30.48.0", "10.30.32.1"],
+    "correctIndex": 0,
+    "explanation": "The /20 mask is 255.255.240.0. Applying address AND mask clears 12 host bits. The aligned network is 10.30.32.0/20; its complete range ends at 10.30.47.255."
+  },
+  {
+    "id": "curated-022",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.30.32.0/20?",
+    "options": ["10.30.47.255", "10.30.48.0", "10.30.47.254", "10.30.32.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 4,096 addresses. Add 4,095 to its network address, or set all 12 host bits to one, to obtain 10.30.47.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-023",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.31.50.114/19?",
+    "options": ["10.31.63.255", "10.31.32.0", "10.31.32.1", "10.31.64.0"],
+    "correctIndex": 1,
+    "explanation": "The /19 mask is 255.255.224.0. Applying address AND mask clears 13 host bits. The aligned network is 10.31.32.0/19; its complete range ends at 10.31.63.255."
+  },
+  {
+    "id": "curated-024",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.31.32.0/19?",
+    "options": ["10.31.32.0", "10.31.63.255", "10.31.63.254", "10.31.64.0"],
+    "correctIndex": 1,
+    "explanation": "This block contains 8,192 addresses. Add 8,191 to its network address, or set all 13 host bits to one, to obtain 10.31.63.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-025",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.32.53.121/18?",
+    "options": ["10.32.64.0", "10.32.63.255", "10.32.0.1", "10.32.0.0"],
+    "correctIndex": 3,
+    "explanation": "The /18 mask is 255.255.192.0. Applying address AND mask clears 14 host bits. The aligned network is 10.32.0.0/18; its complete range ends at 10.32.63.255."
+  },
+  {
+    "id": "curated-026",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.32.0.0/18?",
+    "options": ["10.32.63.255", "10.32.0.0", "10.32.63.254", "10.32.64.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 16,384 addresses. Add 16,383 to its network address, or set all 14 host bits to one, to obtain 10.32.63.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-027",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.33.56.128/17?",
+    "options": ["10.33.127.255", "10.33.0.1", "10.33.128.0", "10.33.0.0"],
+    "correctIndex": 3,
+    "explanation": "The /17 mask is 255.255.128.0. Applying address AND mask clears 15 host bits. The aligned network is 10.33.0.0/17; its complete range ends at 10.33.127.255."
+  },
+  {
+    "id": "curated-028",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.33.0.0/17?",
+    "options": ["10.33.127.255", "10.33.127.254", "10.33.0.0", "10.33.128.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 32,768 addresses. Add 32,767 to its network address, or set all 15 host bits to one, to obtain 10.33.127.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-029",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.34.59.135/16?",
+    "options": ["10.34.0.0", "10.35.0.0", "10.34.255.255", "10.34.0.1"],
+    "correctIndex": 0,
+    "explanation": "The /16 mask is 255.255.0.0. Applying address AND mask clears 16 host bits. The aligned network is 10.34.0.0/16; its complete range ends at 10.34.255.255."
+  },
+  {
+    "id": "curated-030",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.34.0.0/16?",
+    "options": ["10.34.255.254", "10.34.255.255", "10.34.0.0", "10.35.0.0"],
+    "correctIndex": 1,
+    "explanation": "This block contains 65,536 addresses. Add 65,535 to its network address, or set all 16 host bits to one, to obtain 10.34.255.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-031",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.35.62.142/15?",
+    "options": ["10.34.0.0", "10.36.0.0", "10.34.0.1", "10.35.255.255"],
+    "correctIndex": 0,
+    "explanation": "The /15 mask is 255.254.0.0. Applying address AND mask clears 17 host bits. The aligned network is 10.34.0.0/15; its complete range ends at 10.35.255.255."
+  },
+  {
+    "id": "curated-032",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.34.0.0/15?",
+    "options": ["10.35.255.255", "10.36.0.0", "10.35.255.254", "10.34.0.0"],
+    "correctIndex": 0,
+    "explanation": "This block contains 131,072 addresses. Add 131,071 to its network address, or set all 17 host bits to one, to obtain 10.35.255.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-033",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "Which network contains 10.36.65.149/14?",
+    "options": ["10.40.0.0", "10.36.0.1", "10.36.0.0", "10.39.255.255"],
+    "correctIndex": 2,
+    "explanation": "The /14 mask is 255.252.0.0. Applying address AND mask clears 18 host bits. The aligned network is 10.36.0.0/14; its complete range ends at 10.39.255.255."
+  },
+  {
+    "id": "curated-034",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.36.0.0/14?",
+    "options": ["10.39.255.254", "10.40.0.0", "10.39.255.255", "10.36.0.0"],
+    "correctIndex": 2,
+    "explanation": "This block contains 262,144 addresses. Add 262,143 to its network address, or set all 18 host bits to one, to obtain 10.39.255.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-035",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.37.68.156/25?",
+    "options": ["10.37.69.0", "10.37.68.128", "10.37.68.129", "10.37.68.255"],
+    "correctIndex": 1,
+    "explanation": "The /25 mask is 255.255.255.128. Applying address AND mask clears 7 host bits. The aligned network is 10.37.68.128/25; its complete range ends at 10.37.68.255."
+  },
+  {
+    "id": "curated-036",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.37.68.128/25?",
+    "options": ["10.37.68.255", "10.37.68.128", "10.37.69.0", "10.37.68.254"],
+    "correctIndex": 0,
+    "explanation": "This block contains 128 addresses. Add 127 to its network address, or set all 7 host bits to one, to obtain 10.37.68.255. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-037",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.38.71.163/27?",
+    "options": ["10.38.71.191", "10.38.71.161", "10.38.71.192", "10.38.71.160"],
+    "correctIndex": 3,
+    "explanation": "The /27 mask is 255.255.255.224. Applying address AND mask clears 5 host bits. The aligned network is 10.38.71.160/27; its complete range ends at 10.38.71.191."
+  },
+  {
+    "id": "curated-038",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.38.71.160/27?",
+    "options": ["10.38.71.190", "10.38.71.160", "10.38.71.191", "10.38.71.192"],
+    "correctIndex": 2,
+    "explanation": "This block contains 32 addresses. Add 31 to its network address, or set all 5 host bits to one, to obtain 10.38.71.191. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-039",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which network contains 10.39.74.170/29?",
+    "options": ["10.39.74.168", "10.39.74.175", "10.39.74.176", "10.39.74.169"],
+    "correctIndex": 0,
+    "explanation": "The /29 mask is 255.255.255.248. Applying address AND mask clears 3 host bits. The aligned network is 10.39.74.168/29; its complete range ends at 10.39.74.175."
+  },
+  {
+    "id": "curated-040",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "What is the conventional IPv4 broadcast address for 10.39.74.168/29?",
+    "options": ["10.39.74.174", "10.39.74.176", "10.39.74.175", "10.39.74.168"],
+    "correctIndex": 2,
+    "explanation": "This block contains 8 addresses. Add 7 to its network address, or set all 3 host bits to one, to obtain 10.39.74.175. The preceding address is the last conventional usable host."
+  },
+  {
+    "id": "curated-041",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /11 subnet provide?",
+    "options": ["4,194,302", "2,097,150", "2,097,152", "2,097,151"],
+    "correctIndex": 1,
+    "explanation": "An IPv4 /11 has 21 host bits, hence 2^21 = 2,097,152 total addresses. Excluding one network and one broadcast address leaves 2,097,150. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-042",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /12 subnet provide?",
+    "options": ["2,097,150", "1,048,576", "1,048,574", "1,048,575"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /12 has 20 host bits, hence 2^20 = 1,048,576 total addresses. Excluding one network and one broadcast address leaves 1,048,574. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-043",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /13 subnet provide?",
+    "options": ["524,288", "1,048,574", "524,287", "524,286"],
+    "correctIndex": 3,
+    "explanation": "An IPv4 /13 has 19 host bits, hence 2^19 = 524,288 total addresses. Excluding one network and one broadcast address leaves 524,286. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-044",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /14 subnet provide?",
+    "options": ["262,143", "524,286", "262,142", "262,144"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /14 has 18 host bits, hence 2^18 = 262,144 total addresses. Excluding one network and one broadcast address leaves 262,142. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-045",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /15 subnet provide?",
+    "options": ["131,071", "131,072", "262,142", "131,070"],
+    "correctIndex": 3,
+    "explanation": "An IPv4 /15 has 17 host bits, hence 2^17 = 131,072 total addresses. Excluding one network and one broadcast address leaves 131,070. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-046",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /16 subnet provide?",
+    "options": ["65,534", "65,536", "131,070", "65,535"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /16 has 16 host bits, hence 2^16 = 65,536 total addresses. Excluding one network and one broadcast address leaves 65,534. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-047",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /17 subnet provide?",
+    "options": ["32,766", "32,768", "65,534", "32,767"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /17 has 15 host bits, hence 2^15 = 32,768 total addresses. Excluding one network and one broadcast address leaves 32,766. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-048",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /18 subnet provide?",
+    "options": ["16,382", "16,383", "32,766", "16,384"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /18 has 14 host bits, hence 2^14 = 16,384 total addresses. Excluding one network and one broadcast address leaves 16,382. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-049",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /19 subnet provide?",
+    "options": ["8,190", "8,192", "8,191", "16,382"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /19 has 13 host bits, hence 2^13 = 8,192 total addresses. Excluding one network and one broadcast address leaves 8,190. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-050",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /20 subnet provide?",
+    "options": ["4,094", "4,095", "4,096", "8,190"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /20 has 12 host bits, hence 2^12 = 4,096 total addresses. Excluding one network and one broadcast address leaves 4,094. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-051",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /21 subnet provide?",
+    "options": ["2,047", "4,094", "2,048", "2,046"],
+    "correctIndex": 3,
+    "explanation": "An IPv4 /21 has 11 host bits, hence 2^11 = 2,048 total addresses. Excluding one network and one broadcast address leaves 2,046. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-052",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /22 subnet provide?",
+    "options": ["1,024", "1,023", "1,022", "2,046"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /22 has 10 host bits, hence 2^10 = 1,024 total addresses. Excluding one network and one broadcast address leaves 1,022. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-053",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /23 subnet provide?",
+    "options": ["512", "1,022", "510", "511"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /23 has 9 host bits, hence 2^9 = 512 total addresses. Excluding one network and one broadcast address leaves 510. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-054",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /24 subnet provide?",
+    "options": ["510", "254", "255", "256"],
+    "correctIndex": 1,
+    "explanation": "An IPv4 /24 has 8 host bits, hence 2^8 = 256 total addresses. Excluding one network and one broadcast address leaves 254. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-055",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /25 subnet provide?",
+    "options": ["126", "128", "254", "127"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /25 has 7 host bits, hence 2^7 = 128 total addresses. Excluding one network and one broadcast address leaves 126. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-056",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /26 subnet provide?",
+    "options": ["63", "126", "64", "62"],
+    "correctIndex": 3,
+    "explanation": "An IPv4 /26 has 6 host bits, hence 2^6 = 64 total addresses. Excluding one network and one broadcast address leaves 62. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-057",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /27 subnet provide?",
+    "options": ["30", "31", "32", "62"],
+    "correctIndex": 0,
+    "explanation": "An IPv4 /27 has 5 host bits, hence 2^5 = 32 total addresses. Excluding one network and one broadcast address leaves 30. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-058",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /28 subnet provide?",
+    "options": ["16", "15", "14", "30"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /28 has 4 host bits, hence 2^4 = 16 total addresses. Excluding one network and one broadcast address leaves 14. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-059",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /29 subnet provide?",
+    "options": ["14", "7", "6", "8"],
+    "correctIndex": 2,
+    "explanation": "An IPv4 /29 has 3 host bits, hence 2^3 = 8 total addresses. Excluding one network and one broadcast address leaves 6. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-060",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "With ordinary IPv4 LAN reservations only, how many usable addresses does a /30 subnet provide?",
+    "options": ["6", "2", "4", "3"],
+    "correctIndex": 1,
+    "explanation": "An IPv4 /30 has 2 host bits, hence 2^2 = 4 total addresses. Excluding one network and one broadcast address leaves 2. This calculation does not include cloud-provider reservations."
+  },
+  {
+    "id": "curated-061",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /11?",
+    "options": ["255.224.0.0", "255.192.0.0", "0.31.255.255", "255.240.0.0"],
+    "correctIndex": 0,
+    "explanation": "A /11 mask has 11 leading one bits and 21 zero bits. Eight-bit conversion gives 255.224.0.0. Its inverse, 0.31.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-062",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /12?",
+    "options": ["255.248.0.0", "255.224.0.0", "255.240.0.0", "0.15.255.255"],
+    "correctIndex": 2,
+    "explanation": "A /12 mask has 12 leading one bits and 20 zero bits. Eight-bit conversion gives 255.240.0.0. Its inverse, 0.15.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-063",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /13?",
+    "options": ["255.248.0.0", "255.252.0.0", "0.7.255.255", "255.240.0.0"],
+    "correctIndex": 0,
+    "explanation": "A /13 mask has 13 leading one bits and 19 zero bits. Eight-bit conversion gives 255.248.0.0. Its inverse, 0.7.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-064",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /14?",
+    "options": ["255.254.0.0", "255.252.0.0", "255.248.0.0", "0.3.255.255"],
+    "correctIndex": 1,
+    "explanation": "A /14 mask has 14 leading one bits and 18 zero bits. Eight-bit conversion gives 255.252.0.0. Its inverse, 0.3.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-065",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /15?",
+    "options": ["0.1.255.255", "255.255.0.0", "255.254.0.0", "255.252.0.0"],
+    "correctIndex": 2,
+    "explanation": "A /15 mask has 15 leading one bits and 17 zero bits. Eight-bit conversion gives 255.254.0.0. Its inverse, 0.1.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-066",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /16?",
+    "options": ["255.255.128.0", "255.255.0.0", "255.254.0.0", "0.0.255.255"],
+    "correctIndex": 1,
+    "explanation": "A /16 mask has 16 leading one bits and 16 zero bits. Eight-bit conversion gives 255.255.0.0. Its inverse, 0.0.255.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-067",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /17?",
+    "options": ["0.0.127.255", "255.255.128.0", "255.255.0.0", "255.255.192.0"],
+    "correctIndex": 1,
+    "explanation": "A /17 mask has 17 leading one bits and 15 zero bits. Eight-bit conversion gives 255.255.128.0. Its inverse, 0.0.127.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-068",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /18?",
+    "options": ["0.0.63.255", "255.255.128.0", "255.255.224.0", "255.255.192.0"],
+    "correctIndex": 3,
+    "explanation": "A /18 mask has 18 leading one bits and 14 zero bits. Eight-bit conversion gives 255.255.192.0. Its inverse, 0.0.63.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-069",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /19?",
+    "options": ["255.255.192.0", "255.255.224.0", "0.0.31.255", "255.255.240.0"],
+    "correctIndex": 1,
+    "explanation": "A /19 mask has 19 leading one bits and 13 zero bits. Eight-bit conversion gives 255.255.224.0. Its inverse, 0.0.31.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-070",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /20?",
+    "options": ["255.255.240.0", "255.255.224.0", "0.0.15.255", "255.255.248.0"],
+    "correctIndex": 0,
+    "explanation": "A /20 mask has 20 leading one bits and 12 zero bits. Eight-bit conversion gives 255.255.240.0. Its inverse, 0.0.15.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-071",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /21?",
+    "options": ["0.0.7.255", "255.255.240.0", "255.255.248.0", "255.255.252.0"],
+    "correctIndex": 2,
+    "explanation": "A /21 mask has 21 leading one bits and 11 zero bits. Eight-bit conversion gives 255.255.248.0. Its inverse, 0.0.7.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-072",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /22?",
+    "options": ["0.0.3.255", "255.255.254.0", "255.255.252.0", "255.255.248.0"],
+    "correctIndex": 2,
+    "explanation": "A /22 mask has 22 leading one bits and 10 zero bits. Eight-bit conversion gives 255.255.252.0. Its inverse, 0.0.3.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-073",
+    "topic": "cidr",
+    "difficulty": "intermediate",
+    "question": "Which dotted-decimal subnet mask represents /23?",
+    "options": ["255.255.252.0", "255.255.255.0", "255.255.254.0", "0.0.1.255"],
+    "correctIndex": 2,
+    "explanation": "A /23 mask has 23 leading one bits and 9 zero bits. Eight-bit conversion gives 255.255.254.0. Its inverse, 0.0.1.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-074",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /24?",
+    "options": ["255.255.254.0", "255.255.255.128", "0.0.0.255", "255.255.255.0"],
+    "correctIndex": 3,
+    "explanation": "A /24 mask has 24 leading one bits and 8 zero bits. Eight-bit conversion gives 255.255.255.0. Its inverse, 0.0.0.255, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-075",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /25?",
+    "options": ["255.255.255.192", "0.0.0.127", "255.255.255.0", "255.255.255.128"],
+    "correctIndex": 3,
+    "explanation": "A /25 mask has 25 leading one bits and 7 zero bits. Eight-bit conversion gives 255.255.255.128. Its inverse, 0.0.0.127, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-076",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /26?",
+    "options": ["255.255.255.192", "0.0.0.63", "255.255.255.224", "255.255.255.128"],
+    "correctIndex": 0,
+    "explanation": "A /26 mask has 26 leading one bits and 6 zero bits. Eight-bit conversion gives 255.255.255.192. Its inverse, 0.0.0.63, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-077",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /27?",
+    "options": ["255.255.255.224", "255.255.255.240", "255.255.255.192", "0.0.0.31"],
+    "correctIndex": 0,
+    "explanation": "A /27 mask has 27 leading one bits and 5 zero bits. Eight-bit conversion gives 255.255.255.224. Its inverse, 0.0.0.31, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-078",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /28?",
+    "options": ["255.255.255.248", "0.0.0.15", "255.255.255.240", "255.255.255.224"],
+    "correctIndex": 2,
+    "explanation": "A /28 mask has 28 leading one bits and 4 zero bits. Eight-bit conversion gives 255.255.255.240. Its inverse, 0.0.0.15, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-079",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /29?",
+    "options": ["255.255.255.240", "0.0.0.7", "255.255.255.248", "255.255.255.252"],
+    "correctIndex": 2,
+    "explanation": "A /29 mask has 29 leading one bits and 3 zero bits. Eight-bit conversion gives 255.255.255.248. Its inverse, 0.0.0.7, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-080",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "Which dotted-decimal subnet mask represents /30?",
+    "options": ["255.255.255.252", "255.255.255.248", "0.0.0.3", "255.255.255.254"],
+    "correctIndex": 0,
+    "explanation": "A /30 mask has 30 leading one bits and 2 zero bits. Eight-bit conversion gives 255.255.255.252. Its inverse, 0.0.0.3, is the contiguous wildcard mask."
+  },
+  {
+    "id": "curated-081",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 7 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/28", "/29", "/30", "/27"],
+    "correctIndex": 0,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 7. Here h=4, giving 14 usable addresses. A /29 has only 6, so /28 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-082",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 10 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/27", "/28", "/30", "/29"],
+    "correctIndex": 1,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 10. Here h=4, giving 14 usable addresses. A /29 has only 6, so /28 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-083",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 17 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/27", "/28", "/29", "/26"],
+    "correctIndex": 0,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 17. Here h=5, giving 30 usable addresses. A /28 has only 14, so /27 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-084",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 25 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/28", "/29", "/26", "/27"],
+    "correctIndex": 3,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 25. Here h=5, giving 30 usable addresses. A /28 has only 14, so /27 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-085",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 33 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/25", "/27", "/26", "/28"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 33. Here h=6, giving 62 usable addresses. A /27 has only 30, so /26 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-086",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 50 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/27", "/25", "/26", "/28"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 50. Here h=6, giving 62 usable addresses. A /27 has only 30, so /26 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-087",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 63 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/25", "/24", "/26", "/27"],
+    "correctIndex": 0,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 63. Here h=7, giving 126 usable addresses. A /26 has only 62, so /25 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-088",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 80 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/27", "/24", "/26", "/25"],
+    "correctIndex": 3,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 80. Here h=7, giving 126 usable addresses. A /26 has only 62, so /25 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-089",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 100 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/27", "/26", "/25", "/24"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 100. Here h=7, giving 126 usable addresses. A /26 has only 62, so /25 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-090",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 127 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/26", "/25", "/24", "/23"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 127. Here h=8, giving 254 usable addresses. A /25 has only 126, so /24 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-091",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 200 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/23", "/26", "/24", "/25"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 200. Here h=8, giving 254 usable addresses. A /25 has only 126, so /24 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-092",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 255 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/23", "/22", "/24", "/25"],
+    "correctIndex": 0,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 255. Here h=9, giving 510 usable addresses. A /24 has only 254, so /23 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-093",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 300 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/23", "/25", "/22", "/24"],
+    "correctIndex": 0,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 300. Here h=9, giving 510 usable addresses. A /24 has only 254, so /23 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-094",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 510 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/24", "/25", "/22", "/23"],
+    "correctIndex": 3,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 510. Here h=9, giving 510 usable addresses. A /24 has only 254, so /23 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-095",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 511 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/24", "/21", "/22", "/23"],
+    "correctIndex": 2,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 511. Here h=10, giving 1022 usable addresses. A /23 has only 510, so /22 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-096",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "A department needs 900 IPv4 addresses including its gateway. With conventional LAN rules and no growth margin, what is its smallest fitting prefix?",
+    "options": ["/21", "/22", "/23", "/24"],
+    "correctIndex": 1,
+    "explanation": "Find the smallest h where 2^h − 2 ≥ 900. Here h=10, giving 1022 usable addresses. A /23 has only 510, so /22 is the smallest fitting subnet."
+  },
+  {
+    "id": "curated-097",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.80.0.0/21 and 10.80.8.0/21 without adding addresses?",
+    "options": ["10.80.0.0/19", "10.80.8.0/21", "10.80.0.0/21", "10.80.0.0/20"],
+    "correctIndex": 3,
+    "explanation": "The two /21 networks are equal-size, adjacent, and aligned within 10.80.0.0/20. Their final child-prefix bit differs. Removing it creates /20, containing exactly 4,096 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-098",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.81.0.0/22 and 10.81.4.0/22 without adding addresses?",
+    "options": ["10.81.4.0/22", "10.81.0.0/21", "10.81.0.0/22", "10.81.0.0/20"],
+    "correctIndex": 1,
+    "explanation": "The two /22 networks are equal-size, adjacent, and aligned within 10.81.0.0/21. Their final child-prefix bit differs. Removing it creates /21, containing exactly 2,048 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-099",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.82.0.0/23 and 10.82.2.0/23 without adding addresses?",
+    "options": ["10.82.0.0/21", "10.82.0.0/22", "10.82.0.0/23", "10.82.2.0/23"],
+    "correctIndex": 1,
+    "explanation": "The two /23 networks are equal-size, adjacent, and aligned within 10.82.0.0/22. Their final child-prefix bit differs. Removing it creates /22, containing exactly 1,024 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-100",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.83.0.0/24 and 10.83.1.0/24 without adding addresses?",
+    "options": ["10.83.0.0/22", "10.83.0.0/24", "10.83.0.0/23", "10.83.1.0/24"],
+    "correctIndex": 2,
+    "explanation": "The two /24 networks are equal-size, adjacent, and aligned within 10.83.0.0/23. Their final child-prefix bit differs. Removing it creates /23, containing exactly 512 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-101",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.84.0.0/25 and 10.84.0.128/25 without adding addresses?",
+    "options": ["10.84.0.128/25", "10.84.0.0/25", "10.84.0.0/24", "10.84.0.0/23"],
+    "correctIndex": 2,
+    "explanation": "The two /25 networks are equal-size, adjacent, and aligned within 10.84.0.0/24. Their final child-prefix bit differs. Removing it creates /24, containing exactly 256 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-102",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.85.0.0/26 and 10.85.0.64/26 without adding addresses?",
+    "options": ["10.85.0.64/26", "10.85.0.0/25", "10.85.0.0/24", "10.85.0.0/26"],
+    "correctIndex": 1,
+    "explanation": "The two /26 networks are equal-size, adjacent, and aligned within 10.85.0.0/25. Their final child-prefix bit differs. Removing it creates /25, containing exactly 128 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-103",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.86.0.0/27 and 10.86.0.32/27 without adding addresses?",
+    "options": ["10.86.0.0/26", "10.86.0.0/25", "10.86.0.32/27", "10.86.0.0/27"],
+    "correctIndex": 0,
+    "explanation": "The two /27 networks are equal-size, adjacent, and aligned within 10.86.0.0/26. Their final child-prefix bit differs. Removing it creates /26, containing exactly 64 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-104",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.87.0.0/28 and 10.87.0.16/28 without adding addresses?",
+    "options": ["10.87.0.0/26", "10.87.0.16/28", "10.87.0.0/27", "10.87.0.0/28"],
+    "correctIndex": 2,
+    "explanation": "The two /28 networks are equal-size, adjacent, and aligned within 10.87.0.0/27. Their final child-prefix bit differs. Removing it creates /27, containing exactly 32 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-105",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.88.0.0/29 and 10.88.0.8/29 without adding addresses?",
+    "options": ["10.88.0.0/27", "10.88.0.8/29", "10.88.0.0/28", "10.88.0.0/29"],
+    "correctIndex": 2,
+    "explanation": "The two /29 networks are equal-size, adjacent, and aligned within 10.88.0.0/28. Their final child-prefix bit differs. Removing it creates /28, containing exactly 16 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-106",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.89.0.0/21 and 10.89.8.0/21 without adding addresses?",
+    "options": ["10.89.0.0/19", "10.89.0.0/21", "10.89.8.0/21", "10.89.0.0/20"],
+    "correctIndex": 3,
+    "explanation": "The two /21 networks are equal-size, adjacent, and aligned within 10.89.0.0/20. Their final child-prefix bit differs. Removing it creates /20, containing exactly 4,096 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-107",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.90.0.0/23 and 10.90.2.0/23 without adding addresses?",
+    "options": ["10.90.0.0/22", "10.90.0.0/21", "10.90.0.0/23", "10.90.2.0/23"],
+    "correctIndex": 0,
+    "explanation": "The two /23 networks are equal-size, adjacent, and aligned within 10.90.0.0/22. Their final child-prefix bit differs. Removing it creates /22, containing exactly 1,024 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-108",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.91.0.0/25 and 10.91.0.128/25 without adding addresses?",
+    "options": ["10.91.0.0/25", "10.91.0.0/24", "10.91.0.128/25", "10.91.0.0/23"],
+    "correctIndex": 1,
+    "explanation": "The two /25 networks are equal-size, adjacent, and aligned within 10.91.0.0/24. Their final child-prefix bit differs. Removing it creates /24, containing exactly 256 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-109",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.92.0.0/27 and 10.92.0.32/27 without adding addresses?",
+    "options": ["10.92.0.32/27", "10.92.0.0/25", "10.92.0.0/27", "10.92.0.0/26"],
+    "correctIndex": 3,
+    "explanation": "The two /27 networks are equal-size, adjacent, and aligned within 10.92.0.0/26. Their final child-prefix bit differs. Removing it creates /26, containing exactly 64 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-110",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.93.0.0/29 and 10.93.0.8/29 without adding addresses?",
+    "options": ["10.93.0.0/27", "10.93.0.8/29", "10.93.0.0/29", "10.93.0.0/28"],
+    "correctIndex": 3,
+    "explanation": "The two /29 networks are equal-size, adjacent, and aligned within 10.93.0.0/28. Their final child-prefix bit differs. Removing it creates /28, containing exactly 16 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-111",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.94.0.0/24 and 10.94.1.0/24 without adding addresses?",
+    "options": ["10.94.1.0/24", "10.94.0.0/22", "10.94.0.0/24", "10.94.0.0/23"],
+    "correctIndex": 3,
+    "explanation": "The two /24 networks are equal-size, adjacent, and aligned within 10.94.0.0/23. Their final child-prefix bit differs. Removing it creates /23, containing exactly 512 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-112",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which CIDR exactly aggregates 10.95.0.0/26 and 10.95.0.64/26 without adding addresses?",
+    "options": ["10.95.0.0/25", "10.95.0.0/26", "10.95.0.0/24", "10.95.0.64/26"],
+    "correctIndex": 0,
+    "explanation": "The two /26 networks are equal-size, adjacent, and aligned within 10.95.0.0/25. Their final child-prefix bit differs. Removing it creates /25, containing exactly 128 addresses and preserving the input union."
+  },
+  {
+    "id": "curated-113",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /52 IPv6 child networks exactly partition one /48?",
+    "options": ["16", "8", "32", "15"],
+    "correctIndex": 0,
+    "explanation": "The child prefix adds 4 bits. Each doubles the number of child networks, so 2^(52−48) = 16. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-114",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /56 IPv6 child networks exactly partition one /48?",
+    "options": ["128", "512", "256", "255"],
+    "correctIndex": 2,
+    "explanation": "The child prefix adds 8 bits. Each doubles the number of child networks, so 2^(56−48) = 256. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-115",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /60 IPv6 child networks exactly partition one /48?",
+    "options": ["8,192", "4,095", "2,048", "4,096"],
+    "correctIndex": 3,
+    "explanation": "The child prefix adds 12 bits. Each doubles the number of child networks, so 2^(60−48) = 4,096. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-116",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /64 IPv6 child networks exactly partition one /48?",
+    "options": ["131,072", "32,768", "65,535", "65,536"],
+    "correctIndex": 3,
+    "explanation": "The child prefix adds 16 bits. Each doubles the number of child networks, so 2^(64−48) = 65,536. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-117",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /56 IPv6 child networks exactly partition one /52?",
+    "options": ["16", "8", "15", "32"],
+    "correctIndex": 0,
+    "explanation": "The child prefix adds 4 bits. Each doubles the number of child networks, so 2^(56−52) = 16. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-118",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /60 IPv6 child networks exactly partition one /52?",
+    "options": ["255", "256", "128", "512"],
+    "correctIndex": 1,
+    "explanation": "The child prefix adds 8 bits. Each doubles the number of child networks, so 2^(60−52) = 256. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-119",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /64 IPv6 child networks exactly partition one /52?",
+    "options": ["4,095", "4,096", "8,192", "2,048"],
+    "correctIndex": 1,
+    "explanation": "The child prefix adds 12 bits. Each doubles the number of child networks, so 2^(64−52) = 4,096. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-120",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /60 IPv6 child networks exactly partition one /56?",
+    "options": ["16", "32", "8", "15"],
+    "correctIndex": 0,
+    "explanation": "The child prefix adds 4 bits. Each doubles the number of child networks, so 2^(60−56) = 16. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-121",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /64 IPv6 child networks exactly partition one /56?",
+    "options": ["255", "512", "256", "128"],
+    "correctIndex": 2,
+    "explanation": "The child prefix adds 8 bits. Each doubles the number of child networks, so 2^(64−56) = 256. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-122",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /64 IPv6 child networks exactly partition one /60?",
+    "options": ["8", "32", "16", "15"],
+    "correctIndex": 2,
+    "explanation": "The child prefix adds 4 bits. Each doubles the number of child networks, so 2^(64−60) = 16. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-123",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /48 IPv6 child networks exactly partition one /32?",
+    "options": ["65,535", "65,536", "131,072", "32,768"],
+    "correctIndex": 1,
+    "explanation": "The child prefix adds 16 bits. Each doubles the number of child networks, so 2^(48−32) = 65,536. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-124",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /48 IPv6 child networks exactly partition one /40?",
+    "options": ["512", "128", "255", "256"],
+    "correctIndex": 3,
+    "explanation": "The child prefix adds 8 bits. Each doubles the number of child networks, so 2^(48−40) = 256. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-125",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /56 IPv6 child networks exactly partition one /44?",
+    "options": ["4,096", "2,048", "8,192", "4,095"],
+    "correctIndex": 0,
+    "explanation": "The child prefix adds 12 bits. Each doubles the number of child networks, so 2^(56−44) = 4,096. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-126",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /62 IPv6 child networks exactly partition one /56?",
+    "options": ["63", "64", "32", "128"],
+    "correctIndex": 1,
+    "explanation": "The child prefix adds 6 bits. Each doubles the number of child networks, so 2^(62−56) = 64. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-127",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /64 IPv6 child networks exactly partition one /62?",
+    "options": ["4", "3", "8", "2"],
+    "correctIndex": 0,
+    "explanation": "The child prefix adds 2 bits. Each doubles the number of child networks, so 2^(64−62) = 4. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-128",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "How many aligned /68 IPv6 child networks exactly partition one /64?",
+    "options": ["15", "8", "32", "16"],
+    "correctIndex": 3,
+    "explanation": "The child prefix adds 4 bits. Each doubles the number of child networks, so 2^(68−64) = 16. This is a subnet count, independent of endpoint reservation policy."
+  },
+  {
+    "id": "curated-129",
+    "topic": "binary",
+    "difficulty": "beginner",
+    "question": "What decimal value does binary 11000000 represent?",
+    "options": ["96", "128", "192", "224"],
+    "correctIndex": 2,
+    "explanation": "The set bit weights are 128 and 64. Their sum is 192; the remaining six bit weights contribute zero."
+  },
+  {
+    "id": "curated-130",
+    "topic": "binary",
+    "difficulty": "beginner",
+    "question": "What is the largest unsigned decimal value in one octet?",
+    "options": ["256", "254", "128", "255"],
+    "correctIndex": 3,
+    "explanation": "Eight bits provide 256 patterns numbered from zero through 255. A value of 256 requires nine bits."
+  },
+  {
+    "id": "curated-131",
+    "topic": "binary",
+    "difficulty": "beginner",
+    "question": "How many bits does one hexadecimal digit represent?",
+    "options": ["2", "8", "16", "4"],
+    "correctIndex": 3,
+    "explanation": "Hexadecimal has sixteen symbols, and 2^4 = 16. Two hexadecimal digits therefore represent one octet."
+  },
+  {
+    "id": "curated-132",
+    "topic": "cidr",
+    "difficulty": "beginner",
+    "question": "When an IPv4 prefix increases from /24 to /25, what happens to total addresses per subnet?",
+    "options": ["They decrease by one", "They halve", "They stay the same", "They double"],
+    "correctIndex": 1,
+    "explanation": "One fewer host bit halves the number of combinations: /24 has 256 addresses and /25 has 128."
+  },
+  {
+    "id": "curated-133",
+    "topic": "subnetting",
+    "difficulty": "beginner",
+    "question": "Which address is the first conventional usable host of 192.0.2.64/27?",
+    "options": ["192.0.2.64", "192.0.2.65", "192.0.2.94", "192.0.2.95"],
+    "correctIndex": 1,
+    "explanation": "The block spans .64–.95. Its network is .64 and broadcast is .95, so the conventional usable range is .65–.94."
+  },
+  {
+    "id": "curated-134",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "How many endpoint addresses does an IPv4 /31 provide under RFC 3021 point-to-point rules?",
+    "options": ["2", "0", "1", "30"],
+    "correctIndex": 0,
+    "explanation": "Both addresses are used as endpoints on an eligible point-to-point link. Applying the ordinary LAN subtraction of two would incorrectly remove both."
+  },
+  {
+    "id": "curated-135",
+    "topic": "subnetting",
+    "difficulty": "intermediate",
+    "question": "How many addresses are in an IPv4 /32?",
+    "options": ["1", "32", "0", "2"],
+    "correctIndex": 0,
+    "explanation": "All 32 bits are fixed, leaving zero variable bits. 2^0 = 1, making /32 a single-address host route."
+  },
+  {
+    "id": "curated-136",
+    "topic": "subnetting",
+    "difficulty": "advanced",
+    "question": "How many total addresses are represented by IPv4 0.0.0.0/0?",
+    "options": ["16,777,216", "4,294,967,296", "4,294,967,294", "2,147,483,648"],
+    "correctIndex": 1,
+    "explanation": "The prefix fixes no bits, so all 32 bits vary: 2^32 addresses. This mathematical count does not imply universal assignability."
+  },
+  {
+    "id": "curated-137",
+    "topic": "addressing",
+    "difficulty": "beginner",
+    "question": "Which address belongs to RFC 1918 private space?",
+    "options": ["172.31.4.9", "100.64.4.9", "192.0.2.9", "172.32.4.9"],
+    "correctIndex": 0,
+    "explanation": "172.16.0.0/12 runs through 172.31.255.255. Shared carrier space and documentation space are different special-purpose categories."
+  },
+  {
+    "id": "curated-138",
+    "topic": "addressing",
+    "difficulty": "beginner",
+    "question": "What is the IPv4 loopback range?",
+    "options": ["169.254.0.0/16", "192.168.0.0/16", "127.0.0.1/32 only", "127.0.0.0/8"],
+    "correctIndex": 3,
+    "explanation": "127/8 is reserved for loopback, although 127.0.0.1 is the familiar individual address. Link-local and private ranges serve other purposes."
+  },
+  {
+    "id": "curated-139",
+    "topic": "addressing",
+    "difficulty": "intermediate",
+    "question": "Which block is RFC 6598 shared address space?",
+    "options": ["10.0.0.0/8", "100.0.0.0/8", "100.64.0.0/10", "169.254.0.0/16"],
+    "correctIndex": 2,
+    "explanation": "The shared block begins at 100.64.0.0 and ends at 100.127.255.255. It is distinct from RFC 1918 and IPv4 link-local space."
+  },
+  {
+    "id": "curated-140",
+    "topic": "addressing",
+    "difficulty": "intermediate",
+    "question": "Which statement about an address outside RFC 1918 is correct?",
+    "options": [
+      "Anyone can assign it locally",
+      "It must be globally reachable",
+      "It may still be reserved or not globally reachable",
+      "It must be multicast"
+    ],
+    "correctIndex": 2,
+    "explanation": "Private versus nonprivate is not a complete classification. Documentation, loopback, shared, and other special-purpose blocks have distinct properties."
+  },
+  {
+    "id": "curated-141",
+    "topic": "vlsm",
+    "difficulty": "intermediate",
+    "question": "What is a sensible first step in unconstrained VLSM allocation?",
+    "options": [
+      "Ignore gateway requirements",
+      "Sort requirements by descending required block size",
+      "Allocate the smallest department first",
+      "Choose one mask for every department"
+    ],
+    "correctIndex": 1,
+    "explanation": "Placing the largest required aligned blocks first reduces avoidable fragmentation. Locked allocations, exclusions, and policy constraints still need separate treatment."
+  },
+  {
+    "id": "curated-142",
+    "topic": "vlsm",
+    "difficulty": "exam",
+    "question": "A VLAN needs 60 endpoints plus one gateway. Which smallest conventional subnet fits?",
+    "options": ["/26", "/27", "/28", "/25"],
+    "correctIndex": 0,
+    "explanation": "The requirement is 61 usable addresses. A /26 supplies 62; /27 supplies 30. Count gateway needs before selecting the prefix."
+  },
+  {
+    "id": "curated-143",
+    "topic": "vlsm",
+    "difficulty": "exam",
+    "question": "A VLAN has 80 required addresses including its gateway and needs 25% growth. Which smallest conventional subnet fits?",
+    "options": ["/24", "/26", "/27", "/25"],
+    "correctIndex": 3,
+    "explanation": "The target is ceil(80 × 1.25) = 100 addresses. /25 provides 126 usable addresses; /26 provides only 62."
+  },
+  {
+    "id": "curated-144",
+    "topic": "vlsm",
+    "difficulty": "advanced",
+    "question": "Two private blocks overlap in different isolated VRFs. What follows?",
+    "options": [
+      "Reuse may be intentional within separate routing contexts",
+      "Both blocks are mathematically invalid",
+      "The masks must be identical",
+      "One block must be globally routable"
+    ],
+    "correctIndex": 0,
+    "explanation": "Address conflict checks need a routing-domain context. Separate VRFs can reuse addresses; interconnecting them requires deliberate route and translation planning."
+  },
+  {
+    "id": "curated-145",
+    "topic": "summarization",
+    "difficulty": "advanced",
+    "question": "Which pair can merge into one exact /24?",
+    "options": [
+      "192.0.2.0/25 and 192.0.3.0/25",
+      "192.0.2.0/26 and 192.0.2.128/26",
+      "192.0.2.128/25 and 192.0.3.0/25",
+      "192.0.2.0/25 and 192.0.2.128/25"
+    ],
+    "correctIndex": 3,
+    "explanation": "Exact merging needs equal size, adjacency, and alignment at the shorter prefix. Only the first pair exactly fills one /24."
+  },
+  {
+    "id": "curated-146",
+    "topic": "summarization",
+    "difficulty": "exam",
+    "question": "A covering summary includes unallocated addresses. What should a planner show?",
+    "options": [
+      "Only the number of input routes",
+      "The extra included address space explicitly",
+      "A claim of exact equivalence",
+      "Those addresses as assigned hosts"
+    ],
+    "correctIndex": 1,
+    "explanation": "A single covering supernet can contain gaps. Showing the added space lets a user distinguish routing policy from exact address-set aggregation."
+  },
+  {
+    "id": "curated-147",
+    "topic": "routing",
+    "difficulty": "beginner",
+    "question": "Which route wins for 10.1.2.9 when /8, /16, and matching /24 routes exist?",
+    "options": ["The matching /24", "Always the lowest numerical gateway", "The /16", "The /8"],
+    "correctIndex": 0,
+    "explanation": "Longest-prefix matching selects the most specific destination route. Other preferences resolve alternatives for the same prefix."
+  },
+  {
+    "id": "curated-148",
+    "topic": "routing",
+    "difficulty": "intermediate",
+    "question": "Which IPv6 route is the default route?",
+    "options": ["::/0", "fe80::/10", "::1/128", "2000::/3"],
+    "correctIndex": 0,
+    "explanation": "A /0 fixes no address bits and matches all destinations, unless a more specific route is selected."
+  },
+  {
+    "id": "curated-149",
+    "topic": "routing",
+    "difficulty": "intermediate",
+    "question": "For an off-link IPv4 destination, which MAC address does a host normally resolve?",
+    "options": [
+      "The DNS server MAC on every request",
+      "The remote server MAC across the internet",
+      "The broadcast MAC permanently",
+      "The next-hop router MAC on its local link"
+    ],
+    "correctIndex": 3,
+    "explanation": "The IP destination stays the remote host, while local Ethernet delivery uses the selected next hop. ARP is local-link resolution."
+  },
+  {
+    "id": "curated-150",
+    "topic": "routing",
+    "difficulty": "advanced",
+    "question": "Why can a route summary need a discard route for unused space?",
+    "options": [
+      "To replace all specific routes",
+      "To make all addresses in the summary reachable",
+      "To disable longest-prefix matching",
+      "To avoid loops toward broader fallback routes"
+    ],
+    "correctIndex": 3,
+    "explanation": "Specific routes still forward valid destinations. A discard route can stop unused portions from bouncing between the summary origin and an upstream default."
+  },
+  {
+    "id": "curated-151",
+    "topic": "ipv6",
+    "difficulty": "beginner",
+    "question": "How many bits are in an IPv6 address?",
+    "options": ["128", "256", "64", "32"],
+    "correctIndex": 0,
+    "explanation": "IPv6 has eight 16-bit groups in expanded text, totaling 128 bits. Text compression does not change address width."
+  },
+  {
+    "id": "curated-152",
+    "topic": "ipv6",
+    "difficulty": "beginner",
+    "question": "Which is the compressed form of 2001:0db8:0000:0000:0000:0000:0000:0001?",
+    "options": ["2001:db8:1", "2001:db8::1", "2001:db8:::1", "2001::db8::1"],
+    "correctIndex": 1,
+    "explanation": "Leading group zeros are removed, then one continuous zero run is compressed with ::. Double compression would make the number of omitted groups ambiguous."
+  },
+  {
+    "id": "curated-153",
+    "topic": "ipv6",
+    "difficulty": "intermediate",
+    "question": "How many times can :: appear in one valid IPv6 address?",
+    "options": ["At most once", "Once per hextet", "Unlimited times", "Exactly twice"],
+    "correctIndex": 0,
+    "explanation": "One :: marks an unambiguous omitted run. Two runs would not tell the parser how many zero groups belong at each position."
+  },
+  {
+    "id": "curated-154",
+    "topic": "ipv6",
+    "difficulty": "beginner",
+    "question": "Which address type is absent from IPv6?",
+    "options": ["Multicast", "Anycast", "Unicast", "Broadcast"],
+    "correctIndex": 3,
+    "explanation": "IPv6 has no broadcast address type; multicast supports many functions served by IPv4 broadcast."
+  },
+  {
+    "id": "curated-155",
+    "topic": "ipv6",
+    "difficulty": "intermediate",
+    "question": "Which IPv6 range contains link-local addresses?",
+    "options": ["fc00::/7", "fe80::/10", "2001:db8::/32", "ff00::/8"],
+    "correctIndex": 1,
+    "explanation": "fe80::/10 identifies link-local space. ULA, multicast, and documentation ranges have other purposes."
+  },
+  {
+    "id": "curated-156",
+    "topic": "ipv6",
+    "difficulty": "intermediate",
+    "question": "What does the %eth0 suffix in fe80::1%eth0 identify?",
+    "options": [
+      "A port number",
+      "The remote autonomous system",
+      "A prefix length",
+      "The local scope zone or interface"
+    ],
+    "correctIndex": 3,
+    "explanation": "A link-local address can exist on several local links. The zone selects which interface context the host should use."
+  },
+  {
+    "id": "curated-157",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "Which prefix is specifically described for IPv6 inter-router point-to-point links by RFC 6164?",
+    "options": ["/56", "/48", "/127", "/32"],
+    "correctIndex": 2,
+    "explanation": "The RFC describes /127 use on inter-router links. This exception should be taught separately from the conventional /64 LAN planning rule."
+  },
+  {
+    "id": "curated-158",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "Which statement about modified EUI-64 is correct?",
+    "options": [
+      "It inserts FFFE and flips the universal/local bit",
+      "It is required for all IPv6 addresses",
+      "It encrypts the MAC address",
+      "It appends FFFF without changing bits"
+    ],
+    "correctIndex": 0,
+    "explanation": "Modified EUI-64 derives one possible interface identifier from a MAC. Modern hosts can use stable opaque or temporary identifiers instead."
+  },
+  {
+    "id": "curated-159",
+    "topic": "ipv6",
+    "difficulty": "exam",
+    "question": "How many /64 networks does an IPv6 /48 contain?",
+    "options": ["65,536", "4,096", "256", "65,534"],
+    "correctIndex": 0,
+    "explanation": "The sixteen added subnet bits provide 2^16 = 65,536 child networks. There is no IPv4-style subtraction of two."
+  },
+  {
+    "id": "curated-160",
+    "topic": "ipv6",
+    "difficulty": "advanced",
+    "question": "What is ::ffff:192.0.2.10 commonly used to represent?",
+    "options": [
+      "An automatically working IPv6 tunnel",
+      "An IPv6 multicast group",
+      "An IPv4 endpoint in an IPv6-capable API",
+      "A private ULA subnet"
+    ],
+    "correctIndex": 2,
+    "explanation": "IPv4-mapped addresses are API representations in ::ffff:0:0/96. They should not be confused with NAT64 or tunneling."
+  },
+  {
+    "id": "curated-161",
+    "topic": "dns",
+    "difficulty": "beginner",
+    "question": "Which DNS type stores an IPv6 address?",
+    "options": ["PTR", "AAAA", "A", "MX"],
+    "correctIndex": 1,
+    "explanation": "AAAA contains an IPv6 address. A contains IPv4, PTR contains a domain name, and MX identifies a mail exchanger."
+  },
+  {
+    "id": "curated-162",
+    "topic": "dns",
+    "difficulty": "intermediate",
+    "question": "What does a lower MX preference number mean?",
+    "options": [
+      "The record has a shorter TTL",
+      "The address uses IPv6",
+      "The server is always faster",
+      "The exchanger is preferred over higher values"
+    ],
+    "correctIndex": 3,
+    "explanation": "MX preferences guide mail routing order. They do not describe response speed, cache lifetime, or address family."
+  },
+  {
+    "id": "curated-163",
+    "topic": "dns",
+    "difficulty": "intermediate",
+    "question": "Which name is the host reverse lookup for 192.0.2.10?",
+    "options": [
+      "10.2.0.192.in-addr.arpa",
+      "192.0.2.in-addr.arpa",
+      "10.2.0.192.ip6.arpa",
+      "192.0.2.10.in-addr.arpa"
+    ],
+    "correctIndex": 0,
+    "explanation": "IPv4 host reverse names reverse the four decimal octets and append in-addr.arpa. A delegation plan is a separate administrative task."
+  },
+  {
+    "id": "curated-164",
+    "topic": "dns",
+    "difficulty": "advanced",
+    "question": "What does DNSSEC provide?",
+    "options": [
+      "DNS data-origin authentication and integrity",
+      "Guaranteed site safety",
+      "Encryption of all DNS traffic",
+      "Automatic hiding of queried names"
+    ],
+    "correctIndex": 0,
+    "explanation": "DNSSEC validates signed DNS data through a trust chain. Transport encryption and the trustworthiness of website content are separate matters."
+  },
+  {
+    "id": "curated-165",
+    "topic": "dns",
+    "difficulty": "exam",
+    "question": "An existing name has no AAAA record. Which result is possible?",
+    "options": [
+      "The whole zone is invalid",
+      "Successful response with an empty answer",
+      "The server must synthesize ::1",
+      "NXDOMAIN is always required"
+    ],
+    "correctIndex": 1,
+    "explanation": "Absence of a requested record type is different from absence of the domain name. NXDOMAIN specifically indicates that the name does not exist in the relevant view."
+  },
+  {
+    "id": "curated-166",
+    "topic": "dhcp",
+    "difficulty": "beginner",
+    "question": "What is the normal initial DHCPv4 message sequence?",
+    "options": [
+      "Request, Discover, Acknowledge, Offer",
+      "Discover, Request, Offer, Acknowledge",
+      "Offer, Request, Discover, Acknowledge",
+      "Discover, Offer, Request, Acknowledge"
+    ],
+    "correctIndex": 3,
+    "explanation": "The DORA mnemonic covers initial acquisition. Renewals and other DHCP states use different message exchanges."
+  },
+  {
+    "id": "curated-167",
+    "topic": "dhcp",
+    "difficulty": "intermediate",
+    "question": "What connects DHCP clients to a server on another routed subnet?",
+    "options": [
+      "A DHCP relay",
+      "An IPv4 class label",
+      "A broadcast MAC learned from the server",
+      "An ordinary DNS CNAME"
+    ],
+    "correctIndex": 0,
+    "explanation": "A relay forwards DHCP messages and preserves subnet-selection context; ordinary routers do not simply forward the client broadcast everywhere."
+  },
+  {
+    "id": "curated-168",
+    "topic": "dhcp",
+    "difficulty": "advanced",
+    "question": "How does an IPv6 host normally learn its default router?",
+    "options": [
+      "The DHCPv6 default-gateway option",
+      "An AAAA record named gateway",
+      "IPv4 ARP replies",
+      "Router Advertisements"
+    ],
+    "correctIndex": 3,
+    "explanation": "IPv6 Router Advertisements supply default-router information. DHCPv6 can supply addresses and options but is not a replacement for that RA function."
+  },
+  {
+    "id": "curated-169",
+    "topic": "security",
+    "difficulty": "beginner",
+    "question": "Does NAT by itself define a complete security policy?",
+    "options": [
+      "Yes, if only one public address is used",
+      "No, because NAT always disables firewalls",
+      "No; translation and access control are distinct",
+      "Yes, because private addresses cannot be attacked"
+    ],
+    "correctIndex": 2,
+    "explanation": "NAT changes addressing and sometimes ports. Explicit filtering, authentication, updates, and application controls remain necessary."
+  },
+  {
+    "id": "curated-170",
+    "topic": "security",
+    "difficulty": "intermediate",
+    "question": "What is the meaning of a zero bit in a Cisco-style wildcard mask?",
+    "options": [
+      "Compare the corresponding address bit",
+      "Ignore the corresponding bit",
+      "Invert the corresponding bit",
+      "Treat it as a broadcast marker"
+    ],
+    "correctIndex": 0,
+    "explanation": "Wildcard zeros require a match, while ones ignore positions. A contiguous inverse of a subnet mask can represent a CIDR block."
+  },
+  {
+    "id": "curated-171",
+    "topic": "security",
+    "difficulty": "exam",
+    "question": "Which wildcard corresponds to IPv4 /27?",
+    "options": ["255.255.255.224", "0.0.0.31", "0.0.0.224", "0.0.0.32"],
+    "correctIndex": 1,
+    "explanation": "A /27 mask is 255.255.255.224. Invert every bit, or subtract each octet from 255, to get 0.0.0.31."
+  },
+  {
+    "id": "curated-172",
+    "topic": "security",
+    "difficulty": "advanced",
+    "question": "Why must a lookup API avoid arbitrary user-selected upstream URLs?",
+    "options": [
+      "Only GET requests are vulnerable",
+      "DNS names cannot contain letters",
+      "URLs always reveal database passwords",
+      "They can enable server-side request forgery"
+    ],
+    "correctIndex": 3,
+    "explanation": "An attacker may use a server’s network access to reach unintended destinations. Approved origins, destination controls, timeouts, and bounded responses limit this exposure."
+  },
+  {
+    "id": "curated-173",
+    "topic": "security",
+    "difficulty": "intermediate",
+    "question": "Which check prevents one user reading another user’s project by changing its ID?",
+    "options": [
+      "Resource-specific authorization",
+      "Using a longer project name",
+      "Allowing only HTTPS",
+      "Hiding the navigation link"
+    ],
+    "correctIndex": 0,
+    "explanation": "The API and database must enforce ownership or explicit sharing permission. Opaque IDs and UI visibility are not authorization controls."
+  },
+  {
+    "id": "curated-174",
+    "topic": "security",
+    "difficulty": "advanced",
+    "question": "What does a CVSS score primarily express?",
+    "options": [
+      "Probability that every host is compromised",
+      "Complete organization-specific business risk",
+      "Technical vulnerability severity under stated metrics",
+      "The number of affected users"
+    ],
+    "correctIndex": 2,
+    "explanation": "CVSS communicates severity. Asset value, deployment exposure, likelihood, and business consequences still shape local prioritization."
+  },
+  {
+    "id": "curated-175",
+    "topic": "protocols",
+    "difficulty": "intermediate",
+    "question": "With MTU 1500, minimum IPv4 header 20, and minimum TCP header 20, what is the TCP payload limit?",
+    "options": ["1480 bytes", "1460 bytes", "1500 bytes", "1440 bytes"],
+    "correctIndex": 1,
+    "explanation": "Subtract both headers: 1500 − 20 − 20 = 1460. Options and encapsulation can reduce the effective payload further."
+  },
+  {
+    "id": "curated-176",
+    "topic": "protocols",
+    "difficulty": "intermediate",
+    "question": "At an ideal 100 Mb/s with no overhead, how long does 100 MB take using decimal units?",
+    "options": ["800 seconds", "1 second", "8 seconds", "0.8 seconds"],
+    "correctIndex": 2,
+    "explanation": "100 MB equals 800 Mb because one byte is eight bits. 800 Mb divided by 100 Mb/s is eight seconds."
+  },
+  {
+    "id": "curated-177",
+    "topic": "protocols",
+    "difficulty": "advanced",
+    "question": "Which transport underlies HTTP/3?",
+    "options": ["ICMPv6", "TCP with a different port only", "QUIC over UDP", "ARP over Ethernet"],
+    "correctIndex": 2,
+    "explanation": "HTTP/3 maps HTTP semantics onto QUIC. QUIC uses UDP and TLS-based security rather than TCP."
+  },
+  {
+    "id": "curated-178",
+    "topic": "switching",
+    "difficulty": "beginner",
+    "question": "What commonly defines a separate Ethernet broadcast domain?",
+    "options": ["A TCP destination port", "A DNS record type", "A VLAN", "A hostname suffix"],
+    "correctIndex": 2,
+    "explanation": "VLANs partition a bridged network into separate broadcast domains. Routing and firewall policy control communication between them."
+  },
+  {
+    "id": "curated-179",
+    "topic": "switching",
+    "difficulty": "intermediate",
+    "question": "What is the purpose of spanning tree?",
+    "options": [
+      "Prevent forwarding loops while retaining redundant links",
+      "Encrypt VLAN tags",
+      "Assign IPv4 host addresses",
+      "Select the fastest DNS server"
+    ],
+    "correctIndex": 0,
+    "explanation": "Spanning tree chooses a loop-free forwarding topology. Without loop prevention, flooded traffic can circulate and disrupt the LAN."
+  },
+  {
+    "id": "curated-180",
+    "topic": "switching",
+    "difficulty": "advanced",
+    "question": "What does the local-administration bit imply for MAC vendor lookup?",
+    "options": [
+      "The device must be a Cisco router",
+      "The address must be multicast",
+      "The MAC is always invalid",
+      "The prefix is not authoritative evidence of a vendor"
+    ],
+    "correctIndex": 3,
+    "explanation": "Locally administered addresses are intentionally assigned outside ordinary universal vendor-prefix interpretation. Modern privacy behavior often uses them."
+  },
+  {
+    "id": "curated-181",
+    "topic": "routing",
+    "difficulty": "exam",
+    "question": "A router has 10.0.0.0/8 and 10.2.0.0/16. Which route matches 10.2.4.5 most specifically?",
+    "options": [
+      "10.0.0.0/8",
+      "Neither; only /24 routes can forward hosts",
+      "10.2.0.0/16",
+      "Both are equally specific"
+    ],
+    "correctIndex": 2,
+    "explanation": "The /16 fixes sixteen matching bits, more than the eight fixed by /8. The same longest-prefix rule applies regardless of historical classes."
+  },
+  {
+    "id": "curated-182",
+    "topic": "ipv6",
+    "difficulty": "exam",
+    "question": "What is the total number of addresses in an IPv6 /128?",
+    "options": ["2", "0", "128", "1"],
+    "correctIndex": 3,
+    "explanation": "All 128 bits are fixed, leaving 2^0 = 1 address. IPv6 does not subtract network and broadcast addresses."
+  },
+  {
+    "id": "curated-183",
+    "topic": "subnetting",
+    "difficulty": "exam",
+    "question": "Which range exactly describes 192.0.2.128/26?",
+    "options": [
+      "192.0.2.128–192.0.2.191",
+      "192.0.2.128–192.0.2.190",
+      "192.0.2.128–192.0.2.255",
+      "192.0.2.129–192.0.2.190"
+    ],
+    "correctIndex": 0,
+    "explanation": "A /26 contains 64 addresses; starting at .128 gives an inclusive endpoint of .191. The conventional host range is the narrower .129–.190 interval."
+  },
+  {
+    "id": "curated-184",
+    "topic": "dns",
+    "difficulty": "advanced",
+    "question": "Can generating a host PTR name establish authority to delegate the corresponding reverse zone?",
+    "options": [
+      "No; delegation requires the address holder’s DNS arrangements",
+      "Yes, any PTR name grants authority",
+      "Yes, if the prefix is private",
+      "Only when the name contains ip6.arpa"
+    ],
+    "correctIndex": 0,
+    "explanation": "Text generation and DNS administration are separate. A reverse zone must be delegated or served under the relevant address holder’s authority."
+  },
+  {
+    "id": "curated-185",
+    "topic": "subnetting",
+    "difficulty": "exam",
+    "question": "Can a /24 be exactly divided into three equal CIDR children with no space left over?",
+    "options": [
+      "Yes, use three /25 networks",
+      "Yes, use three /27 networks",
+      "Yes, use three /26 networks",
+      "No; an equal complete partition has a power-of-two count"
+    ],
+    "correctIndex": 3,
+    "explanation": "Equal child CIDRs add an integer number of subnet bits and produce 2^n children. Three /26 blocks are valid allocations but leave one /26 unallocated."
+  }
+]

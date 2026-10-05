@@ -1,0 +1,52 @@
+[
+  {
+    "prefix": "00:00:0C",
+    "vendor": "Cisco Systems, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:05:69",
+    "vendor": "VMware, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:0C:29",
+    "vendor": "VMware, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:1C:14",
+    "vendor": "VMware, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:50:56",
+    "vendor": "VMware, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:15:5D",
+    "vendor": "Microsoft Corporation",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:16:3E",
+    "vendor": "Xensource, Inc.",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "00:1B:21",
+    "vendor": "Intel Corporate",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "08:00:27",
+    "vendor": "PCS Systemtechnik GmbH",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  },
+  {
+    "prefix": "B8:27:EB",
+    "vendor": "Raspberry Pi Foundation",
+    "source": "https://standards-oui.ieee.org/oui/oui.txt"
+  }
+]

@@ -1,0 +1,39 @@
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index 599b4b0cb6dbe03e4ce5e4e3690d52c78e86fd97..2db209405386cc53a820925bcb57f0577007fafc 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -70,7 +70,7 @@ class WorkerPool extends events.EventEmitter {
+         this.tasks = [];
+         this.workers = [];
+         this.freeWorkers = [];
+-        this.maxInstances = options.maxWorkers || os.cpus().length;
++        this.maxInstances = options.maxWorkers || os.cpus().length || 1;
+         this.filePath = options.filePath;
+         this.on(freeWorker, () => {
+             if (this.tasks.length > 0) {
+diff --git a/dist/es/index.js b/dist/es/index.js
+index 7296e677e6b2b38df9522b196fee24feec996793..18e085c7f300b05c2ed7ddec4922c85e207f3292 100644
+--- a/dist/es/index.js
++++ b/dist/es/index.js
+@@ -65,7 +65,7 @@ class WorkerPool extends EventEmitter {
+         this.tasks = [];
+         this.workers = [];
+         this.freeWorkers = [];
+-        this.maxInstances = options.maxWorkers || cpus().length;
++        this.maxInstances = options.maxWorkers || cpus().length || 1;
+         this.filePath = options.filePath;
+         this.on(freeWorker, () => {
+             if (this.tasks.length > 0) {
+diff --git a/src/worker-pool.ts b/src/worker-pool.ts
+index 92d6902c4ed976cb4a17a895726eb592138f9a36..2bd9e6b174db5bddf7f880be73681c9294ec637c 100644
+--- a/src/worker-pool.ts
++++ b/src/worker-pool.ts
+@@ -40,7 +40,7 @@ export class WorkerPool extends EventEmitter {
+   constructor(options: WorkerPoolOptions) {
+     super();
+ 
+-    this.maxInstances = options.maxWorkers || cpus().length;
++    this.maxInstances = options.maxWorkers || cpus().length || 1;
+     this.filePath = options.filePath;
+ 
+     this.on(freeWorker, () => {

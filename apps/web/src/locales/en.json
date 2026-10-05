@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Overview",
+    "tools": "Calculators",
+    "learn": "Learning path",
+    "practice": "Practice lab",
+    "glossary": "Glossary",
+    "toolkit": "Network toolkit",
+    "templates": "Network templates",
+    "projects": "My projects",
+    "assistant": "AI assistant"
+  },
+  "common": {
+    "search": "Search tools and resources",
+    "signIn": "Sign in",
+    "theme": "Color theme",
+    "language": "Language",
+    "copy": "Copy",
+    "save": "Save",
+    "cancel": "Cancel",
+    "calculate": "Calculate"
+  },
+  "translationStatus": "Complete English product content"
+}

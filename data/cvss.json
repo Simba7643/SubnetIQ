@@ -1,0 +1,114 @@
+[
+  {
+    "id": "overview",
+    "title": "CVSS 4.0 severity",
+    "description": "CVSS communicates the technical severity of a vulnerability. Asset criticality, exposure, business impact, and response constraints still inform local risk decisions.",
+    "example": "Two systems with the same CVSS vector may deserve different response priorities.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "base",
+    "title": "Base metrics",
+    "description": "Base metrics describe intrinsic exploitability and impacts on the vulnerable and subsequent systems, assuming reasonable worst-case conditions.",
+    "example": "Record the vector as well as the numeric score so reviewers can assess the assumptions.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "attack-vector",
+    "title": "Attack Vector (AV)",
+    "description": "AV describes the context from which exploitation is possible: Network, Adjacent, Local, or Physical.",
+    "example": "An internet-reachable parser can have AV:N even when a deployment restricts reachability.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "attack-complexity",
+    "title": "Attack Complexity (AC)",
+    "description": "AC captures exploit conditions beyond the attacker’s control that require active evasion or circumvention of security-enhancing techniques.",
+    "example": "Do not use complexity merely to describe how skilled an attacker must be.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "attack-requirements",
+    "title": "Attack Requirements (AT)",
+    "description": "AT describes prerequisite deployment or execution conditions enabling exploitation, separate from attack complexity.",
+    "example": "A required race condition can affect AT when successful exploitation depends on a specific execution condition.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "privileges",
+    "title": "Privileges Required (PR)",
+    "description": "PR describes privileges an attacker must already possess before exploiting the vulnerability.",
+    "example": "Credentials acquired as a consequence of the vulnerability are not prerequisites.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "interaction",
+    "title": "User Interaction (UI)",
+    "description": "UI distinguishes no interaction, passive participation, and active participation by a user other than the attacker.",
+    "example": "Viewing content differs from deliberately importing or enabling a dangerous document feature.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "vulnerable-impact",
+    "title": "Vulnerable-system impacts",
+    "description": "VC, VI, and VA describe confidentiality, integrity, and availability impacts to the vulnerable system.",
+    "example": "Read access to protected data affects confidentiality; altering that data affects integrity.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "subsequent-impact",
+    "title": "Subsequent-system impacts",
+    "description": "SC, SI, and SA describe confidentiality, integrity, and availability impacts to systems beyond the vulnerable system.",
+    "example": "A compromised service might expose credentials used to access another system.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "threat",
+    "title": "Threat metrics",
+    "description": "Threat metrics capture exploit maturity information that may change over time.",
+    "example": "Update the assessment when exploitation becomes reliably demonstrated or observed.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "environmental",
+    "title": "Environmental metrics",
+    "description": "Environmental metrics adapt the assessment to deployment-specific requirements and modified characteristics.",
+    "example": "The confidentiality requirement may differ between a public content server and a credentials store.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "supplemental",
+    "title": "Supplemental metrics",
+    "description": "Supplemental metrics communicate extra context such as safety and recovery without changing the calculated CVSS score.",
+    "example": "Automation potential can help responders plan operations without being added to the numeric score.",
+    "source": "https://www.first.org/cvss/v4.0/specification-document"
+  },
+  {
+    "id": "sql-injection",
+    "title": "SQL injection",
+    "description": "Untrusted input changes the meaning of a database command. Parameter binding separates data from command structure.",
+    "example": "Use parameterized queries; escaping alone is a fragile defense.",
+    "source": "https://owasp.org/www-project-top-ten/"
+  },
+  {
+    "id": "xss",
+    "title": "Cross-site scripting",
+    "description": "Untrusted content executes as script in a trusted web origin. Output encoding must match the destination context.",
+    "example": "Render a chat answer as sanitized markdown and reject unsafe link schemes.",
+    "source": "https://owasp.org/www-project-top-ten/"
+  },
+  {
+    "id": "broken-access",
+    "title": "Broken access control",
+    "description": "A user reaches data or actions outside their authorized scope. Authorization must be enforced at each protected boundary.",
+    "example": "A project lookup verifies ownership even if the client already hides other users’ projects.",
+    "source": "https://owasp.org/www-project-top-ten/"
+  },
+  {
+    "id": "misconfiguration",
+    "title": "Security misconfiguration",
+    "description": "Unsafe defaults, excessive privileges, or exposed administration paths create avoidable attack opportunities.",
+    "example": "An unauthenticated public database listener is a configuration problem even when the database is fully patched.",
+    "source": "https://owasp.org/www-project-top-ten/"
+  }
+]

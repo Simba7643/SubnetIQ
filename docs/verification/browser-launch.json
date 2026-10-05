@@ -1,0 +1,31 @@
+{
+  "status": "blocked-before-page-creation",
+  "browserAssertionsExecuted": 0,
+  "stats": {
+    "startTime": "2026-10-04T13:50:02.250Z",
+    "duration": 5647.3369999999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "attempts": [
+    {
+      "name": "loads the ipv4-subnet calculator and its default result",
+      "project": "chromium-desktop",
+      "status": "failed",
+      "durationMs": 1,
+      "errors": [
+        "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /workspace/scratch/5570d1970d7e/subnetiq/.cache/browser-131/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --no-zygote --single-process --disable-dev-shm-usage --disable-gpu --disable-webgl --renderer-process-limit=1 --num-raster-threads=1 --user-data-dir=/workspace/scratch/5570d1970d7e/subnetiq/.cache/browser-131/playwright_chromiumdev_profile-We6NFc --remote-debugging-pipe --no-startup-window\n<launched> pid=237\nCall log:\n\u001b[2m  - <launching> /workspace/scratch/5570d1970d7e/subnetiq/.cache/browser-131/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --no-zygote --single-process --disable-dev-shm-usage --disable-gpu --disable-webgl --renderer-process-limit=1 --num-raster-threads=1 --user-data-dir=/workspace/scratch/5570d1970d7e/subnetiq/.cache/browser-131/playwright_chromiumdev_profile-We6NFc --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=237\u001b[22m\n\u001b[2m  - [pid=237] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=237] <kill>\u001b[22m\n\u001b[2m  - [pid=237] <will force kill>\u001b[22m\n\u001b[2m  - [pid=237] <process did exit: exitCode=null, signal=SIGTRAP>\u001b[22m\n\u001b[2m  - [pid=237] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=237] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=237] <gracefully close end>\u001b[22m\n"
+      ]
+    }
+  ],
+  "environmentObservations": [
+    "Playwright started the API and Vite successfully using node --import tsx.",
+    "The CDN Chromium installer returned bytes that were not a valid ZIP archive.",
+    "npm-distributed Chromium 153 and 131 reported their version but exited with SIGTRAP on startup.",
+    "Workspace-contained profiles, temporary directories, fonts, libraries, graphics assets, single-process mode, and limited raster/renderer threads did not resolve startup.",
+    "The tsx CLI Unix IPC socket operation returned EPERM; the documented Node loader invocation avoided the CLI IPC requirement.",
+    "Browser workflows, axe scans, visual screenshots, Lighthouse, and service-worker offline behavior were not executed in this workspace."
+  ]
+}

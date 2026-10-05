@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ethernet",
+    "name": "Ethernet",
+    "layer": "2",
+    "description": "Local link framing and media access using MAC addresses.",
+    "uses": "Connects endpoints and switches within a broadcast domain.",
+    "source": "https://standards.ieee.org/standard/802_3-2022.html"
+  },
+  {
+    "id": "arp",
+    "name": "ARP",
+    "layer": "2/3",
+    "description": "Resolves an IPv4 next-hop address to a link-layer address on a local network.",
+    "uses": "A host discovers its gateway MAC before sending an off-link IPv4 packet.",
+    "source": "https://www.rfc-editor.org/rfc/rfc826"
+  },
+  {
+    "id": "ipv4",
+    "name": "IPv4",
+    "layer": "3",
+    "description": "Connectionless packet delivery with 32-bit addressing.",
+    "uses": "Carries TCP, UDP, and ICMP between routed networks.",
+    "source": "https://www.rfc-editor.org/rfc/rfc791"
+  },
+  {
+    "id": "ipv6",
+    "name": "IPv6",
+    "layer": "3",
+    "description": "Connectionless packet delivery with 128-bit addressing and a fixed base header.",
+    "uses": "Provides end-to-end addressing across IPv6 networks.",
+    "source": "https://www.rfc-editor.org/rfc/rfc8200"
+  },
+  {
+    "id": "icmp",
+    "name": "ICMP",
+    "layer": "3",
+    "description": "Reports IPv4 control information and selected delivery errors.",
+    "uses": "Echo testing and Time Exceeded messages support troubleshooting.",
+    "source": "https://www.rfc-editor.org/rfc/rfc792"
+  },
+  {
+    "id": "icmpv6",
+    "name": "ICMPv6",
+    "layer": "3",
+    "description": "IPv6 error reporting and control messaging.",
+    "uses": "Packet Too Big and Neighbor Discovery are necessary IPv6 functions.",
+    "source": "https://www.rfc-editor.org/rfc/rfc4443"
+  },
+  {
+    "id": "ndp",
+    "name": "Neighbor Discovery",
+    "layer": "3",
+    "description": "ICMPv6 messages discover neighbors and routers and test reachability.",
+    "uses": "Router Advertisements tell hosts about prefixes and default routers.",
+    "source": "https://www.rfc-editor.org/rfc/rfc4861"
+  },
+  {
+    "id": "tcp",
+    "name": "TCP",
+    "layer": "4",
+    "description": "Reliable ordered byte-stream transport with flow and congestion control.",
+    "uses": "SSH and many HTTP connections use TCP.",
+    "source": "https://www.rfc-editor.org/rfc/rfc9293"
+  },
+  {
+    "id": "udp",
+    "name": "UDP",
+    "layer": "4",
+    "description": "Datagram transport without built-in delivery or ordering guarantees.",
+    "uses": "DNS, voice, and QUIC applications can build on UDP.",
+    "source": "https://www.rfc-editor.org/rfc/rfc768"
+  },
+  {
+    "id": "quic",
+    "name": "QUIC",
+    "layer": "4",
+    "description": "Secure multiplexed transport over UDP with independent streams.",
+    "uses": "HTTP/3 uses QUIC to avoid TCP's cross-stream head-of-line blocking.",
+    "source": "https://www.rfc-editor.org/rfc/rfc9000"
+  },
+  {
+    "id": "http",
+    "name": "HTTP",
+    "layer": "7",
+    "description": "Request-response semantics for web resources and APIs.",
+    "uses": "GET retrieves a representation; status codes describe the result.",
+    "source": "https://www.rfc-editor.org/rfc/rfc9110"
+  },
+  {
+    "id": "tls",
+    "name": "TLS 1.3",
+    "layer": "Above transport",
+    "description": "Authenticates peers and protects application data in transit.",
+    "uses": "HTTPS validates a certificate and derives traffic encryption keys.",
+    "source": "https://www.rfc-editor.org/info/rfc9846/"
+  },
+  {
+    "id": "dns",
+    "name": "DNS",
+    "layer": "7",
+    "description": "Distributed hierarchical naming and resource-record lookup.",
+    "uses": "A and AAAA records identify addresses; MX records identify mail exchangers.",
+    "source": "https://www.rfc-editor.org/rfc/rfc1034"
+  },
+  {
+    "id": "dhcp",
+    "name": "DHCPv4",
+    "layer": "7",
+    "description": "Leases IPv4 configuration through discover, offer, request, and acknowledgement exchanges.",
+    "uses": "A client obtains an address, mask, router, and DNS settings.",
+    "source": "https://www.rfc-editor.org/rfc/rfc2131"
+  },
+  {
+    "id": "dhcpv6",
+    "name": "DHCPv6",
+    "layer": "7",
+    "description": "Supplies IPv6 addresses, delegated prefixes, and configuration options.",
+    "uses": "A router obtains a delegated prefix; hosts learn default routers through RA.",
+    "source": "https://www.rfc-editor.org/rfc/rfc8415"
+  },
+  {
+    "id": "ssh",
+    "name": "SSH",
+    "layer": "7",
+    "description": "Encrypted remote login and authenticated channel transport.",
+    "uses": "An administrator uses key authentication for a server session.",
+    "source": "https://www.rfc-editor.org/rfc/rfc4251"
+  },
+  {
+    "id": "bgp",
+    "name": "BGP-4",
+    "layer": "Control plane",
+    "description": "Policy-based routing between autonomous systems and within provider networks.",
+    "uses": "Peers advertise IP prefixes and path attributes over TCP.",
+    "source": "https://www.rfc-editor.org/rfc/rfc4271"
+  },
+  {
+    "id": "ospf",
+    "name": "OSPFv2",
+    "layer": "Control plane",
+    "description": "Link-state interior routing for IPv4.",
+    "uses": "Routers compute shortest paths from a shared area topology.",
+    "source": "https://www.rfc-editor.org/rfc/rfc2328"
+  },
+  {
+    "id": "ntp",
+    "name": "NTPv4",
+    "layer": "7",
+    "description": "Synchronizes clocks using time servers and delay estimation.",
+    "uses": "Consistent timestamps support authentication and incident analysis.",
+    "source": "https://www.rfc-editor.org/rfc/rfc5905"
+  },
+  {
+    "id": "snmp",
+    "name": "SNMPv3",
+    "layer": "7",
+    "description": "Management framework supporting authenticated and protected device monitoring.",
+    "uses": "A monitoring server queries interface counters with scoped credentials.",
+    "source": "https://www.rfc-editor.org/rfc/rfc3411"
+  },
+  {
+    "id": "ipsec",
+    "name": "IPsec",
+    "layer": "3",
+    "description": "Protects IP traffic using security associations and packet-level protocols.",
+    "uses": "A site-to-site tunnel protects packets between gateways.",
+    "source": "https://www.rfc-editor.org/rfc/rfc4301"
+  },
+  {
+    "id": "stp",
+    "name": "Spanning Tree",
+    "layer": "2",
+    "description": "Prevents forwarding loops in bridged Ethernet topologies.",
+    "uses": "A redundant link is blocked until a topology change needs it.",
+    "source": "https://standards.ieee.org/standard/802_1Q-2022.html"
+  }
+]

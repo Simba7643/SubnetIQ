@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ping",
+    "name": "ping",
+    "platform": "Linux / macOS / Windows",
+    "purpose": "Test IP echo reachability and round-trip time.",
+    "syntax": "ping [options] destination",
+    "example": "ping -c 4 192.0.2.1",
+    "caution": "Linux/macOS use -c; Windows uses -n. No echo response does not prove the host is down.",
+    "source": "https://man7.org/linux/man-pages/man8/ping.8.html"
+  },
+  {
+    "id": "traceroute",
+    "name": "traceroute",
+    "platform": "Linux / macOS",
+    "purpose": "Observe responding hops toward a destination.",
+    "syntax": "traceroute [options] destination",
+    "example": "traceroute -n 192.0.2.1",
+    "caution": "Routers may filter probes; missing hops and return paths do not establish forwarding failure.",
+    "source": "https://man7.org/linux/man-pages/man8/traceroute.8.html"
+  },
+  {
+    "id": "tracert",
+    "name": "tracert",
+    "platform": "Windows",
+    "purpose": "Trace the route using ICMP probes.",
+    "syntax": "tracert [options] destination",
+    "example": "tracert -d 192.0.2.1",
+    "caution": "Asterisks mean no timely reply to that probe, not necessarily packet loss for application traffic.",
+    "source": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert"
+  },
+  {
+    "id": "nmap",
+    "name": "nmap",
+    "platform": "Linux / macOS / Windows",
+    "purpose": "Inventory selected reachable ports on an authorized host.",
+    "syntax": "nmap [scan options] target",
+    "example": "nmap -sT -p 22,80,443 192.0.2.10",
+    "caution": "Run only within authorized scope. Service on a port cannot be identified conclusively by port number alone.",
+    "source": "https://nmap.org/book/man.html"
+  },
+  {
+    "id": "netstat",
+    "name": "netstat",
+    "platform": "Windows / legacy Unix",
+    "purpose": "Show connections and listening endpoints.",
+    "syntax": "netstat [options]",
+    "example": "netstat -ano",
+    "caution": "Example is Windows. Elevated access may be required to identify processes; output can reveal sensitive internal endpoints.",
+    "source": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat"
+  },
+  {
+    "id": "ip-address",
+    "name": "ip address",
+    "platform": "Linux",
+    "purpose": "Inspect configured interface addresses and link state.",
+    "syntax": "ip address show [dev interface]",
+    "example": "ip -brief address show",
+    "caution": "Reading configuration does not prove off-link connectivity or DNS functionality.",
+    "source": "https://man7.org/linux/man-pages/man8/ip-address.8.html"
+  },
+  {
+    "id": "ip-route",
+    "name": "ip route",
+    "platform": "Linux",
+    "purpose": "Inspect routing decisions and installed routes.",
+    "syntax": "ip route show | ip route get address",
+    "example": "ip route get 192.0.2.10",
+    "caution": "Policy routing, namespaces, and VRFs can change the effective route.",
+    "source": "https://man7.org/linux/man-pages/man8/ip-route.8.html"
+  },
+  {
+    "id": "ip-neighbor",
+    "name": "ip neighbor",
+    "platform": "Linux",
+    "purpose": "Inspect IPv4 ARP and IPv6 neighbor cache entries.",
+    "syntax": "ip neighbor show [dev interface]",
+    "example": "ip neighbor show",
+    "caution": "A stale neighbor entry is not necessarily a fault; the kernel revalidates reachability when needed.",
+    "source": "https://man7.org/linux/man-pages/man8/ip-neighbour.8.html"
+  },
+  {
+    "id": "ifconfig",
+    "name": "ifconfig",
+    "platform": "macOS / legacy Linux",
+    "purpose": "Inspect interface addressing on systems that provide net-tools.",
+    "syntax": "ifconfig [interface]",
+    "example": "ifconfig",
+    "caution": "On modern Linux, use ip for complete contemporary interface configuration.",
+    "source": "https://man7.org/linux/man-pages/man8/ifconfig.8.html"
+  },
+  {
+    "id": "dig-a",
+    "name": "dig",
+    "platform": "Linux / macOS",
+    "purpose": "Query a specific DNS record and inspect the response.",
+    "syntax": "dig [@resolver] name type",
+    "example": "dig example.com A",
+    "caution": "Answers can differ by resolver, cache, location, and policy; inspect status and TTL as well as address values.",
+    "source": "https://bind9.readthedocs.io/en/latest/manpages.html#dig-dns-lookup-utility"
+  },
+  {
+    "id": "dig-reverse",
+    "name": "dig -x",
+    "platform": "Linux / macOS",
+    "purpose": "Perform a PTR lookup for an IP address.",
+    "syntax": "dig -x address",
+    "example": "dig -x 192.0.2.10",
+    "caution": "A PTR record is administrative DNS data and does not verify ownership or service identity.",
+    "source": "https://bind9.readthedocs.io/en/latest/manpages.html#dig-dns-lookup-utility"
+  },
+  {
+    "id": "nslookup",
+    "name": "nslookup",
+    "platform": "Windows / Linux / macOS",
+    "purpose": "Query a DNS server interactively or for a selected record type.",
+    "syntax": "nslookup -type=record name [server]",
+    "example": "nslookup -type=MX example.com",
+    "caution": "A default resolver may apply split DNS; record the resolver when comparing answers.",
+    "source": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+  },
+  {
+    "id": "tcpdump",
+    "name": "tcpdump",
+    "platform": "Linux / macOS",
+    "purpose": "Inspect a bounded packet capture matching a filter.",
+    "syntax": "tcpdump [options] [filter]",
+    "example": "tcpdump -ni eth0 -c 20 port 53",
+    "caution": "Captures can contain sensitive data and require authorization and privileges. Interface names vary.",
+    "source": "https://www.tcpdump.org/manpages/tcpdump.1.html"
+  },
+  {
+    "id": "ss",
+    "name": "ss",
+    "platform": "Linux",
+    "purpose": "Inspect sockets and their connection state.",
+    "syntax": "ss [options]",
+    "example": "ss -tuln",
+    "caution": "Listening on 0.0.0.0 or :: has broader exposure than a loopback-only bind; verify firewall policy too.",
+    "source": "https://man7.org/linux/man-pages/man8/ss.8.html"
+  },
+  {
+    "id": "curl-headers",
+    "name": "curl",
+    "platform": "Linux / macOS / Windows",
+    "purpose": "Inspect an HTTP response header set.",
+    "syntax": "curl [options] URL",
+    "example": "curl -I https://example.com",
+    "caution": "HEAD responses can differ from GET; certificate and redirect behavior should be inspected intentionally.",
+    "source": "https://curl.se/docs/manpage.html"
+  },
+  {
+    "id": "ipconfig",
+    "name": "ipconfig",
+    "platform": "Windows",
+    "purpose": "Inspect Windows interface, DHCP, and resolver settings.",
+    "syntax": "ipconfig [options]",
+    "example": "ipconfig /all",
+    "caution": "Output contains hostnames and adapter details; redact before sharing publicly.",
+    "source": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+  }
+]

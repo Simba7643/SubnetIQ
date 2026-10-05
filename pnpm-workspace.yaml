@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+allowBuilds:
+  core-js: false
+  esbuild: true
+  unrs-resolver: true
+patchedDependencies:
+  '@rollup/plugin-terser@1.0.0': patches/@rollup__plugin-terser@1.0.0.patch

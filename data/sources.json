@@ -1,0 +1,226 @@
+[
+  {
+    "id": "iana-ports",
+    "title": "IANA Service Name and Transport Protocol Port Number Registry",
+    "url": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "license": "Registry facts; consult source for registration details",
+    "retrievedAt": "2026-10-04",
+    "scope": "Common service assignments; actual applications may use different ports"
+  },
+  {
+    "id": "ieee-oui",
+    "title": "IEEE MA-L Public Registry",
+    "url": "https://standards-oui.ieee.org/oui/oui.txt",
+    "license": "IEEE public registry; attribution retained",
+    "retrievedAt": "2026-10-04",
+    "scope": "Ten-entry illustrative subset; vendor matching is not device identification"
+  },
+  {
+    "id": "cvss-4",
+    "title": "FIRST CVSS v4.0 specification",
+    "url": "https://www.first.org/cvss/v4.0/specification-document",
+    "license": "CVSS is a FIRST standard; educational summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Version 4.0 metrics and score interpretation"
+  },
+  {
+    "id": "original-learning",
+    "title": "SubnetIQ original learning material",
+    "url": "",
+    "license": "MIT, subject to repository license",
+    "retrievedAt": "2026-10-04",
+    "scope": "Original explanations, examples, courses, questions, and templates"
+  },
+  {
+    "id": "rfc-791",
+    "title": "Internet Protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc791",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv4 packet and address foundation"
+  },
+  {
+    "id": "rfc-792",
+    "title": "Internet Control Message Protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc792",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv4 error and echo messages"
+  },
+  {
+    "id": "rfc-826",
+    "title": "Address Resolution Protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc826",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv4-to-link mapping"
+  },
+  {
+    "id": "rfc-1918",
+    "title": "Address Allocation for Private Internets",
+    "url": "https://www.rfc-editor.org/rfc/rfc1918",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Private IPv4 allocations"
+  },
+  {
+    "id": "rfc-2131",
+    "title": "Dynamic Host Configuration Protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc2131",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "DHCPv4 behavior"
+  },
+  {
+    "id": "rfc-3021",
+    "title": "Using 31-Bit Prefixes on IPv4 Point-to-Point Links",
+    "url": "https://www.rfc-editor.org/rfc/rfc3021",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Two-address link exception"
+  },
+  {
+    "id": "rfc-4632",
+    "title": "Classless Inter-domain Routing",
+    "url": "https://www.rfc-editor.org/rfc/rfc4632",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "CIDR allocation and aggregation"
+  },
+  {
+    "id": "rfc-4291",
+    "title": "IP Version 6 Addressing Architecture",
+    "url": "https://www.rfc-editor.org/rfc/rfc4291",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv6 forms and address types"
+  },
+  {
+    "id": "rfc-5952",
+    "title": "IPv6 Address Text Representation",
+    "url": "https://www.rfc-editor.org/rfc/rfc5952",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Canonical IPv6 formatting"
+  },
+  {
+    "id": "rfc-6164",
+    "title": "127-Bit IPv6 Prefixes on Inter-Router Links",
+    "url": "https://www.rfc-editor.org/rfc/rfc6164",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv6 point-to-point prefix guidance"
+  },
+  {
+    "id": "rfc-6598",
+    "title": "Shared Address Space Request",
+    "url": "https://www.rfc-editor.org/rfc/rfc6598",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "100.64.0.0/10 shared space"
+  },
+  {
+    "id": "rfc-5737",
+    "title": "IPv4 Address Blocks Reserved for Documentation",
+    "url": "https://www.rfc-editor.org/rfc/rfc5737",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Safe IPv4 examples"
+  },
+  {
+    "id": "rfc-3849",
+    "title": "IPv6 Address Prefix Reserved for Documentation",
+    "url": "https://www.rfc-editor.org/rfc/rfc3849",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "2001:db8::/32 examples"
+  },
+  {
+    "id": "rfc-1034",
+    "title": "Domain Names: Concepts and Facilities",
+    "url": "https://www.rfc-editor.org/rfc/rfc1034",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "DNS hierarchy"
+  },
+  {
+    "id": "rfc-1035",
+    "title": "Domain Names: Implementation and Specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc1035",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "DNS messages and records"
+  },
+  {
+    "id": "rfc-2317",
+    "title": "Classless IN-ADDR.ARPA Delegation",
+    "url": "https://www.rfc-editor.org/rfc/rfc2317",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Reverse DNS for non-octet IPv4 blocks"
+  },
+  {
+    "id": "rfc-8200",
+    "title": "Internet Protocol, Version 6 Specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc8200",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv6 protocol"
+  },
+  {
+    "id": "rfc-4861",
+    "title": "Neighbor Discovery for IPv6",
+    "url": "https://www.rfc-editor.org/rfc/rfc4861",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "IPv6 first-hop behavior"
+  },
+  {
+    "id": "rfc-4862",
+    "title": "IPv6 Stateless Address Autoconfiguration",
+    "url": "https://www.rfc-editor.org/rfc/rfc4862",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "SLAAC and DAD"
+  },
+  {
+    "id": "rfc-6052",
+    "title": "IPv6 Addressing of IPv4/IPv6 Translators",
+    "url": "https://www.rfc-editor.org/rfc/rfc6052",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "NAT64 address synthesis"
+  },
+  {
+    "id": "rfc-8415",
+    "title": "Dynamic Host Configuration Protocol for IPv6",
+    "url": "https://www.rfc-editor.org/rfc/rfc8415",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "DHCPv6"
+  },
+  {
+    "id": "rfc-9293",
+    "title": "Transmission Control Protocol",
+    "url": "https://www.rfc-editor.org/rfc/rfc9293",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "TCP specification"
+  },
+  {
+    "id": "rfc-9000",
+    "title": "QUIC: A UDP-Based Multiplexed and Secure Transport",
+    "url": "https://www.rfc-editor.org/rfc/rfc9000",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "QUIC transport"
+  },
+  {
+    "id": "rfc-9846",
+    "title": "The Transport Layer Security Protocol Version 1.3",
+    "url": "https://www.rfc-editor.org/rfc/rfc9846",
+    "license": "IETF Trust terms apply to source RFC; SubnetIQ summaries are original",
+    "retrievedAt": "2026-10-04",
+    "scope": "Current TLS 1.3 specification"
+  }
+]

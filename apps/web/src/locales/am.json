@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "አጠቃላይ እይታ",
+    "tools": "ማስያዎች",
+    "learn": "የትምህርት መንገድ",
+    "practice": "ልምምድ",
+    "glossary": "መዝገበ ቃላት",
+    "toolkit": "የኔትወርክ መሣሪያዎች",
+    "templates": "የኔትወርክ አብነቶች",
+    "projects": "የእኔ ፕሮጀክቶች",
+    "assistant": "የAI ረዳት"
+  },
+  "common": {
+    "search": "መሣሪያዎችን ይፈልጉ",
+    "signIn": "ይግቡ",
+    "theme": "ገጽታ",
+    "language": "ቋንቋ",
+    "copy": "ቅዳ",
+    "save": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "calculate": "አስላ"
+  },
+  "translationStatus": "Navigation translated; technical lessons and results fall back to English"
+}
