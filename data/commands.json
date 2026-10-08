@@ -1,4 +1,13 @@
-
+  {
+    "id": "ping",
+    "name": "ping",
+    "platform": "Linux / macOS / Windows",
+    "purpose": "Test IP echo reachability and round-trip time.",
+    "syntax": "ping [options] destination",
+    "example": "ping -c 4 192.0.2.1",
+    "caution": "Linux/macOS use -c; Windows uses -n. No echo response does not prove the host is down.",
+    "source": "https://man7.org/linux/man-pages/man8/ping.8.html"
+  },
   {
     "id": "traceroute",
     "name": "traceroute",
