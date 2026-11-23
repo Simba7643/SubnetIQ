@@ -5,8 +5,8 @@ import { toolDefinitions } from '@/features/calculators/toolDefinitions';
 
 export const publicPageDescriptions: Record<string, [string, string]> = {
   '/': [
-    'Network clarity, bit by bit',
-    'Calculate IPv4 and IPv6 subnets, plan VLSM networks, and learn the reasoning behind every result with SubnetIQ.',
+        'IPv4 Subnet Calculator | IPv6 & VLSM Planner',
+    'Free IPv4 and IPv6 subnet calculators for CIDR ranges, subnet masks, usable IP counts, and VLSM planning, with clear worked examples.',
   ],
   '/tools': [
     'IP and subnetting calculators',
