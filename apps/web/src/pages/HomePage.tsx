@@ -81,16 +81,17 @@ export default function HomePage() {
         >
           <div className="hero-eyebrow">
             <span className="status-dot" />
-            YOUR NETWORK. FULLY UNDERSTOOD.
+            SUBNET CALCULATORS. NETWORKING. SECURITY.
           </div>
           <h1>
-            Network clarity,
+            IPv4 &amp; IPv6
             <br />
-            <span>bit by bit.</span>
+            <span>Subnet Calculators</span>
           </h1>
           <p>
-            Calculate with confidence. Plan with precision. Understand the why behind every subnet,
-            all in one thoughtfully connected workspace.
+            Calculate IPv4 and IPv6 subnets with free tools for CIDR ranges, subnet masks, network
+            and broadcast addresses, and usable IP counts. Plan VLSM networks, aggregate routes, and
+            learn the networking concepts behind each result.
           </p>
           <div className="hero-buttons">
             <Link className="button button-primary" to="/tools/ipv4-subnet">
@@ -251,8 +252,8 @@ export default function HomePage() {
       <section>
         <div className="home-section-header">
           <div>
-            <h2>Your everyday networking essentials</h2>
-            <p>Start with the task at hand. Go as deep as you need.</p>
+            <h2>Subnet calculators and networking tools</h2>
+            <p>Calculate IP ranges, plan VLSM networks, explore CIDR routing, and find practical network references.</p>
           </div>
           <Link to="/tools">
             All calculators
@@ -285,8 +286,8 @@ export default function HomePage() {
           <span className="eyebrow">FROM ANSWERS TO UNDERSTANDING</span>
           <h2>Make the concepts click.</h2>
           <p>
-            Move from binary fundamentals to real-world address plans. Short lessons, worked
-            examples, and a practice lab help the knowledge stick.
+            Learn IP addressing, binary math, subnetting, CIDR, VLSM, IPv6, and real-world network
+            planning with short lessons, worked examples, and a practice lab.
           </p>
           <Link className="button button-secondary" to="/learn">
             Explore the learning path
@@ -334,8 +335,8 @@ export default function HomePage() {
           </div>
           <h3 style={{ margin: '15px 0 9px' }}>Keep useful tools close</h3>
           <p className="muted small">
-            Inspect DNS, look up ports, draft firewall rules, and work through troubleshooting
-            commands.
+            Explore DNS lookups, port references, firewall rule helpers, TLS and hash tools, and
+            practical cybersecurity and network troubleshooting references.
           </p>
           <Link className="tool-card-footer" to="/toolkit">
             Explore the toolkit
