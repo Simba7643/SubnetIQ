@@ -1,406 +1,259 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  Binary,
-  BookOpen,
-  Check,
-  CheckCheck,
-  ChevronRight,
-  GraduationCap,
-  Layers3,
-  Network,
-  ShieldCheck,
-  Sparkles,
-  Terminal,
-  Zap,
-} from 'lucide-react';
-import { calculate } from '@subnetiq/netcalc';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ENGINE_VERSION } from '@subnetiq/shared';
 import { toolDefinitions } from '@/features/calculators/toolDefinitions';
-import { Badge, Card } from '@/components/ui';
 
-const featuredIds = ['ipv4-subnet', 'ipv6-subnet', 'vlsm', 'aggregate', 'range-to-cidr', 'convert'];
-const faqs = [
-  [
-    'Can I use the calculators without an account?',
-    'Yes. Every local calculator, the lessons, glossary, and guest practice work without an account. Sign in to keep projects, saved calculations, and learning history across devices.',
+export const publicPageDescriptions: Record<string, [string, string]> = {
+  '/': [
+        'IPv4 Subnet Calculator | IPv6 & VLSM Planner',
+    'Free IPv4 and IPv6 subnet calculators for CIDR ranges, subnet masks, usable IP counts, and VLSM planning, with clear worked examples.',
   ],
-  [
-    'Does SubnetIQ work offline?',
-    'After the application is installed or visited online, its cached calculators and reference tools work offline. DNS, IP registry lookups, account storage, and live AI need a connection.',
+  '/tools': [
+    'IP and subnetting calculators',
+    'Browse IPv4, IPv6, VLSM, CIDR, address-conversion, bandwidth, and MTU calculators with exact results and worked explanations.',
   ],
-  [
-    'How are /31, /32, and IPv6 host counts handled?',
-    'IPv4 capacity is explicit about conventional LAN, point-to-point, and cloud policies. IPv6 reports exact address capacity without an IPv4-style broadcast subtraction. Every result explains its assumptions.',
+  '/learn': [
+    'Networking and subnetting learning path',
+    'Study twelve complete networking lessons, from binary and CIDR through VLSM, IPv6, NAT, DHCP, DNS, and routing.',
   ],
-  [
-    'Is the AI assistant always a live model?',
-    'The assistant clearly labels demonstration mode. With a configured provider and a signed-in account, it can stream real responses. Network calculations remain grounded in the deterministic calculation engine.',
+  '/glossary': [
+    'Networking and subnetting glossary',
+    'Explore explained networking terms with practical examples and related concepts across addressing, routing, switching, protocols, and security.',
   ],
-  [
-    'Can I share a plan safely?',
-    'Calculation URLs include the input you choose to share. Saved project shares are immutable, read-only snapshots with expiry and revocation. A recipient can retain a copy after access is revoked.',
+  '/practice': [
+    'Subnetting practice lab and quizzes',
+    'Practice subnetting with generated and curated questions, explanations, timers, scoring, streaks, and topic feedback.',
   ],
-];
-export default function HomePage() {
-  const [input, setInput] = useState('192.168.10.42/24');
-  const [address, setAddress] = useState(input);
-  const [error, setError] = useState('');
-  const result = useMemo(() => {
-    try {
-      return calculate('ipv4-subnet', { address, policy: 'lan' });
-    } catch {
-      return null;
-    }
-  }, [address]);
-  const read = (key: string) => String(result?.data?.[key] ?? '—');
-  const binary = address
-    .split('/')[0]
-    .split('.')
-    .map((octet) => Number(octet).toString(2).padStart(8, '0'))
-    .join('');
-  const prefix = Number(address.split('/')[1] ?? 32);
-  const launch = () => {
-    try {
-      calculate('ipv4-subnet', { address: input, policy: 'lan' });
-      setAddress(input);
-      setError('');
-    } catch (failure) {
-      setError(failure instanceof Error ? failure.message : 'Enter a valid IPv4 CIDR.');
-    }
-  };
-  return (
-    <div className="page home-page">
-      <section className="hero">
-        <motion.div
-          className="hero-copy"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-        >
-          <div className="hero-eyebrow">
-            <span className="status-dot" />
-            SUBNET CALCULATORS. NETWORKING. SECURITY.
-          </div>
-          <h1>
-            IPv4 &amp; IPv6
-            <br />
-            <span>Subnet Calculators</span>
-          </h1>
-          <p>
-            Calculate IPv4 and IPv6 subnets with free tools for CIDR ranges, subnet masks, network
-            and broadcast addresses, and usable IP counts. Plan VLSM networks, aggregate routes, and
-            learn the networking concepts behind each result.
-          </p>
-          <div className="hero-buttons">
-            <Link className="button button-primary" to="/tools/ipv4-subnet">
-              Open subnet calculator
-              <ArrowRight size={15} />
-            </Link>
-            <Link className="button button-secondary" to="/learn">
-              <BookOpen size={15} />
-              Start learning
-            </Link>
-          </div>
-          <div className="hero-note">
-            <span>
-              <Check size={12} />
-              Free core tools
-            </span>
-            <span>
-              <Check size={12} />
-              No account needed
-            </span>
-            <span>
-              <Check size={12} />
-              IPv4 + IPv6
-            </span>
-          </div>
-        </motion.div>
-        <motion.div
-          className="live-calc"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.08 }}
-        >
-          <div className="live-calc-bar">
-            <strong className="row">
-              <Terminal size={13} />
-              IPv4 subnet calculator
-            </strong>
-            <span className="row">
-              <span className="status-dot" />
-              LIVE PREVIEW
-            </span>
-          </div>
-          <div className="live-calc-body">
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                launch();
-              }}
-            >
-              <label htmlFor="hero-address">IP address / prefix</label>
-              <div className="live-input-row">
-                <input
-                  id="hero-address"
-                  value={input}
-                  onChange={(event) => setInput(event.target.value)}
-                  spellCheck={false}
-                  aria-describedby={error ? 'hero-error' : undefined}
-                />
-                <button aria-label="Calculate preview" type="submit">
-                  <ArrowRight size={18} />
-                </button>
-              </div>
-            </form>
-            {error && (
-              <p id="hero-error" className="error-banner">
-                {error}
-              </p>
-            )}
-            <dl className="live-result-grid">
-              <div>
-                <dt>NETWORK ADDRESS</dt>
-                <dd>{read('networkAddress')}</dd>
-              </div>
-              <div>
-                <dt>BROADCAST ADDRESS</dt>
-                <dd>{read('broadcast')}</dd>
-              </div>
-              <div>
-                <dt>SUBNET MASK</dt>
-                <dd>{read('mask')}</dd>
-              </div>
-              <div className="accent">
-                <dt>USABLE HOSTS</dt>
-                <dd>{read('usableHosts')}</dd>
-              </div>
-            </dl>
-            <div className="bit-strip" aria-label="Binary network and host bits">
-              {binary.length === 32 &&
-                [...binary].map((bit, index) => (
-                  <span key={index} className={index >= prefix ? 'host-bit' : ''}>
-                    {bit}
-                  </span>
-                ))}
-            </div>
-            <div className="bit-legend">
-              <span>
-                <i />
-                NETWORK BITS · {prefix}
-              </span>
-              <span>
-                <i className="host" />
-                HOST BITS · {32 - prefix}
-              </span>
-            </div>
-          </div>
-          <div className="live-calc-bottom">
-            <span className="row">
-              <CheckCheck size={12} />
-              Calculated locally. Explained clearly.
-            </span>
-            <Link
-              to={`/tools/ipv4-subnet?input=${encodeURIComponent(JSON.stringify({ address, policy: 'lan' }))}`}
-            >
-              Full results
-              <ArrowRight size={11} />
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-      <div className="overview-stats">
-        <div className="overview-stat">
-          <span className="icon-box">
-            <Network />
-          </span>
-          <div>
-            <strong>20</strong>
-            <small>precision calculators</small>
-          </div>
-        </div>
-        <div className="overview-stat">
-          <span className="icon-box">
-            <BookOpen />
-          </span>
-          <div>
-            <strong>302</strong>
-            <small>concepts explained</small>
-          </div>
-        </div>
-        <div className="overview-stat">
-          <span className="icon-box">
-            <GraduationCap />
-          </span>
-          <div>
-            <strong>12</strong>
-            <small>guided learning modules</small>
-          </div>
-        </div>
-        <div className="overview-stat">
-          <span className="icon-box">
-            <ShieldCheck />
-          </span>
-          <div>
-            <strong>Local first</strong>
-            <small>your calculations stay here</small>
-          </div>
-        </div>
-      </div>
-      <section>
-        <div className="home-section-header">
-          <div>
-            <h2>Subnet calculators and networking tools</h2>
-            <p>Calculate IP ranges, plan VLSM networks, explore CIDR routing, and find practical network references.</p>
-          </div>
-          <Link to="/tools">
-            All calculators
-            <ArrowRight size={13} />
-          </Link>
-        </div>
-        <div className="home-tool-grid">
-          {featuredIds
-            .map((id) => toolDefinitions.find((tool) => tool.id === id)!)
-            .map((tool) => (
-              <Link className="tool-card" to={`/tools/${tool.id}`} key={tool.id}>
-                <div className="tool-card-top">
-                  <span className="icon-box">
-                    <tool.icon />
-                  </span>
-                  <Badge>{tool.category}</Badge>
-                </div>
-                <h3>{tool.title}</h3>
-                <p>{tool.description}</p>
-                <span className="tool-card-footer">
-                  Open calculator
-                  <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
-        </div>
-      </section>
-      <section className="learning-banner">
-        <div>
-          <span className="eyebrow">FROM ANSWERS TO UNDERSTANDING</span>
-          <h2>Make the concepts click.</h2>
-          <p>
-            Learn IP addressing, binary math, subnetting, CIDR, VLSM, IPv6, and real-world network
-            planning with short lessons, worked examples, and a practice lab.
-          </p>
-          <Link className="button button-secondary" to="/learn">
-            Explore the learning path
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-        <div className="lesson-preview">
-          <Link to="/learn">
-            <span className="lesson-number">01</span>
-            <Binary size={16} />
-            Binary &amp; address fundamentals
-            <ChevronRight size={15} />
-          </Link>
-          <Link to="/learn">
-            <span className="lesson-number">02</span>
-            <Network size={16} />
-            Subnetting that makes sense
-            <ChevronRight size={15} />
-          </Link>
-          <Link to="/practice">
-            <span className="lesson-number">LAB</span>
-            <Zap size={16} />
-            Put your knowledge to work
-            <ChevronRight size={15} />
-          </Link>
-        </div>
-      </section>
-      <section className="section grid-3">
-        <Card>
-          <div className="icon-box">
-            <Layers3 />
-          </div>
-          <h3 style={{ margin: '15px 0 9px' }}>Plan a real network</h3>
-          <p className="muted small">
-            Name segments, allow for growth, lock allocations, and preserve revisions in a project.
-          </p>
-          <Link className="tool-card-footer" to="/templates">
-            Start from a template
-            <ArrowRight size={12} />
-          </Link>
-        </Card>
-        <Card>
-          <div className="icon-box">
-            <ShieldCheck />
-          </div>
-          <h3 style={{ margin: '15px 0 9px' }}>Keep useful tools close</h3>
-          <p className="muted small">
-            Explore DNS lookups, port references, firewall rule helpers, TLS and hash tools, and
-            practical cybersecurity and network troubleshooting references.
-          </p>
-          <Link className="tool-card-footer" to="/toolkit">
-            Explore the toolkit
-            <ArrowRight size={12} />
-          </Link>
-        </Card>
-        <Card>
-          <div className="icon-box">
-            <Sparkles />
-          </div>
-          <h3 style={{ margin: '15px 0 9px' }}>Ask the next question</h3>
-          <p className="muted small">
-            Bring a calculation into the assistant and ask about the reasoning, assumptions, and
-            next steps.
-          </p>
-          <Link className="tool-card-footer" to="/assistant">
-            Meet your assistant
-            <ArrowRight size={12} />
-          </Link>
-        </Card>
-      </section>
-      <section className="section grid-2">
-        <Card>
-          <Badge>Community preview</Badge>
-          <h2 style={{ margin: '15px 0 10px' }}>Built to earn your trust.</h2>
-          <p className="muted small">
-            User stories will appear here once they are collected with permission. Until then,
-            explore the worked examples and inspect every calculation step yourself.
-          </p>
-          <Link className="tool-card-footer" to="/contact">
-            Share your feedback
-            <ArrowRight size={12} />
-          </Link>
-        </Card>
-        <Card>
-          <Badge>Core workspace</Badge>
-          <h2 style={{ margin: '15px 0 10px' }}>Start free.</h2>
-          <p className="muted small">
-            Calculators and learning materials are open to guests. Account features and live AI
-            depend on the deployment configuration. This release has no billing or paid subscription
-            flow.
-          </p>
-          <Link className="tool-card-footer" to="/auth">
-            Create an account
-            <ArrowRight size={12} />
-          </Link>
-        </Card>
-      </section>
-      <section className="section">
-        <div className="home-section-header">
-          <div>
-            <h2>A few useful answers</h2>
-            <p>Before you dive into the next subnet.</p>
-          </div>
-        </div>
-        <div className="faq-list">
-          {faqs.map(([question, answer]) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-    </div>
-  );
+  '/cheatsheets': [
+    'Printable networking cheat sheets',
+    'Print CIDR masks, powers of two, private address ranges, common ports, and OSI/TCP-IP reference tables.',
+  ],
+  '/toolkit': [
+    'Networking and cybersecurity toolkit',
+    'Explore protocol references, DNS and registration lookups, firewall helpers, local password and hash tools, and defensive learning cards.',
+  ],
+  '/templates': [
+    'Home, SMB, campus, and data-center network templates',
+    'Start from four complete sample address plans with VLANs, gateways, purpose, IPv4 networks, and paired IPv6 examples.',
+  ],
+  '/blog': [
+    'Networking field notes and worked guides',
+    'Read five original practical guides on CIDR host counts, VLSM, IPv6 planning, wildcard masks, and DNS troubleshooting.',
+  ],
+  '/about': [
+    'About SubnetIQ',
+    'Learn how SubnetIQ connects exact address mathematics, clear explanations, guided learning, and practical network planning.',
+  ],
+  '/contact': [
+    'Contact and feedback',
+    'Send feedback about calculations, explanations, accessibility, or this SubnetIQ installation to its operator.',
+  ],
+  '/privacy': ['Privacy policy', 'How this installation handles your information.'],
+  '/terms': ['Terms of use', 'Practical terms for the networking workspace.'],
+  '/cookies': ['Cookies & local preferences', 'Simple controls for optional analytics.'],
+};
+
+export interface PageMetadata {
+  title: string;
+  description: string;
+  public: boolean;
+  schema: Record<string, unknown>;
+}
+
+const privateNames: Record<string, string> = {
+  auth: 'Sign in',
+  login: 'Sign in',
+  account: 'Your account',
+  projects: 'Your network projects',
+  share: 'Shared network plan',
+  assistant: 'Networking assistant',
+};
+
+const missing: PageMetadata = {
+  title: 'Page not found',
+  description:
+    'This address does not match a SubnetIQ page. Browse the calculator suite, learning path, or networking toolkit.',
+  public: false,
+  schema: { '@type': 'WebPage' },
+};
+
+export async function resolvePageMetadata(pathname: string): Promise<PageMetadata> {
+  const base = publicPageDescriptions[pathname];
+  if (base)
+    return { title: base[0], description: base[1], public: true, schema: { '@type': 'WebPage' } };
+  const tool = toolDefinitions.find((entry) => `/tools/${entry.id}` === pathname);
+  if (tool)
+    return {
+      title: tool.title,
+      description: tool.description,
+      public: true,
+      schema: {
+        '@type': 'SoftwareApplication',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Web browser',
+        softwareVersion: ENGINE_VERSION,
+        isAccessibleForFree: true,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      },
+    };
+  if (/^\/learn\/[^/]+$/.test(pathname)) {
+    const { default: courses } = await import('@data/courses.json');
+    const course = courses.find((entry) => `/learn/${entry.id}` === pathname);
+    return course
+      ? {
+          title: course.title,
+          description: course.description,
+          public: true,
+          schema: {
+            '@type': 'Course',
+            educationalLevel: course.category,
+            isAccessibleForFree: true,
+          },
+        }
+      : missing;
+  }
+  if (/^\/blog\/[^/]+$/.test(pathname)) {
+    const { default: articles } = await import('@data/articles.json');
+    const article = articles.find((entry) => `/blog/${entry.id}` === pathname);
+    return article
+      ? {
+          title: article.title,
+          description: article.description,
+          public: true,
+          schema: {
+            '@type': 'BlogPosting',
+            headline: article.title,
+            datePublished: article.publishedAt,
+            dateModified: article.publishedAt,
+          },
+        }
+      : missing;
+  }
+  if (/^\/toolkit\/[^/]+$/.test(pathname)) {
+    const { toolkitSections } = await import('@/features/toolkit/ToolkitPage');
+    const section = toolkitSections.find((entry) => `/toolkit/${entry.id}` === pathname);
+    return section
+      ? {
+          title: section.title,
+          description: section.description,
+          public: true,
+          schema: { '@type': 'WebPage' },
+        }
+      : missing;
+  }
+  const privateMatch = /^\/(auth|login|account|projects|share|assistant)(?:\/|$)/.exec(pathname);
+  if (privateMatch)
+    return {
+      title: privateNames[privateMatch[1]],
+      description:
+        'Your SubnetIQ account and workspace tools. Private account information is excluded from search indexing.',
+      public: false,
+      schema: { '@type': 'WebPage' },
+    };
+  return missing;
+}
+
+function setMeta(name: string, content: string, property = false) {
+  const selector = `meta[${property ? 'property' : 'name'}="${name}"]`;
+  let meta = document.querySelector<HTMLMetaElement>(selector);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(property ? 'property' : 'name', name);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}
+
+export function Seo() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    let active = true;
+    const apply = (page: PageMetadata) => {
+      if (!active) return;
+      const appName = (import.meta.env.VITE_APP_NAME as string | undefined)?.trim() || 'SubnetIQ';
+      const base = (import.meta.env.VITE_SITE_URL as string | undefined) || location.origin;
+      const url = new URL(pathname, base).href;
+      document.title = `${page.title} | ${appName}`;
+      setMeta('description', page.description);
+      setMeta(
+        'robots',
+        page.public ? 'index, follow, max-image-preview:large' : 'noindex, nofollow, noarchive',
+      );
+      setMeta('og:site_name', appName, true);
+      setMeta('og:title', document.title, true);
+      setMeta('og:description', page.description, true);
+      setMeta('og:type', page.schema['@type'] === 'BlogPosting' ? 'article' : 'website', true);
+      setMeta('og:url', url, true);
+      setMeta('og:image', new URL('/social-card.png', base).href, true);
+      setMeta('og:image:width', '1200', true);
+      setMeta('og:image:height', '630', true);
+      setMeta('og:image:alt', `${appName}: Network clarity, bit by bit`, true);
+      setMeta('twitter:card', 'summary_large_image');
+      setMeta('twitter:title', document.title);
+      setMeta('twitter:description', page.description);
+      setMeta('twitter:image', new URL('/social-card.png', base).href);
+      let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+      }
+      canonical.href = url;
+      let schema = document.querySelector<HTMLScriptElement>('#page-schema');
+      if (schema?.dataset.pagePath === pathname && schema.dataset.pageUrl === url && page.public)
+        return;
+      document
+        .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]')
+        .forEach((entry) => {
+          if (entry !== schema) entry.remove();
+        });
+      if (!schema) {
+        schema = document.createElement('script');
+        schema.id = 'page-schema';
+        schema.type = 'application/ld+json';
+        document.head.appendChild(schema);
+      }
+      const website = new URL('/', base).href;
+      const provider = { '@type': 'Organization', name: appName };
+      schema.dataset.pagePath = pathname;
+      schema.dataset.pageUrl = url;
+      schema.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'WebSite', '@id': `${website}#website`, name: appName, url: website },
+          {
+            '@type': 'WebPage',
+            '@id': `${url}#page`,
+            name: page.title,
+            description: page.description,
+            url,
+            inLanguage: 'en',
+            isPartOf: { '@id': `${website}#website` },
+            image: new URL('/social-card.png', base).href,
+            ...page.schema,
+            ...(page.schema['@type'] === 'Course' ? { provider } : {}),
+            ...(page.schema['@type'] === 'BlogPosting'
+              ? {
+                  mainEntityOfPage: url,
+                  publisher: {
+                    ...provider,
+                    logo: {
+                      '@type': 'ImageObject',
+                      url: new URL('/icon-512.png', base).href,
+                      width: 512,
+                      height: 512,
+                    },
+                  },
+                }
+              : {}),
+          },
+        ],
+      });
+    };
+    void resolvePageMetadata(pathname).then(apply, () => apply(missing));
+    return () => {
+      active = false;
+    };
+  }, [pathname]);
+  return null;
 }
